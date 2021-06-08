@@ -13,11 +13,11 @@ namespace Scripts.Spawn
         private Transform endBoundary = null;
 
         [SerializeField]
-        [Range(60f, 120f)]
+        [Range(0f, 180f)]
         private float minDirectionAngle = 60f;
 
         [SerializeField]
-        [Range(60f, 120f)]
+        [Range(0f, 180f)]
         private float maxDirectionAngle = 120f;
 
         [SerializeField]
@@ -36,8 +36,6 @@ namespace Scripts.Spawn
         {
             Vector2 spawnPosition = GetSpawnPosition();
             Vector2 direction = GetMovementDirection();
-
-            Debug.DrawRay(spawnPosition, direction, Color.green, 1f);
 
             StartCoroutine(SpawnObjectsCorountine(spawnPosition, direction, spawnObjectsDelay));
         }

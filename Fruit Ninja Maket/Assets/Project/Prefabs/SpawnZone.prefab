@@ -43,7 +43,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnZone
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -77,6 +77,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startBoundary: {fileID: 2494047019820350516}
   endBoundary: {fileID: 1335286066782097186}
+  minDirectionAngle: 60
+  maxDirectionAngle: 120
+  minSpawnObjectsCount: 1
+  maxSpawnObjectsCount: 5
+  startVelocityOfObjects: 20
+  spawnObjects: []
 --- !u!1 &6990296714356237165
 GameObject:
   m_ObjectHideFlags: 0

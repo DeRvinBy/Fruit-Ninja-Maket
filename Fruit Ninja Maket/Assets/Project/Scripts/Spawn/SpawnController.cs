@@ -16,7 +16,7 @@ namespace Scripts.Spawn
         private float spawnObjectsDelay = 0.5f;
 
         [SerializeField]
-        private SpawnsProbability[] spawnZones = null;
+        private SpawnsSettings[] spawnZones = null;
 
         private float[] probabilities;
 
@@ -24,8 +24,8 @@ namespace Scripts.Spawn
         {
             if (spawnZones.Length != 0)
             {
-                float probabilitySum = spawnZones[0].Probability;
-                for(int i = 1; i < spawnZones.Length; i++)
+                float probabilitySum = 0;
+                for(int i = 0; i < spawnZones.Length; i++)
                 {
                     if (spawnZones[i].Probability + probabilitySum <= PROBABILITY_OF_ALL_ZONES)
                     {
@@ -37,18 +37,30 @@ namespace Scripts.Spawn
                         probabilitySum += spawnZones[i].Probability;
                     }
                 }
+
+                InitializeZones();
             }
         }
 
         private void Start()
         {
+            InitializeZones();
+            InvokeRepeating(nameof(SpawnObjectsByTime), startSpawnZoneTime, spawnZoneDelay);
+        }
+
+        public void InitializeZones()
+        {
+            Camera camera = Camera.main;
+            Vector3 topLeftCorner = camera.ScreenToWorldPoint(new Vector2(0, camera.pixelHeight));
+            Vector3 bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
+
             probabilities = new float[spawnZones.Length];
-            for(int i = 0; i < probabilities.Length; i++)
+
+            for (int i = 0; i < probabilities.Length; i++)
             {
+                spawnZones[i].UpdateZonePositionByScreen(topLeftCorner, bottomRightCorner);
                 probabilities[i] = spawnZones[i].Probability;
             }
-
-            InvokeRepeating(nameof(SpawnObjectsByTime), startSpawnZoneTime, spawnZoneDelay);
         }
 
         private void SpawnObjectsByTime()
