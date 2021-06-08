@@ -10,10 +10,10 @@ namespace Scripts.Spawn
         [SerializeField] [Range(0f, 1f)]
         private float probability = 0.0f;
 
-        [SerializeField] [Range(45f, 135f)]
+        [SerializeField] [Range(60f, 120f)]
         private float minDirectionAngle = 45f;
 
-        [SerializeField] [Range(45f, 135f)]
+        [SerializeField] [Range(60f, 120f)]
         private float maxDirectionAngle = 135f;
 
         [SerializeField] [Range(1, 20)]
@@ -47,7 +47,7 @@ namespace Scripts.Spawn
             GameObject[] randomSpawnObjects = new GameObject[count];
             for(int i = 0; i < count; i++)
             {
-                int randomIndex = Random.Range(0, count);
+                int randomIndex = Random.Range(0, spawnObjects.Length);
                 randomSpawnObjects[i] = spawnObjects[randomIndex];
             }
             spawnZone.SpawnObjectsOnScene(randomSpawnObjects, angle);

@@ -1,3 +1,4 @@
+using Scripts.Physics;
 using UnityEngine;
 
 namespace Scripts.Spawn
@@ -12,9 +13,22 @@ namespace Scripts.Spawn
 
         public void SpawnObjectsOnScene(GameObject[] spawnObjects, float angle)
         {
-            for(int i = 0; i < spawnObjects.Length; i++)
+            float lerpCoef = Random.Range(0f, 1f);
+            Vector2 spawnPosition = Vector2.Lerp(startBoundary.position, endBoundary.position, lerpCoef);
+
+            Vector2 skyline = endBoundary.position - startBoundary.position;
+            Vector2 direction = Quaternion.Euler(0, 0, angle) * skyline.normalized;
+            direction.Normalize();
+
+            Debug.DrawRay(spawnPosition, direction, Color.green, 2f);
+
+            for (int i = 0; i < spawnObjects.Length; i++)
             {
-                
+                var go = Instantiate(spawnObjects[i], spawnPosition, Quaternion.identity);
+                if(go.TryGetComponent(out PhysicalMovement physicalMovement))
+                {
+                    physicalMovement.SetVelocity(direction * 25f);
+                }
             }
         }
     }

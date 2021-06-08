@@ -7,6 +7,9 @@ namespace Scripts.Spawn
         private const float PROBABILITY_OF_ALL_ZONES = 1f;
 
         [SerializeField]
+        private float spawnDelay = 1f;
+
+        [SerializeField]
         private SpawnZone[] spawnZones = null;
 
         private void OnValidate()
@@ -27,6 +30,16 @@ namespace Scripts.Spawn
                     }
                 }
             }
+        }
+
+        private void Start()
+        {
+            InvokeRepeating(nameof(SpawnObjectByTime), 0f, spawnDelay);
+        }
+
+        private void SpawnObjectByTime()
+        {
+            spawnZones[2].SpawnObjects();
         }
     }
 }
