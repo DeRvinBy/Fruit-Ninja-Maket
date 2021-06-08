@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Scripts.Spawn
 {
@@ -15,11 +16,11 @@ namespace Scripts.Spawn
         [SerializeField] [Range(45f, 135f)]
         private float maxDirectionAngle = 135f;
 
-        [SerializeField] [Range(1f, 20f)]
-        private float minSpawnObjectsCount = 1f;
+        [SerializeField] [Range(1, 20)]
+        private int minSpawnObjectsCount = 1;
 
-        [SerializeField] [Range(1f, 20f)]
-        private float maxSpawnObjectsCount = 5f;
+        [SerializeField] [Range(1, 20)]
+        private int maxSpawnObjectsCount = 5;
 
         [SerializeField]
         private GameObject[] spawnObjects = null;
@@ -37,6 +38,19 @@ namespace Scripts.Spawn
             {
                 probability = value;
             }
+        }
+
+        public void SpawnObjects()
+        {
+            float angle = Random.Range(minDirectionAngle, maxDirectionAngle);
+            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
+            GameObject[] randomSpawnObjects = new GameObject[count];
+            for(int i = 0; i < count; i++)
+            {
+                int randomIndex = Random.Range(0, count);
+                randomSpawnObjects[i] = spawnObjects[randomIndex];
+            }
+            spawnZone.SpawnObjectsOnScene(randomSpawnObjects, angle);
         }
     }
 }
