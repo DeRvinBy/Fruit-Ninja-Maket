@@ -1,4 +1,5 @@
 using Scripts.Physics;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Spawn
@@ -31,23 +32,14 @@ namespace Scripts.Spawn
         [SerializeField]
         private GameObject[] spawnObjects = null;
 
-        public void SpawnObjectsOnScene()
-        {         
+        public void SpawnObjectsOnScene(float spawnObjectsDelay)
+        {
             Vector2 spawnPosition = GetSpawnPosition();
             Vector2 direction = GetMovementDirection();
 
-            Debug.DrawRay(spawnPosition, direction, Color.green, 2f);
+            Debug.DrawRay(spawnPosition, direction, Color.green, 1f);
 
-            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-            for (int i = 0; i < count; i++)
-            {
-                int randomIndex = Random.Range(0, spawnObjects.Length);
-                var go = Instantiate(spawnObjects[randomIndex], spawnPosition, Quaternion.identity);
-                if(go.TryGetComponent(out PhysicalMovement physicalMovement))
-                {
-                    physicalMovement.SetVelocity(direction * startVelocityOfObjects);
-                }
-            }
+            StartCoroutine(SpawnObjectsCorountine(spawnPosition, direction, spawnObjectsDelay));
         }
 
         private Vector2 GetSpawnPosition()
@@ -60,7 +52,23 @@ namespace Scripts.Spawn
         {
             float angle = Random.Range(minDirectionAngle, maxDirectionAngle);
             Vector2 zoneDirection = (endBoundary.position - startBoundary.position).normalized;
-            return (Quaternion.Euler(0, 0, angle) * zoneDirection);           
+            return (Quaternion.Euler(0, 0, angle) * zoneDirection);
+        }
+
+        private IEnumerator SpawnObjectsCorountine(Vector2 spawnPosition, Vector2 direction, float spawnObjectsDelay)
+        {
+            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
+            for (int i = 0; i < count; i++)
+            {
+                int randomIndex = Random.Range(0, spawnObjects.Length);
+                var go = Instantiate(spawnObjects[randomIndex], spawnPosition, Quaternion.identity);
+                if (go.TryGetComponent(out PhysicalMovement physicalMovement))
+                {
+                    physicalMovement.SetVelocity(direction * startVelocityOfObjects);
+                }
+
+                yield return new WaitForSeconds(spawnObjectsDelay);
+            }
         }
     }
 }

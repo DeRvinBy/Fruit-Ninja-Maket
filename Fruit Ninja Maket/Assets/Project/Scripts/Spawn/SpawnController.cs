@@ -7,10 +7,18 @@ namespace Scripts.Spawn
         private const float PROBABILITY_OF_ALL_ZONES = 1f;
 
         [SerializeField]
-        private float spawnDelay = 1f;
+        private float startSpawnZoneTime = 0f;
+
+        [SerializeField]
+        private float spawnZoneDelay = 3f;
+
+        [SerializeField]
+        private float spawnObjectsDelay = 0.5f;
 
         [SerializeField]
         private SpawnsProbability[] spawnZones = null;
+
+        private float[] probabilities;
 
         private void OnValidate()
         {
@@ -34,12 +42,38 @@ namespace Scripts.Spawn
 
         private void Start()
         {
-            InvokeRepeating(nameof(SpawnObjectsByTime), 0f, spawnDelay);
+            probabilities = new float[spawnZones.Length];
+            for(int i = 0; i < probabilities.Length; i++)
+            {
+                probabilities[i] = spawnZones[i].Probability;
+            }
+
+            InvokeRepeating(nameof(SpawnObjectsByTime), startSpawnZoneTime, spawnZoneDelay);
         }
 
         private void SpawnObjectsByTime()
         {
-            spawnZones[2].SpawnZone.SpawnObjectsOnScene();
+            int zoneIndex = GetIndexOfRandomProbability();
+            spawnZones[zoneIndex].SpawnZone.SpawnObjectsOnScene(spawnObjectsDelay);
+        }
+
+        private int GetIndexOfRandomProbability()
+        {
+            float randomPoint = Random.value * PROBABILITY_OF_ALL_ZONES;
+
+            for (int i = 0; i < probabilities.Length; i++)
+            {
+                if (randomPoint < probabilities[i])
+                {
+                    return i;
+                }
+                else
+                {
+                    randomPoint -= probabilities[i];
+                }
+            }
+
+            return probabilities.Length - 1;
         }
     }
 }
