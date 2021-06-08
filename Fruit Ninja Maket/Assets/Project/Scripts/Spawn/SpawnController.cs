@@ -10,7 +10,7 @@ namespace Scripts.Spawn
         private float spawnDelay = 1f;
 
         [SerializeField]
-        private SpawnZone[] spawnZones = null;
+        private SpawnsProbability[] spawnZones = null;
 
         private void OnValidate()
         {
@@ -34,12 +34,12 @@ namespace Scripts.Spawn
 
         private void Start()
         {
-            InvokeRepeating(nameof(SpawnObjectByTime), 0f, spawnDelay);
+            InvokeRepeating(nameof(SpawnObjectsByTime), 0f, spawnDelay);
         }
 
-        private void SpawnObjectByTime()
+        private void SpawnObjectsByTime()
         {
-            spawnZones[2].SpawnObjects();
+            spawnZones[2].SpawnZone.SpawnObjectsOnScene();
         }
     }
 }

@@ -1,56 +1,66 @@
-using System;
+using Scripts.Physics;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Scripts.Spawn
 {
-    [Serializable]
-    public class SpawnZone
+    public class SpawnZone : MonoBehaviour
     {
-        [SerializeField] [Range(0f, 1f)]
-        private float probability = 0.0f;
+        [SerializeField]
+        private Transform startBoundary = null;
 
-        [SerializeField] [Range(60f, 120f)]
-        private float minDirectionAngle = 45f;
+        [SerializeField]
+        private Transform endBoundary = null;
 
-        [SerializeField] [Range(60f, 120f)]
-        private float maxDirectionAngle = 135f;
+        [SerializeField]
+        [Range(60f, 120f)]
+        private float minDirectionAngle = 60f;
 
-        [SerializeField] [Range(1, 20)]
+        [SerializeField]
+        [Range(60f, 120f)]
+        private float maxDirectionAngle = 120f;
+
+        [SerializeField]
         private int minSpawnObjectsCount = 1;
 
-        [SerializeField] [Range(1, 20)]
+        [SerializeField]
         private int maxSpawnObjectsCount = 5;
+
+        [SerializeField]
+        private float startVelocityOfObjects = 20f;
 
         [SerializeField]
         private GameObject[] spawnObjects = null;
 
-        [SerializeField]
-        private SpawnBehaviour spawnZone = null;
+        public void SpawnObjectsOnScene()
+        {         
+            Vector2 spawnPosition = GetSpawnPosition();
+            Vector2 direction = GetMovementDirection();
 
-        public float Probability
-        {
-            get
+            Debug.DrawRay(spawnPosition, direction, Color.green, 2f);
+
+            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
+            for (int i = 0; i < count; i++)
             {
-                return probability;
-            }
-            set
-            {
-                probability = value;
+                int randomIndex = Random.Range(0, spawnObjects.Length);
+                var go = Instantiate(spawnObjects[randomIndex], spawnPosition, Quaternion.identity);
+                if(go.TryGetComponent(out PhysicalMovement physicalMovement))
+                {
+                    physicalMovement.SetVelocity(direction * startVelocityOfObjects);
+                }
             }
         }
 
-        public void SpawnObjects()
+        private Vector2 GetSpawnPosition()
+        {
+            float lerpCoef = Random.Range(0f, 1f);
+            return Vector2.Lerp(startBoundary.position, endBoundary.position, lerpCoef);
+        }
+
+        private Vector2 GetMovementDirection()
         {
             float angle = Random.Range(minDirectionAngle, maxDirectionAngle);
-            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-            GameObject[] randomSpawnObjects = new GameObject[count];
-            for(int i = 0; i < count; i++)
-            {
-                int randomIndex = Random.Range(0, spawnObjects.Length);
-                randomSpawnObjects[i] = spawnObjects[randomIndex];
-            }
-            spawnZone.SpawnObjectsOnScene(randomSpawnObjects, angle);
+            Vector2 zoneDirection = (endBoundary.position - startBoundary.position).normalized;
+            return (Quaternion.Euler(0, 0, angle) * zoneDirection);           
         }
     }
 }
