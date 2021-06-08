@@ -32,12 +32,12 @@ namespace Scripts.Spawn
         [SerializeField]
         private GameObject[] spawnObjects = null;
 
-        public void SpawnObjectsOnScene(float spawnObjectsDelay)
+        public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
         {
             Vector2 spawnPosition = GetSpawnPosition();
             Vector2 direction = GetMovementDirection();
 
-            StartCoroutine(SpawnObjectsCorountine(spawnPosition, direction, spawnObjectsDelay));
+            StartCoroutine(SpawnObjectsCorountine(spawnPosition, direction, baseCount, spawnObjectsDelay));
         }
 
         private Vector2 GetSpawnPosition()
@@ -53,9 +53,9 @@ namespace Scripts.Spawn
             return (Quaternion.Euler(0, 0, angle) * zoneDirection);
         }
 
-        private IEnumerator SpawnObjectsCorountine(Vector2 spawnPosition, Vector2 direction, float spawnObjectsDelay)
+        private IEnumerator SpawnObjectsCorountine(Vector2 spawnPosition, Vector2 direction, int baseCount, float spawnObjectsDelay)
         {
-            int count = Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
+            int count = baseCount + Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
             for (int i = 0; i < count; i++)
             {
                 int randomIndex = Random.Range(0, spawnObjects.Length);

@@ -7,18 +7,27 @@ namespace Scripts.Spawn
         private const float PROBABILITY_OF_ALL_ZONES = 1f;
 
         [SerializeField]
-        private float startSpawnZoneTime = 0f;
+        private float startTimeOfSpawnZone = 0f;
 
         [SerializeField]
-        private float spawnZoneDelay = 3f;
+        private float delayTimeSpawnNextZone = 5f;
 
         [SerializeField]
-        private float spawnObjectsDelay = 0.5f;
+        private float delayTimeBetweenSpawnObjects = 0.5f;
+
+        [SerializeField]
+        private float decreasingValueOfDelayTimeForDifficulty = 0.5f;
+
+        [SerializeField]
+        private int increasingValueOfCountObjectsForDifficulty = 1;
 
         [SerializeField]
         private SpawnsSettings[] spawnZones = null;
 
         private float[] probabilities;
+
+        private float currentDelayTimeSpawnNextZone;
+        private int baseCountOfSpawningObjects;
 
         private void OnValidate()
         {
@@ -44,8 +53,10 @@ namespace Scripts.Spawn
 
         private void Start()
         {
+            currentDelayTimeSpawnNextZone = delayTimeSpawnNextZone;
+            baseCountOfSpawningObjects = 0;
             InitializeZones();
-            InvokeRepeating(nameof(SpawnObjectsByTime), startSpawnZoneTime, spawnZoneDelay);
+            InvokeRepeating(nameof(SpawnObjectsByTime), startTimeOfSpawnZone, currentDelayTimeSpawnNextZone);
         }
 
         public void InitializeZones()
@@ -66,7 +77,13 @@ namespace Scripts.Spawn
         private void SpawnObjectsByTime()
         {
             int zoneIndex = GetIndexOfRandomProbability();
-            spawnZones[zoneIndex].SpawnZone.SpawnObjectsOnScene(spawnObjectsDelay);
+            spawnZones[zoneIndex].SpawnZone.SpawnObjectsOnScene(baseCountOfSpawningObjects, delayTimeBetweenSpawnObjects);
+        }
+
+        private void IncreaseDifficulty()
+        {
+            currentDelayTimeSpawnNextZone -= decreasingValueOfDelayTimeForDifficulty;
+            baseCountOfSpawningObjects += increasingValueOfCountObjectsForDifficulty;
         }
 
         private int GetIndexOfRandomProbability()
