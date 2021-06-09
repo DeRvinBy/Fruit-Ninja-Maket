@@ -9,8 +9,10 @@
 [Bb]uilds/
 [Ll]ogs/
 [Mm]emoryCaptures/
+
 [Ss]prites/
 [Pp]lugins/
+[Rr]esorces/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
