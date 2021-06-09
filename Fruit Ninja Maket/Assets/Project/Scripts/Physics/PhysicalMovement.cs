@@ -11,7 +11,7 @@ namespace Scripts.Physics
 
         private Vector2 velocity;
         
-        public void SetVelocity(Vector2 newVelocity)
+        public void AddVelocity(Vector2 newVelocity)
         {
             velocity += newVelocity;
         }

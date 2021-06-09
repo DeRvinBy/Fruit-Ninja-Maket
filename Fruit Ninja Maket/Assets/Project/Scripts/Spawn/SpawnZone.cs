@@ -62,7 +62,7 @@ namespace Scripts.Spawn
                 var go = Instantiate(spawnObjects[randomIndex], spawnPosition, Quaternion.identity);
                 if (go.TryGetComponent(out PhysicalMovement physicalMovement))
                 {
-                    physicalMovement.SetVelocity(direction * startVelocityOfObjects);
+                    physicalMovement.AddVelocity(direction * startVelocityOfObjects);
                 }
 
                 yield return new WaitForSeconds(spawnObjectsDelay);
