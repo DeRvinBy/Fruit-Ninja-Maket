@@ -1,3 +1,4 @@
+using Scripts.GameEntities.Animations;
 using Scripts.GameEntities.Containers;
 using UnityEngine;
 
@@ -16,6 +17,12 @@ namespace Scripts.GameEntities
         [SerializeField]
         private SpriteRenderer rightSpriteComp = null;
 
+        [SerializeField]
+        private TransformAnimation scaleAnimation = null;
+
+        [SerializeField]
+        private TransformAnimation rotateAnimation = null;
+
         private float destructionBoundaryY;
 
         private void Start()
@@ -23,6 +30,9 @@ namespace Scripts.GameEntities
             int index = Random.Range(0, fruitHalfsSprites.Length);
             leftSpriteComp.sprite = fruitHalfsSprites[index].Left;
             rightSpriteComp.sprite = fruitHalfsSprites[index].Right;
+
+            scaleAnimation.StartAnimation();
+            rotateAnimation.StartAnimation();
 
             destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
             destructionBoundaryY += DESTRUCTION_OFFSET;
