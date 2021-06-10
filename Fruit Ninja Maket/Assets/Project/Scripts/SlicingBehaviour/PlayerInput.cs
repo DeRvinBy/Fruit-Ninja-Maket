@@ -1,6 +1,7 @@
+using Scripts.Physics;
 using UnityEngine;
 
-namespace Scripts.CuttingBehaviour
+namespace Scripts.SlicingBehaviour
 {
     public class PlayerInput : MonoBehaviour
     {
@@ -29,8 +30,7 @@ namespace Scripts.CuttingBehaviour
             if(Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
-
-                if(touch.phase == TouchPhase.Moved)
+                if (touch.phase == TouchPhase.Moved)
                 {
                     UpdateSlicingPath(touch);
                 }       
@@ -38,6 +38,15 @@ namespace Scripts.CuttingBehaviour
             else
             {
                 isSwipping = false;
+            }
+
+            if (isSwipping)
+            {
+                var objects = ObjectCollider.GetObjectIntersectedWithPoint(GetMediaPointOfSlicingPath());
+                foreach (var go in objects)
+                {
+                    Destroy(go);
+                }
             }
         }
 
