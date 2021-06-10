@@ -4,16 +4,25 @@ namespace Scripts.CuttingBehaviour
 {
     public class PlayerInput : MonoBehaviour
     {
-        [SerializeField]
-        private float minDistanceOfCutting = 5f;
+        private const float MIDPOINT_RATIO = 0.5f;
 
         [SerializeField]
-        private float minSpeedOfCutting = 2f;
+        private float minDistanceOfSlicing = 5f;
 
-        private Vector2 startPosition;
-        private Vector2 nextPosition;
+        [SerializeField]
+        private float minSpeedOfSlicing = 2f;
+
+        private Camera mainCamera;
+
+        private Vector2 previousPositionOfSlicingPath;
+        private Vector2 currentPositionOfSlicingPath;
 
         private bool isSwipping;
+
+        private void Start()
+        {
+            mainCamera = Camera.main;
+        }
 
         private void Update()
         {
@@ -21,47 +30,53 @@ namespace Scripts.CuttingBehaviour
             {
                 Touch touch = Input.GetTouch(0);
 
-                float swipeDeltaDistance = 0f;
-
-                switch(touch.phase)
+                if(touch.phase == TouchPhase.Moved)
                 {
-                    case TouchPhase.Began:                   
-                        startPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                        break;
-                    case TouchPhase.Moved:
-                        isSwipping = true;
-                        swipeDeltaDistance = Camera.main.ScreenToWorldPoint(touch.deltaPosition).magnitude;
-                        print(swipeDeltaDistance);
-                        nextPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                        break;
-                    case TouchPhase.Ended:
-                        isSwipping = false;
-                        break;
-                }
-
-                if (isSwipping)
-                {                   
-                    float currentSpeed = swipeDeltaDistance / touch.deltaTime;
-                    if(currentSpeed > minSpeedOfCutting)
-                    {
-                        float deltaDistance = (nextPosition - startPosition).magnitude;
-                        if (deltaDistance > minDistanceOfCutting)
-                        {
-                            Debug.DrawLine(startPosition, nextPosition, Color.red, 2f);
-                            startPosition = nextPosition;
-                        }
-                    }
-                    else
-                    {
-                        isSwipping = false;
-                    }
-
-                }
+                    UpdateSlicingPath(touch);
+                }       
             }
             else
             {
                 isSwipping = false;
             }
+        }
+
+        private void UpdateSlicingPath(Touch touch)
+        {
+            if (!isSwipping)
+            {
+                previousPositionOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
+                isSwipping = true;
+            }
+            else
+            {
+                Vector2 currentWorldTouchPosition = mainCamera.ScreenToWorldPoint(touch.position);
+                Vector2 previousWorldTouchPosition = mainCamera.ScreenToWorldPoint(touch.position - touch.deltaPosition);
+
+                float distance = (currentWorldTouchPosition - previousWorldTouchPosition).magnitude;
+                float speed = distance / touch.deltaTime;
+
+                if (speed > minSpeedOfSlicing && distance > minDistanceOfSlicing)
+                {
+                    currentPositionOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
+                    Debug.DrawLine(previousPositionOfSlicingPath, currentPositionOfSlicingPath, Color.red, 2f);
+                    previousPositionOfSlicingPath = currentPositionOfSlicingPath;
+                }
+                else
+                {
+                    isSwipping = false;
+                }
+            }           
+        }
+
+        public Vector3 GetMediaPointOfSlicingPath()
+        {
+            return Vector3.Lerp(previousPositionOfSlicingPath, currentPositionOfSlicingPath, MIDPOINT_RATIO);
+        }
+
+        public Vector3 GetDirectionOfSlicingPath()
+        {
+            return (currentPositionOfSlicingPath - previousPositionOfSlicingPath).normalized;
         }
     }
 }
