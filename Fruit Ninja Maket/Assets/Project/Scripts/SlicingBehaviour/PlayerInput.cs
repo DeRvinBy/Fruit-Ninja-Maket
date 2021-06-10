@@ -1,4 +1,3 @@
-using Scripts.Physics;
 using UnityEngine;
 
 namespace Scripts.SlicingBehaviour
@@ -20,6 +19,8 @@ namespace Scripts.SlicingBehaviour
 
         private bool isSwipping;
 
+        public bool IsSwipping { get => isSwipping; }
+
         private void Start()
         {
             mainCamera = Camera.main;
@@ -38,15 +39,6 @@ namespace Scripts.SlicingBehaviour
             else
             {
                 isSwipping = false;
-            }
-
-            if (isSwipping)
-            {
-                var objects = ObjectCollider.GetObjectIntersectedWithPoint(GetMediaPointOfSlicingPath());
-                foreach (var go in objects)
-                {
-                    Destroy(go);
-                }
             }
         }
 

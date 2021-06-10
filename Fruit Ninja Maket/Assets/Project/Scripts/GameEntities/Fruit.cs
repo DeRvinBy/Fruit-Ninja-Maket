@@ -23,6 +23,9 @@ namespace Scripts.GameEntities
         [SerializeField]
         private TransformAnimation rotateAnimation = null;
 
+        [SerializeField]
+        private ParticleSystem fruitSprayParticles = null;
+
         private float destructionBoundaryY;
 
         private void Start()
@@ -43,6 +46,14 @@ namespace Scripts.GameEntities
             if(transform.position.y < destructionBoundaryY)
             {
                 Destroy(gameObject);
+            }
+        }
+
+        public void Slice()
+        {
+            if (!fruitSprayParticles.isPlaying)
+            {
+                fruitSprayParticles.Play();
             }
         }
     }
