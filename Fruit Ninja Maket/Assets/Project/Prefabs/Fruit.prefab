@@ -156,17 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aced9f654e201c941b227d69f98125cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fruitHalfsSprites:
-  - left: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    right: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-  - left: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    right: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-  - left: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    right: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-  - left: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    right: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-  - left: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    right: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
   leftSpriteComp: {fileID: 5194728085459149923}
   rightSpriteComp: {fileID: 6844950957896008368}
   scaleAnimation: {fileID: 1213835088050952496}
@@ -541,7 +530,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.8313726, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1681,8 +1670,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.8490566, g: 0.13216448, b: 0.13216448, a: 1}
-        key1: {r: 0.85098046, g: 0.13725491, b: 0.13725491, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

@@ -1,5 +1,5 @@
 using Scripts.Animations.Abstract;
-using Scripts.GameEntities.Containers;
+using Scripts.GameSettings.FruitSettings;
 using UnityEngine;
 
 namespace Scripts.GameEntities
@@ -7,9 +7,6 @@ namespace Scripts.GameEntities
     public partial class Fruit : MonoBehaviour
     {
         private const float DESTRUCTION_OFFSET = -1f;
-
-        [SerializeField]
-        private FruitHalfsSprites[] fruitHalfsSprites = null;
 
         [SerializeField]
         private SpriteRenderer leftSpriteComp = null;
@@ -26,14 +23,11 @@ namespace Scripts.GameEntities
         [SerializeField]
         private ParticleSystem fruitSprayParticles = null;
 
+        private FruitSettings fruitSettings;
         private float destructionBoundaryY;
 
         private void Start()
         {
-            int index = Random.Range(0, fruitHalfsSprites.Length);
-            leftSpriteComp.sprite = fruitHalfsSprites[index].Left;
-            rightSpriteComp.sprite = fruitHalfsSprites[index].Right;
-
             scaleAnimation.StartAnimation();
             rotateAnimation.StartAnimation();
 
@@ -47,6 +41,15 @@ namespace Scripts.GameEntities
             {
                 Destroy(gameObject);
             }
+        }
+
+        public void InitializeFruitSettings(FruitSettings fruitSettings)
+        {
+            this.fruitSettings = fruitSettings;
+            leftSpriteComp.sprite = fruitSettings.LeftSpriteHalf;
+            rightSpriteComp.sprite = fruitSettings.RightSpriteHalf;
+            var particleSettings = fruitSprayParticles.main;
+            particleSettings.startColor = fruitSettings.SprayColor;
         }
 
         public void Slice()

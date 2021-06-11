@@ -1,3 +1,4 @@
+using Scripts.GameSettings.SpawnSettings;
 using Scripts.Physics;
 using System.Collections;
 using UnityEngine;
@@ -12,32 +13,45 @@ namespace Scripts.Spawn
         [SerializeField]
         private Transform endBoundary = null;
 
-        [SerializeField]
-        [Range(0f, 180f)]
-        private float minDirectionAngle = 60f;
+        private SpawnObjectsSettings spawnObjectsSettings;
 
-        [SerializeField]
-        [Range(0f, 180f)]
-        private float maxDirectionAngle = 120f;
+        public void InitializeSpawnObjectsSettings(SpawnObjectsSettings spawnObjectsSettings)
+        {
+            this.spawnObjectsSettings = spawnObjectsSettings;
+        }
 
-        [SerializeField]
-        private int minSpawnObjectsCount = 1;
-
-        [SerializeField]
-        private int maxSpawnObjectsCount = 5;
-
-        [SerializeField]
-        private float startVelocityOfObjects = 20f;
-
-        [SerializeField]
-        private GameObject[] spawnObjects = null;
+        public void InitializeTransformSettings(SpawnZoneTransformSettings transformSettings)
+        {
+            Camera camera = Camera.main;
+            Vector3 topLeftCorner = camera.ScreenToWorldPoint(new Vector2(0, camera.pixelHeight));
+            Vector3 bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
+            transform.position = transformSettings.GetRelativePosition(topLeftCorner, bottomRightCorner);
+            transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
+        }
 
         public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
+        {
+            StartCoroutine(SpawnObjectsWithDelay(baseCount, spawnObjectsDelay));
+        }
+
+        private IEnumerator SpawnObjectsWithDelay(int baseCount, float spawnObjectsDelay)
         {
             Vector2 spawnPosition = GetSpawnPosition();
             Vector2 direction = GetMovementDirection();
 
-            StartCoroutine(SpawnObjectsCorountine(spawnPosition, direction, baseCount, spawnObjectsDelay));
+            int count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
+            for (int i = 0; i < count; i++)
+            {
+                GameObject prefab = spawnObjectsSettings.GetRandomSpawnObject();
+
+                var go = Instantiate(prefab, spawnPosition, Quaternion.identity);
+                if (go.TryGetComponent(out PhysicalMovement physicalMovement))
+                {
+                    physicalMovement.AddVelocity(direction * spawnObjectsSettings.BaseVelocityOfObjects);
+                }
+
+                yield return new WaitForSeconds(spawnObjectsDelay);
+            }
         }
 
         private Vector2 GetSpawnPosition()
@@ -48,25 +62,9 @@ namespace Scripts.Spawn
 
         private Vector2 GetMovementDirection()
         {
-            float angle = Random.Range(minDirectionAngle, maxDirectionAngle);
+            float angle = spawnObjectsSettings.DirectionAngle;
             Vector2 zoneDirection = (endBoundary.position - startBoundary.position).normalized;
             return (Quaternion.Euler(0, 0, angle) * zoneDirection);
-        }
-
-        private IEnumerator SpawnObjectsCorountine(Vector2 spawnPosition, Vector2 direction, int baseCount, float spawnObjectsDelay)
-        {
-            int count = baseCount + Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-            for (int i = 0; i < count; i++)
-            {
-                int randomIndex = Random.Range(0, spawnObjects.Length);
-                var go = Instantiate(spawnObjects[randomIndex], spawnPosition, Quaternion.identity);
-                if (go.TryGetComponent(out PhysicalMovement physicalMovement))
-                {
-                    physicalMovement.AddVelocity(direction * startVelocityOfObjects);
-                }
-
-                yield return new WaitForSeconds(spawnObjectsDelay);
-            }
         }
     }
 }
