@@ -1,5 +1,4 @@
 using Scripts.GameSettings.SpawnSettings;
-using Scripts.Physics;
 using System.Collections;
 using UnityEngine;
 
@@ -12,6 +11,9 @@ namespace Scripts.Spawn
 
         [SerializeField]
         private Transform endBoundary = null;
+
+        [SerializeField]
+        private ObjectCreator objectCreator = null;
 
         private SpawnObjectsSettings spawnObjectsSettings;
         private float verticalWolrdSize;
@@ -45,14 +47,8 @@ namespace Scripts.Spawn
             int count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
             for (int i = 0; i < count; i++)
             {
-                GameObject prefab = spawnObjectsSettings.GetRandomSpawnObject();
-
-                var go = Instantiate(prefab, spawnPosition, Quaternion.identity);
-                if (go.TryGetComponent(out PhysicalMovement physicalMovement))
-                {
-                    physicalMovement.AddVelocity(direction * spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize);
-                }
-
+                Vector2 velocity = direction * spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize;
+                objectCreator.CreateFruit(spawnPosition, velocity);
                 yield return new WaitForSeconds(spawnObjectsDelay);
             }
         }

@@ -26,6 +26,7 @@ namespace Scripts.GameEntities
 
         private FruitSettings fruitSettings;
         private float destructionBoundaryY;
+        private bool isSliced;
 
         private void Start()
         {
@@ -38,27 +39,32 @@ namespace Scripts.GameEntities
             StartCoroutine(DestroyObject());
         }
 
-        public void Update()
+        public void InitializeFruitSettings(FruitSettings settings)
         {
-            
-
-        }
-
-        public void InitializeFruitSettings(FruitSettings fruitSettings)
-        {
-            this.fruitSettings = fruitSettings;
-            leftSpriteComp.sprite = fruitSettings.LeftSpriteHalf;
-            rightSpriteComp.sprite = fruitSettings.RightSpriteHalf;
+            leftSpriteComp.sprite = settings.LeftHalfOfSprite;
+            rightSpriteComp.sprite = settings.RightHalfOfSprite;
             var particleSettings = fruitSprayParticles.main;
-            particleSettings.startColor = fruitSettings.SprayColor;
+            particleSettings.startColor = settings.SprayColor;
+
+            fruitSettings = settings;
         }
 
         public void Slice()
         {
-            if (!fruitSprayParticles.isPlaying)
+            if (!isSliced)
             {
+                isSliced = true;
                 fruitSprayParticles.Play();
+
+                SpawnFruitBlot();
             }
+        }
+
+        private void SpawnFruitBlot()
+        {
+            FruitBlot blotSprite = Instantiate(fruitSettings.FruitBlotSprite, transform.position, Quaternion.identity);
+            blotSprite.Initialize(fruitSettings.SprayColor, fruitSettings.BlotLifeTime);
+            blotSprite.transform.localScale = scaleAnimation.transform.localScale;
         }
 
         private IEnumerator DestroyObject()

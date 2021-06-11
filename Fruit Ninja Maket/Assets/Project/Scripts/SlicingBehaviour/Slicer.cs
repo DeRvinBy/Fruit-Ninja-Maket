@@ -1,5 +1,6 @@
 using Scripts.GameEntities;
 using Scripts.Physics;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Scripts.SlicingBehaviour
@@ -15,8 +16,8 @@ namespace Scripts.SlicingBehaviour
             {
                 Vector2 slicingPoint = input.GetMediaPointOfSlicingPath();
 
-                var intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
-                print(intersectedObjects.Count);
+                List<GameObject> intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
+
                 foreach(var obj in intersectedObjects)
                 {
                     if(obj.TryGetComponent(out Fruit fruit))
