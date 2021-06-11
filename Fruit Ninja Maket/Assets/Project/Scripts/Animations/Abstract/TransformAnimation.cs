@@ -1,9 +1,10 @@
 ﻿using DG.Tweening;
+using Scripts.Animations.Interfaces;
 using UnityEngine;
 
-namespace Scripts.GameEntities.Animations
+namespace Scripts.Animations.Abstract
 {
-    public abstract class TransformAnimation : MonoBehaviour
+    public abstract class TransformAnimation : MonoBehaviour, IAnimation
     {
         [SerializeField]
         protected float duratinon = 1f;

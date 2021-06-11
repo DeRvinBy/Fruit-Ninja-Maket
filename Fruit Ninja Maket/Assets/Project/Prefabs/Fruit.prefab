@@ -302,9 +302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duratinon: 1
-  targetScaleUp: 1.5
-  targetScaleDown: 0.8
-  offsetZ: -1
+  targetIncreaseSize: 1.5
+  targetDecreaseSize: 0.7
+  animationOffsetZ: 1
 --- !u!114 &7827361500517077126
 MonoBehaviour:
   m_ObjectHideFlags: 0

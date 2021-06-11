@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.Spawn
@@ -56,7 +57,7 @@ namespace Scripts.Spawn
             currentDelayTimeSpawnNextZone = delayTimeSpawnNextZone;
             baseCountOfSpawningObjects = 0;
             InitializeZones();
-            InvokeRepeating(nameof(SpawnObjectsByTime), startTimeOfSpawnZone, currentDelayTimeSpawnNextZone);
+            StartCoroutine(SpawnObjectsByTime());
         }
 
         public void InitializeZones()
@@ -74,16 +75,15 @@ namespace Scripts.Spawn
             }
         }
 
-        private void SpawnObjectsByTime()
+        private IEnumerator SpawnObjectsByTime()
         {
-            int zoneIndex = GetIndexOfRandomProbability();
-            spawnZones[zoneIndex].SpawnZone.SpawnObjectsOnScene(baseCountOfSpawningObjects, delayTimeBetweenSpawnObjects);
-        }
-
-        private void IncreaseDifficulty()
-        {
-            currentDelayTimeSpawnNextZone -= decreasingValueOfDelayTimeForDifficulty;
-            baseCountOfSpawningObjects += increasingValueOfCountObjectsForDifficulty;
+            yield return new WaitForSeconds(startTimeOfSpawnZone);
+            while (true)
+            {
+                int zoneIndex = GetIndexOfRandomProbability();
+                spawnZones[zoneIndex].SpawnZone.SpawnObjectsOnScene(baseCountOfSpawningObjects, delayTimeBetweenSpawnObjects);
+                yield return new WaitForSeconds(currentDelayTimeSpawnNextZone);
+            }
         }
 
         private int GetIndexOfRandomProbability()
@@ -103,6 +103,12 @@ namespace Scripts.Spawn
             }
 
             return probabilities.Length - 1;
+        }
+
+        private void IncreaseDifficulty()
+        {
+            currentDelayTimeSpawnNextZone -= decreasingValueOfDelayTimeForDifficulty;
+            baseCountOfSpawningObjects += increasingValueOfCountObjectsForDifficulty;
         }
     }
 }

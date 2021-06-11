@@ -1,4 +1,4 @@
-using Scripts.GameEntities.Animations;
+using Scripts.Animations.Abstract;
 using Scripts.GameEntities.Containers;
 using UnityEngine;
 

@@ -5,10 +5,10 @@ namespace Scripts.Physics
 {
     public class ObjectCollider : MonoBehaviour
     {
+        private static List<ObjectCollider> colliders = new List<ObjectCollider>();
+
         [SerializeField]
         private float radius = 1f;
-
-        private static List<ObjectCollider> colliders = new List<ObjectCollider>();
 
         private void Start()
         {
@@ -20,7 +20,7 @@ namespace Scripts.Physics
             colliders.Remove(this);
         }
 
-        public static List<GameObject> GetObjectIntersectedWithPoint(Vector2 point)
+        public static List<GameObject> GetObjectsIntersectedWithPoint(Vector2 point)
         {
             List<GameObject> result = new List<GameObject>();
             foreach(var collider in colliders)

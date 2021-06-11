@@ -1,7 +1,8 @@
 using DG.Tweening;
+using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Scripts.GameEntities.Animations
+namespace Scripts.Animations
 {
     public class ScaleAnimation : TransformAnimation
     {
@@ -9,13 +10,13 @@ namespace Scripts.GameEntities.Animations
         private const int DECREASING_ANIMATION = 1;
 
         [SerializeField]
-        private float targetScaleUp = 1.5f;
+        private float targetIncreaseSize = 1.5f;
 
         [SerializeField]
-        private float targetScaleDown = 0.7f;
+        private float targetDecreaseSize = 0.7f;
 
         [SerializeField]
-        private float offsetZ = 1f;
+        private float animationOffsetZ = 1f;
 
         public override void StartAnimation()
         {
@@ -33,15 +34,15 @@ namespace Scripts.GameEntities.Animations
 
         private void PlaySizeIncreasingAnimation()
         {
-            transform.DOScale(targetScaleUp, duratinon);
-            float targetZ = transform.position.z + offsetZ;
+            transform.DOScale(targetIncreaseSize, duratinon);
+            float targetZ = transform.position.z + animationOffsetZ;
             transform.DOMoveZ(targetZ, duratinon);
         }
 
         private void PlaySizeDecreasingAnimation()
         {
-            transform.DOScale(targetScaleDown, duratinon);
-            float targetZ = transform.position.z - offsetZ;
+            transform.DOScale(targetDecreaseSize, duratinon);
+            float targetZ = transform.position.z - animationOffsetZ;
             transform.DOMoveZ(targetZ, duratinon);
         }
     }

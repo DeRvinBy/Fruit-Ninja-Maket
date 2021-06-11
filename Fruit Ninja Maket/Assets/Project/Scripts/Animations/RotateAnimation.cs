@@ -1,7 +1,8 @@
 using DG.Tweening;
+using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Scripts.GameEntities.Animations
+namespace Scripts.Animations
 {
     public class RotateAnimation : TransformAnimation
     {
@@ -20,7 +21,7 @@ namespace Scripts.GameEntities.Animations
                     PlayClockwiseAnimation();
                     break;
                 case COUNTERCLOCKWISE_ANIMATION:
-                    PlayCounterclockwiseAnimation();
+                    PlayCounterClockwiseAnimation();
                     break;
             }
         }
@@ -30,7 +31,7 @@ namespace Scripts.GameEntities.Animations
             transform.DORotate(angles, duratinon, RotateMode.FastBeyond360);
         }
 
-        private void PlayCounterclockwiseAnimation()
+        private void PlayCounterClockwiseAnimation()
         {
             transform.DORotate(-angles, duratinon, RotateMode.FastBeyond360);
         }

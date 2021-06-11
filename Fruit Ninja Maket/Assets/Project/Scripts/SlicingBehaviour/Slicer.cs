@@ -15,7 +15,7 @@ namespace Scripts.SlicingBehaviour
             {
                 Vector2 slicingPoint = input.GetMediaPointOfSlicingPath();
 
-                var intersectedObjects = ObjectCollider.GetObjectIntersectedWithPoint(slicingPoint);
+                var intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
                 print(intersectedObjects.Count);
                 foreach(var obj in intersectedObjects)
                 {
