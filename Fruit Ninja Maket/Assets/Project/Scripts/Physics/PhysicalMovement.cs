@@ -18,8 +18,8 @@ namespace Scripts.Physics
 
         private void Update()
         {
-            velocity += gravityDirection * gravity; 
-            transform.Translate(velocity * Time.deltaTime);
+            velocity += gravityDirection * gravity;
+            transform.Translate(velocity * Time.deltaTime, Space.World);
         }
     }
 }

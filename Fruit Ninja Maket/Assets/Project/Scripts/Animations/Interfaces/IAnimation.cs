@@ -2,6 +2,8 @@
 {
     public interface IAnimation
     {
-        void StartAnimation();
+        void PlayAnimation();
+
+        void PauseAnimation();
     }
 }

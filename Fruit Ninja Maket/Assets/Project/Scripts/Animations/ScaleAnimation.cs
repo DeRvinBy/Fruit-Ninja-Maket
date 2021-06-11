@@ -18,7 +18,7 @@ namespace Scripts.Animations
         [SerializeField]
         private float animationOffsetZ = 1f;
 
-        public override void StartAnimation()
+        public override void PlayAnimation()
         {
             int animation = Random.Range(INCREASING_ANIMATION, DECREASING_ANIMATION + 1);
             switch (animation)
@@ -30,6 +30,11 @@ namespace Scripts.Animations
                     PlaySizeDecreasingAnimation();
                     break;
             }
+        }
+
+        public override void PauseAnimation()
+        {
+            transform.DOPause();
         }
 
         private void PlaySizeIncreasingAnimation()

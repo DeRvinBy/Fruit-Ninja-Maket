@@ -15,6 +15,7 @@ namespace Scripts.SlicingBehaviour
             if(input.IsSwipping)
             {
                 Vector2 slicingPoint = input.GetMediaPointOfSlicingPath();
+                Vector2 slicingDirection = input.GetDirectionOfSlicingPath();
 
                 List<GameObject> intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
 
@@ -22,7 +23,7 @@ namespace Scripts.SlicingBehaviour
                 {
                     if(obj.TryGetComponent(out Fruit fruit))
                     {
-                        fruit.Slice();
+                        fruit.Slice(slicingDirection);
                     }
                 }
             }

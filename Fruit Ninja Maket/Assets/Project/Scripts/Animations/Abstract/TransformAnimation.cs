@@ -9,7 +9,9 @@ namespace Scripts.Animations.Abstract
         [SerializeField]
         protected float duratinon = 1f;
 
-        public abstract void StartAnimation();
+        public abstract void PlayAnimation();
+
+        public abstract void PauseAnimation();
 
         private void OnDestroy()
         {

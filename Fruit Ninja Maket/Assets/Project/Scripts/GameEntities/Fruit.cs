@@ -1,5 +1,6 @@
 using Scripts.Animations.Abstract;
 using Scripts.GameSettings.FruitSettings;
+using Scripts.Physics;
 using System.Collections;
 using UnityEngine;
 
@@ -30,8 +31,8 @@ namespace Scripts.GameEntities
 
         private void Start()
         {
-            scaleAnimation.StartAnimation();
-            rotateAnimation.StartAnimation();
+            scaleAnimation.PlayAnimation();
+            rotateAnimation.PlayAnimation();
 
             destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
             destructionBoundaryY += DESTRUCTION_OFFSET;
@@ -49,15 +50,34 @@ namespace Scripts.GameEntities
             fruitSettings = settings;
         }
 
-        public void Slice()
+        public void Slice(Vector2 slicingDirection)
         {
             if (!isSliced)
             {
                 isSliced = true;
                 fruitSprayParticles.Play();
 
+                PushHalfs(slicingDirection);
+
                 SpawnFruitBlot();
             }
+        }
+
+        private void PushHalfs(Vector2 slicingDirection)
+        {
+            GetComponent<PhysicalMovement>().enabled = false;
+            GetComponent<ObjectCollider>().enabled = false;
+
+            scaleAnimation.PauseAnimation();
+            rotateAnimation.PauseAnimation();
+
+            PhysicalMovement movementLeft = leftSpriteComp.GetComponent<PhysicalMovement>();
+            movementLeft.AddVelocity((Vector2)transform.up + Vector2.right * 5f);
+            movementLeft.enabled = true;
+
+            PhysicalMovement movementRight = rightSpriteComp.GetComponent<PhysicalMovement>();
+            movementRight.AddVelocity((Vector2)transform.up + Vector2.left * 5f);
+            movementRight.enabled = true;
         }
 
         private void SpawnFruitBlot()

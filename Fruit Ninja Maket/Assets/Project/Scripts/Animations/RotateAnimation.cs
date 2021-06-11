@@ -12,7 +12,7 @@ namespace Scripts.Animations
         [SerializeField]
         private Vector3 angles = Vector3.zero;
 
-        public override void StartAnimation()
+        public override void PlayAnimation()
         {
             int animation = Random.Range(CLOCKWISE_ANIMATION, COUNTERCLOCKWISE_ANIMATION + 1);
             switch (animation)
@@ -24,6 +24,11 @@ namespace Scripts.Animations
                     PlayCounterClockwiseAnimation();
                     break;
             }
+        }
+
+        public override void PauseAnimation()
+        {
+            transform.DOPause();
         }
 
         private void PlayClockwiseAnimation()
