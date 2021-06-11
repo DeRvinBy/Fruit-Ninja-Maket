@@ -1,5 +1,6 @@
 using Scripts.Animations.Abstract;
 using Scripts.GameSettings.FruitSettings;
+using System.Collections;
 using UnityEngine;
 
 namespace Scripts.GameEntities
@@ -33,14 +34,14 @@ namespace Scripts.GameEntities
 
             destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
             destructionBoundaryY += DESTRUCTION_OFFSET;
+
+            StartCoroutine(DestroyObject());
         }
 
         public void Update()
         {
-            if(transform.position.y < destructionBoundaryY)
-            {
-                Destroy(gameObject);
-            }
+            
+
         }
 
         public void InitializeFruitSettings(FruitSettings fruitSettings)
@@ -58,6 +59,19 @@ namespace Scripts.GameEntities
             {
                 fruitSprayParticles.Play();
             }
+        }
+
+        private IEnumerator DestroyObject()
+        {
+            yield return new WaitUntil(() => IsCanDestroy());
+            Destroy(gameObject);
+        }
+
+        private bool IsCanDestroy()
+        {
+            bool isLeftHalfsOutOfBorder = leftSpriteComp.transform.position.y < destructionBoundaryY;
+            bool isRightHalfsOutOfBorder = rightSpriteComp.transform.position.y < destructionBoundaryY;
+            return isLeftHalfsOutOfBorder && isRightHalfsOutOfBorder && !fruitSprayParticles.isPlaying;
         }
     }
 }

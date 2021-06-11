@@ -14,6 +14,7 @@ namespace Scripts.Spawn
         private Transform endBoundary = null;
 
         private SpawnObjectsSettings spawnObjectsSettings;
+        private float verticalWolrdSize;
 
         public void InitializeSpawnObjectsSettings(SpawnObjectsSettings spawnObjectsSettings)
         {
@@ -27,6 +28,8 @@ namespace Scripts.Spawn
             Vector3 bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
             transform.position = transformSettings.GetRelativePosition(topLeftCorner, bottomRightCorner);
             transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
+
+            verticalWolrdSize = (topLeftCorner.y - bottomRightCorner.y);
         }
 
         public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
@@ -47,7 +50,7 @@ namespace Scripts.Spawn
                 var go = Instantiate(prefab, spawnPosition, Quaternion.identity);
                 if (go.TryGetComponent(out PhysicalMovement physicalMovement))
                 {
-                    physicalMovement.AddVelocity(direction * spawnObjectsSettings.BaseVelocityOfObjects);
+                    physicalMovement.AddVelocity(direction * spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize);
                 }
 
                 yield return new WaitForSeconds(spawnObjectsDelay);
