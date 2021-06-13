@@ -15,6 +15,9 @@ namespace Scripts.GameSettings.FruitSettings.MonoSettings
         private float blotLifeTime = 2f;
 
         [SerializeField]
+        private float halfsVelocityCoef = 2f;
+
+        [SerializeField]
         private FruitSettings[] fruitSettings = null;
 
         public Fruit FruitPrefab { get => fruitPrefab; }
@@ -23,8 +26,7 @@ namespace Scripts.GameSettings.FruitSettings.MonoSettings
         {
             int index = Random.Range(0, fruitSettings.Length);
             FruitSettings settings =  fruitSettings[index];
-            settings.FruitBlotSprite = fruitBlotPrefab;
-            settings.BlotLifeTime = blotLifeTime;
+            settings.SetOtherSettings(fruitBlotPrefab, blotLifeTime, halfsVelocityCoef);
             return settings;
         }
     }

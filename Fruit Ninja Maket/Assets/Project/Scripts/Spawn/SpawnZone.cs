@@ -47,8 +47,8 @@ namespace Scripts.Spawn
             int count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
             for (int i = 0; i < count; i++)
             {
-                Vector2 velocity = direction * spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize;
-                objectCreator.CreateFruit(spawnPosition, velocity);
+                float velocity = spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize;
+                objectCreator.CreateFruit(spawnPosition, direction, velocity);
                 yield return new WaitForSeconds(spawnObjectsDelay);
             }
         }

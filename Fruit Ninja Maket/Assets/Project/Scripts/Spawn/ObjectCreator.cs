@@ -11,17 +11,17 @@ namespace Scripts.Spawn
         [SerializeField]
         private FruitSettingsContainer fruitSettingsContainer = null;
 
-        public void CreateFruit(Vector2 position, Vector2 velocity)
+        public void CreateFruit(Vector2 position, Vector2 direction, float velocity)
         {
             FruitSettings settings = fruitSettingsContainer.GetRandomFruitSettings();
             Fruit prefab = fruitSettingsContainer.FruitPrefab;
             Fruit go = Instantiate(prefab, position, Quaternion.identity);
 
-            go.InitializeFruitSettings(settings);
+            go.InitializeFruitSettings(settings, velocity);
 
             if(go.TryGetComponent(out PhysicalMovement movement))
             {
-                movement.AddVelocity(velocity);
+                movement.AddVelocity(direction * velocity);
             }
         }
     }

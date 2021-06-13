@@ -311,6 +311,7 @@ MonoBehaviour:
   fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
   fruitBlotPrefab: {fileID: 105282469102559286, guid: 0bc343f5fcaa3fb48be6ce4c2713dfb9, type: 3}
   blotLifeTime: 2
+  halfsVelocityCoef: 0.4
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}

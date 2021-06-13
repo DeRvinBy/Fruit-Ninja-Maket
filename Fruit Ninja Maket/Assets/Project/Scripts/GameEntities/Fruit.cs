@@ -27,6 +27,7 @@ namespace Scripts.GameEntities
 
         private FruitSettings fruitSettings;
         private float destructionBoundaryY;
+        private float halfsVelocity;
         private bool isSliced;
 
         private void Start()
@@ -40,12 +41,13 @@ namespace Scripts.GameEntities
             StartCoroutine(DestroyObject());
         }
 
-        public void InitializeFruitSettings(FruitSettings settings)
+        public void InitializeFruitSettings(FruitSettings settings, float velocity)
         {
             leftSpriteComp.sprite = settings.LeftHalfOfSprite;
             rightSpriteComp.sprite = settings.RightHalfOfSprite;
             var particleSettings = fruitSprayParticles.main;
             particleSettings.startColor = settings.SprayColor;
+            halfsVelocity = velocity * settings.HalfsVelocityCoef;
 
             fruitSettings = settings;
         }
@@ -57,27 +59,29 @@ namespace Scripts.GameEntities
                 isSliced = true;
                 fruitSprayParticles.Play();
 
-                PushHalfs(slicingDirection);
-
+                DisableOptionsOfMainObject();
+                PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
+                PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
                 SpawnFruitBlot();
             }
         }
 
-        private void PushHalfs(Vector2 slicingDirection)
+        private void DisableOptionsOfMainObject()
         {
             GetComponent<PhysicalMovement>().enabled = false;
             GetComponent<ObjectCollider>().enabled = false;
 
+            print(halfsVelocity);
+
             scaleAnimation.PauseAnimation();
             rotateAnimation.PauseAnimation();
+        }
 
-            PhysicalMovement movementLeft = leftSpriteComp.GetComponent<PhysicalMovement>();
-            movementLeft.AddVelocity((Vector2)transform.up + Vector2.right * 5f);
-            movementLeft.enabled = true;
-
-            PhysicalMovement movementRight = rightSpriteComp.GetComponent<PhysicalMovement>();
-            movementRight.AddVelocity((Vector2)transform.up + Vector2.left * 5f);
-            movementRight.enabled = true;
+        private void PushHalfInDirection(SpriteRenderer halfComponent, Vector2 direction)
+        {
+            PhysicalMovement moevement = halfComponent.GetComponent<PhysicalMovement>();
+            moevement.AddVelocity(direction * halfsVelocity);
+            moevement.enabled = true;
         }
 
         private void SpawnFruitBlot()

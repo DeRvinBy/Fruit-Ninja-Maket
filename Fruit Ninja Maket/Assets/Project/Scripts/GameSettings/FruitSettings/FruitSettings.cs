@@ -18,11 +18,20 @@ namespace Scripts.GameSettings.FruitSettings
 
         private FruitBlot fruitBlotSprite;
         private float blotLifeTime;
+        private float halfsVelocityCoef;
 
         public Sprite LeftHalfOfSprite { get => leftHalfOfSprite; }
         public Sprite RightHalfOfSprite { get => rightHalfOfSprite; }
         public Color SprayColor { get => sprayColor; }
-        public FruitBlot FruitBlotSprite { get => fruitBlotSprite; set => fruitBlotSprite = value; }
-        public float BlotLifeTime { get => blotLifeTime; set => blotLifeTime = value; }
+        public FruitBlot FruitBlotSprite { get => fruitBlotSprite; }
+        public float BlotLifeTime { get => blotLifeTime; }
+        public float HalfsVelocityCoef { get => halfsVelocityCoef; }
+
+        public void SetOtherSettings(FruitBlot fruitBlotSprite, float blotLifeTime, float halfsVelocityCoef)
+        {
+            this.fruitBlotSprite = fruitBlotSprite;
+            this.blotLifeTime = blotLifeTime;
+            this.halfsVelocityCoef = halfsVelocityCoef;
+        }
     }
 }
