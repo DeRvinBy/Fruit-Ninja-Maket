@@ -20,10 +20,10 @@ namespace Scripts.SlicingBehaviour
                 trailPosition = input.GetCurrentPointOfSlicingPath();
                 transform.position = trailPosition;
             }
-            else
-            {
-                StartCoroutine(DisableTrail());
-            }
+            //else
+            //{
+            //    StartCoroutine(DisableTrail());
+            //}
         }
 
         private IEnumerator DisableTrail()

@@ -4,6 +4,7 @@ namespace Scripts.SlicingBehaviour
 {
     public class PlayerInput : MonoBehaviour
     {
+        private const int LEFT_MOUSE_BUTTON = 0;
         private const float MIDPOINT_RATIO = 0.5f;
 
         [SerializeField]
@@ -13,6 +14,8 @@ namespace Scripts.SlicingBehaviour
         private float minSpeedOfSlicing = 2f;
 
         private Camera mainCamera;
+
+        private Vector2 previousPointOfInput;
 
         private Vector2 previousPointOfSlicingPath;
         private Vector2 currentPointOfSlicingPath;
@@ -24,50 +27,6 @@ namespace Scripts.SlicingBehaviour
         private void Start()
         {
             mainCamera = Camera.main;
-        }
-
-        private void Update()
-        {
-            if(Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                if (touch.phase == TouchPhase.Moved)
-                {
-                    UpdateSlicingPath(touch);
-                }       
-            }
-            else
-            {
-                isSwipping = false;
-            }
-        }
-
-        private void UpdateSlicingPath(Touch touch)
-        {
-            if (!isSwipping)
-            {
-                previousPointOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
-                isSwipping = true;
-            }
-            else
-            {
-                Vector2 currentWorldTouchPosition = mainCamera.ScreenToWorldPoint(touch.position);
-                Vector2 previousWorldTouchPosition = mainCamera.ScreenToWorldPoint(touch.position - touch.deltaPosition);
-
-                float distance = (currentWorldTouchPosition - previousWorldTouchPosition).magnitude;
-                float speed = distance / touch.deltaTime;
-
-                if (speed > minSpeedOfSlicing && distance > minDistanceOfSlicing)
-                {
-                    currentPointOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
-                    Debug.DrawLine(previousPointOfSlicingPath, currentPointOfSlicingPath, Color.red, 2f);
-                    previousPointOfSlicingPath = currentPointOfSlicingPath;
-                }
-                else
-                {
-                    isSwipping = false;
-                }
-            }           
         }
 
         public Vector2 GetMediaPointOfSlicingPath()
@@ -83,6 +42,55 @@ namespace Scripts.SlicingBehaviour
         public Vector2 GetCurrentPointOfSlicingPath()
         {
             return currentPointOfSlicingPath;
+        }
+
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
+            {
+                SetStartPoints();
+            }
+            else if (Input.GetMouseButton(LEFT_MOUSE_BUTTON))
+            {
+                SetCurrentPoint();
+                UpdatePoints();
+            }
+            else
+            {
+                isSwipping = false;
+            }
+        }
+
+        private void SetStartPoints()
+        {
+            previousPointOfSlicingPath = GetWorldMousePosition();
+            previousPointOfInput = previousPointOfSlicingPath;
+        }
+
+        private void SetCurrentPoint()
+        {
+            currentPointOfSlicingPath = GetWorldMousePosition();
+        }
+
+        private Vector2 GetWorldMousePosition()
+        {
+            return mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        private void UpdatePoints()
+        {
+            float slicingDistance = (previousPointOfSlicingPath - currentPointOfSlicingPath).magnitude;
+            float speedDistance = (previousPointOfInput - currentPointOfSlicingPath).magnitude;
+            float speed = speedDistance / Time.deltaTime;
+
+            isSwipping = speed > minSpeedOfSlicing && slicingDistance > minDistanceOfSlicing;
+
+            if (isSwipping)
+            {
+                previousPointOfSlicingPath = currentPointOfSlicingPath;
+            }
+
+            previousPointOfInput = currentPointOfSlicingPath;
         }
     }
 }
