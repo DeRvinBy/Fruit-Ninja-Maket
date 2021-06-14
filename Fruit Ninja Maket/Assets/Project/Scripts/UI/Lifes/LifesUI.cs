@@ -1,4 +1,3 @@
-using Scripts.GameSettings.UISettings;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,14 +7,14 @@ namespace Scripts.UI.Lifes
     {
         private List<LifeContainerUI> lifeContainers;
 
-        public void InitializeSettings(LifesSettings lifesSettings)
+        public void InitializeSettings(int maxLifesCount)
         {
             lifeContainers = new List<LifeContainerUI>();
 
             for (int i = 0; i < transform.childCount; i++)
             {
                 LifeContainerUI child = transform.GetChild(i).GetComponent<LifeContainerUI>();
-                if (i < lifesSettings.MaxLifesCount)
+                if (i < maxLifesCount)
                 {
                     child.gameObject.SetActive(true);
                     lifeContainers.Add(child);

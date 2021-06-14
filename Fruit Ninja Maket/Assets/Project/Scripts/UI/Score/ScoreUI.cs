@@ -6,10 +6,10 @@ namespace Scripts.UI
     public class ScoreUI : MonoBehaviour
     {
         [SerializeField]
-        private TextMeshPro bestScoreText = null;
+        private TMP_Text bestScoreText = null;
 
         [SerializeField]
-        private TextMeshPro currentScoreText = null;
+        private TMP_Text currentScoreText = null;
 
         public void SetBestScore(int value)
         {

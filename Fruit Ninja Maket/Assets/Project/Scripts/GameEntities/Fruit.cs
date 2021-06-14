@@ -3,6 +3,7 @@ using Scripts.GameSettings.FruitSettings;
 using Scripts.Physics;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Scripts.GameEntities
 {
@@ -25,10 +26,16 @@ namespace Scripts.GameEntities
         [SerializeField]
         private ParticleSystem fruitSprayParticles = null;
 
+        private UnityEvent onFruitDestroyed = new UnityEvent();
+        private UnityEvent onFruitSliced = new UnityEvent();
+
         private FruitSettings fruitSettings;
         private float destructionBoundaryY;
         private float halfsVelocity;
         private bool isSliced;
+
+        public UnityEvent OnFruitDestroyed { get => onFruitDestroyed; }
+        public UnityEvent OnFruitSliced { get => onFruitSliced; }
 
         private void Start()
         {
@@ -39,6 +46,12 @@ namespace Scripts.GameEntities
             destructionBoundaryY += DESTRUCTION_OFFSET;
 
             StartCoroutine(DestroyObject());
+        }
+
+        private void OnDestroy()
+        {
+            onFruitSliced?.RemoveAllListeners();
+            onFruitDestroyed?.RemoveAllListeners();
         }
 
         public void InitializeFruitSettings(FruitSettings settings, float velocity)
@@ -63,6 +76,8 @@ namespace Scripts.GameEntities
                 PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
                 PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
                 SpawnFruitBlot();
+
+                onFruitSliced.Invoke();
             }
         }
 
@@ -92,6 +107,10 @@ namespace Scripts.GameEntities
         private IEnumerator DestroyObject()
         {
             yield return new WaitUntil(() => IsCanDestroy());
+            if(!isSliced)
+            {
+                onFruitDestroyed?.Invoke();
+            }
             Destroy(gameObject);
         }
 
