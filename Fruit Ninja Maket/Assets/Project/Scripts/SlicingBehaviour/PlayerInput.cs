@@ -42,7 +42,6 @@ namespace Scripts.SlicingBehaviour
             if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
             {
                 SetStartPoints();
-                isSwipping = true;
             }
             else if (Input.GetMouseButton(LEFT_MOUSE_BUTTON))
             {
