@@ -14,8 +14,8 @@ namespace Scripts.SlicingBehaviour
 
         private Camera mainCamera;
 
-        private Vector2 previousPositionOfSlicingPath;
-        private Vector2 currentPositionOfSlicingPath;
+        private Vector2 previousPointOfSlicingPath;
+        private Vector2 currentPointOfSlicingPath;
 
         private bool isSwipping;
 
@@ -46,7 +46,7 @@ namespace Scripts.SlicingBehaviour
         {
             if (!isSwipping)
             {
-                previousPositionOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
+                previousPointOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
                 isSwipping = true;
             }
             else
@@ -59,9 +59,9 @@ namespace Scripts.SlicingBehaviour
 
                 if (speed > minSpeedOfSlicing && distance > minDistanceOfSlicing)
                 {
-                    currentPositionOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
-                    Debug.DrawLine(previousPositionOfSlicingPath, currentPositionOfSlicingPath, Color.red, 2f);
-                    previousPositionOfSlicingPath = currentPositionOfSlicingPath;
+                    currentPointOfSlicingPath = mainCamera.ScreenToWorldPoint(touch.position);
+                    Debug.DrawLine(previousPointOfSlicingPath, currentPointOfSlicingPath, Color.red, 2f);
+                    previousPointOfSlicingPath = currentPointOfSlicingPath;
                 }
                 else
                 {
@@ -70,14 +70,19 @@ namespace Scripts.SlicingBehaviour
             }           
         }
 
-        public Vector3 GetMediaPointOfSlicingPath()
+        public Vector2 GetMediaPointOfSlicingPath()
         {
-            return Vector3.Lerp(previousPositionOfSlicingPath, currentPositionOfSlicingPath, MIDPOINT_RATIO);
+            return Vector3.Lerp(previousPointOfSlicingPath, currentPointOfSlicingPath, MIDPOINT_RATIO);
         }
 
-        public Vector3 GetDirectionOfSlicingPath()
+        public Vector2 GetDirectionOfSlicingPath()
         {
-            return (currentPositionOfSlicingPath - previousPositionOfSlicingPath).normalized;
+            return (currentPointOfSlicingPath - previousPointOfSlicingPath).normalized;
+        }
+
+        public Vector2 GetCurrentPointOfSlicingPath()
+        {
+            return currentPointOfSlicingPath;
         }
     }
 }

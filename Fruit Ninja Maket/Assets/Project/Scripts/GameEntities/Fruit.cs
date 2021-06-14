@@ -71,8 +71,6 @@ namespace Scripts.GameEntities
             GetComponent<PhysicalMovement>().enabled = false;
             GetComponent<ObjectCollider>().enabled = false;
 
-            print(halfsVelocity);
-
             scaleAnimation.PauseAnimation();
             rotateAnimation.PauseAnimation();
         }
