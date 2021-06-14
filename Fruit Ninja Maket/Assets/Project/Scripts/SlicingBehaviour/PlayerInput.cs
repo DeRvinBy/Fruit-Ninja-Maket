@@ -13,8 +13,6 @@ namespace Scripts.SlicingBehaviour
         [SerializeField]
         private float minSpeedOfSlicing = 2f;
 
-        private Camera mainCamera;
-
         private Vector2 previousPointOfInput;
 
         private Vector2 previousPointOfSlicingPath;
@@ -23,11 +21,6 @@ namespace Scripts.SlicingBehaviour
         private bool isSwipping;
 
         public bool IsSwipping { get => isSwipping; }
-
-        private void Start()
-        {
-            mainCamera = Camera.main;
-        }
 
         public Vector2 GetMediaPointOfSlicingPath()
         {
@@ -49,6 +42,7 @@ namespace Scripts.SlicingBehaviour
             if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
             {
                 SetStartPoints();
+                isSwipping = true;
             }
             else if (Input.GetMouseButton(LEFT_MOUSE_BUTTON))
             {
@@ -74,7 +68,7 @@ namespace Scripts.SlicingBehaviour
 
         private Vector2 GetWorldMousePosition()
         {
-            return mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            return Camera.main.ScreenToWorldPoint(Input.mousePosition);
         }
 
         private void UpdatePoints()
