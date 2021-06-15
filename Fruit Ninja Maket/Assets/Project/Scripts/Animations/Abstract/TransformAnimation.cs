@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Animations.Abstract
 {
-    public abstract class TransformAnimation : MonoBehaviour, IAnimation
+    public abstract class TransformAnimation : MonoBehaviour, IPlayAnimation, IPauseAnimation
     {
         [SerializeField]
         protected float duratinon = 1f;

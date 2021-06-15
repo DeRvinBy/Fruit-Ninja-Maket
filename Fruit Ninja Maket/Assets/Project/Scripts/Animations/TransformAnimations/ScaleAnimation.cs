@@ -2,7 +2,7 @@ using DG.Tweening;
 using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Scripts.Animations
+namespace Scripts.Animations.TransformAnimations
 {
     public class ScaleAnimation : TransformAnimation
     {

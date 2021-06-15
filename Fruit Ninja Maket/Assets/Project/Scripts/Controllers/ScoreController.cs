@@ -1,5 +1,5 @@
 ﻿using Scripts.GameSettings.ScoreSettings;
-using Scripts.UI;
+using Scripts.UI.Score;
 using UnityEngine;
 
 namespace Scripts.Controllers
@@ -12,6 +12,9 @@ namespace Scripts.Controllers
         [SerializeField]
         private ScoreUI scoreUI = null;
 
+        [SerializeField]
+        private Transform UI = null;
+
         private int bestScore = 200;
         private int currentScore;
 
@@ -21,7 +24,7 @@ namespace Scripts.Controllers
             scoreUI.SetBestScore(bestScore);
         }
 
-        public void AddScoreByFruit()
+        public void AddScoreByFruit(Vector2 slicingPosition)
         {
             currentScore += controllerSettings.ScoreValueByOneFruit;
             scoreUI.SetCurrentScore(currentScore);
@@ -29,6 +32,15 @@ namespace Scripts.Controllers
             {
                 scoreUI.SetBestScore(currentScore);
             }
+
+            var screenPosition = Camera.main.WorldToScreenPoint(slicingPosition);
+            CreateSceneScore(screenPosition);
+        }
+
+        public void CreateSceneScore(Vector2 position)
+        {
+            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, UI);
+            sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
         }
     }
 }

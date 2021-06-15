@@ -27,7 +27,7 @@ namespace Scripts.GameEntities
         private ParticleSystem fruitSprayParticles = null;
 
         private UnityEvent onFruitDestroyed = new UnityEvent();
-        private UnityEvent onFruitSliced = new UnityEvent();
+        private UnityEvent<Vector2> onFruitSliced = new UnityEvent<Vector2>();
 
         private FruitSettings fruitSettings;
         private float destructionBoundaryY;
@@ -35,7 +35,7 @@ namespace Scripts.GameEntities
         private bool isSliced;
 
         public UnityEvent OnFruitDestroyed { get => onFruitDestroyed; }
-        public UnityEvent OnFruitSliced { get => onFruitSliced; }
+        public UnityEvent<Vector2> OnFruitSliced { get => onFruitSliced; }
 
         private void Start()
         {
@@ -77,7 +77,7 @@ namespace Scripts.GameEntities
                 PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
                 SpawnFruitBlot();
 
-                onFruitSliced.Invoke();
+                onFruitSliced.Invoke(transform.position);
             }
         }
 

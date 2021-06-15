@@ -1,4 +1,5 @@
-﻿using Scripts.Animations;
+﻿using Scripts.Animations.Abstract;
+using Scripts.Animations.SpriteRendererAnimations;
 using UnityEngine;
 
 namespace Scripts.GameEntities
@@ -15,10 +16,10 @@ namespace Scripts.GameEntities
         private float maxRotation = 360f;
 
         [SerializeField]
-        private SpriteRenderer spriteRenderer;
+        private SpriteRenderer spriteRenderer = null;
 
         [SerializeField]
-        private FadeAnimation fadeAnimation;
+        private SpriteRendererAnimation fadeAnimation = null;
 
         public void Initialize(Color color, float lifeTime)
         {

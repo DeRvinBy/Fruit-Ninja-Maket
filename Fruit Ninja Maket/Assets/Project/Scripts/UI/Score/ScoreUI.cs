@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Scripts.UI
+namespace Scripts.UI.Score
 {
     public class ScoreUI : MonoBehaviour
     {

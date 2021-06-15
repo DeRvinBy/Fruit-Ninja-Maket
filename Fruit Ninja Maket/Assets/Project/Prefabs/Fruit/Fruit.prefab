@@ -313,11 +313,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5218477692840777307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f29d60f328555c04695700929989460d, type: 3}
+  m_Script: {fileID: 11500000, guid: 512db2108cb4cb848b62167c2cb68475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duratinon: 1
-  targetIncreaseSize: 1.5
+  targetIncreaseSize: 1.3
   targetDecreaseSize: 0.8
   animationOffsetZ: 1
 --- !u!114 &7827361500517077126
@@ -329,10 +329,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5218477692840777307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dfd2a26c885fdb46a8ac758c8e4da9e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e58abaefd3691f47809dd6d246b8727, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duratinon: 2
+  duratinon: 1
   angles: {x: 0, y: 0, z: 270}
 --- !u!1 &5957351584423012556
 GameObject:

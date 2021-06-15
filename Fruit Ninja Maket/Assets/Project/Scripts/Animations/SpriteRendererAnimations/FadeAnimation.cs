@@ -2,7 +2,7 @@
 using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Scripts.Animations
+namespace Scripts.Animations.SpriteRendererAnimations
 {
     public class FadeAnimation : SpriteRendererAnimation
     {

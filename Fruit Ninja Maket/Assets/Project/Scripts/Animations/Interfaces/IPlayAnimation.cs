@@ -1,9 +1,7 @@
 ﻿namespace Scripts.Animations.Interfaces
 {
-    public interface IAnimation
+    public interface IPlayAnimation
     {
         void PlayAnimation();
-
-        void PauseAnimation();
     }
 }
