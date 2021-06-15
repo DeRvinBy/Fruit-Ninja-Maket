@@ -18,9 +18,15 @@ namespace Scripts.SlicingBehaviour
         private Vector2 previousPointOfSlicingPath;
         private Vector2 currentPointOfSlicingPath;
 
-        private bool isSwipping;
+        private bool isInputEnable = true;
+        private bool isSwipping = false;
 
         public bool IsSwipping { get => isSwipping; }
+
+        public void DisableInput()
+        {
+            isInputEnable = false;
+        }
 
         public Vector2 GetMediaPointOfSlicingPath()
         {
@@ -39,6 +45,11 @@ namespace Scripts.SlicingBehaviour
 
         private void Update()
         {
+            if (!isInputEnable)
+            {
+                return;
+            }
+
             if (Input.GetMouseButtonDown(LEFT_MOUSE_BUTTON))
             {
                 SetStartPoints();

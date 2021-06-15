@@ -7,13 +7,19 @@ namespace Scripts.Controllers
 {
     public class LifesController : MonoBehaviour
     {
-        [SerializeField]
-        private LifesControllerSettings controllerSettings;
+        private const int LOSE_LIFES = 0;
 
         [SerializeField]
-        private LifesUI lifesUI;
+        private GameController gameController = null;
+
+        [SerializeField]
+        private LifesControllerSettings controllerSettings = null;
+
+        [SerializeField]
+        private LifesUI lifesUI = null;
 
         private int currentLifes;
+        private bool isEndGame;
 
         private void Start()
         {
@@ -23,11 +29,19 @@ namespace Scripts.Controllers
 
         public void RemoveLifes(Vector2 fruitPosition)
         {
-            currentLifes -= controllerSettings.IncresingLifesValue;
-            lifesUI.SetLifesCount(currentLifes);
+            if (!isEndGame)
+            {
+                currentLifes -= controllerSettings.IncresingLifesValue;
+                lifesUI.SetLifesCount(currentLifes);
+                if (currentLifes <= LOSE_LIFES)
+                {
+                    gameController.EndGame();
+                    isEndGame = true;
+                }
 
-            Vector2 screenPosition = Camera.main.WorldToScreenPoint(fruitPosition);
-            CreateSceneFail(screenPosition);
+                Vector2 screenPosition = Camera.main.WorldToScreenPoint(fruitPosition);
+                CreateSceneFail(screenPosition);
+            }
         }
 
         public void CreateSceneFail(Vector2 position)

@@ -18,7 +18,7 @@ namespace Scripts.UI.Lifes
         {
             scaleAnimation.PlayAnimation();
             canvasGroupAnimation.PlayAnimation();
-            //Destroy(gameObject, destroyDelay);
+            Destroy(gameObject, destroyDelay);
         }
     }
 }

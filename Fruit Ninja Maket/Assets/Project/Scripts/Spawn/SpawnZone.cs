@@ -45,6 +45,7 @@ namespace Scripts.Spawn
             Vector2 direction = GetMovementDirection();
 
             int count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
+            objectCreator.SetObjectsCountInBundle(count);
             for (int i = 0; i < count; i++)
             {
                 float velocity = spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize;

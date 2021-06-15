@@ -9,6 +9,8 @@ namespace Scripts.Spawn
 {
     public class ObjectCreator : MonoBehaviour
     {
+        private const int ZERO_COUNT_OBJECTS = 0;
+
         [SerializeField]
         private ScoreController scoreController = null;
 
@@ -18,6 +20,15 @@ namespace Scripts.Spawn
         [SerializeField]
         private FruitSettingsContainer fruitSettingsContainer = null;
 
+        public bool IsExistObjectsOnScene { get => createdObjects != ZERO_COUNT_OBJECTS; }
+
+        private int createdObjects;
+
+        public void SetObjectsCountInBundle(int count)
+        {
+            createdObjects = count;
+        }
+
         public void CreateFruit(Vector2 position, Vector2 direction, float velocity)
         {
             FruitSettings settings = fruitSettingsContainer.GetRandomFruitSettings();
@@ -26,12 +37,18 @@ namespace Scripts.Spawn
 
             go.InitializeFruitSettings(settings, velocity);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
-            go.OnFruitDestroyed.AddListener(lifesController.RemoveLifes);
+            go.OnFruitNotSliced.AddListener(lifesController.RemoveLifes);
+            go.OnFruitDestroyed.AddListener(ReduceCreatedObjects);
 
             if (go.TryGetComponent(out PhysicalMovement movement))
             {
                 movement.AddVelocity(direction * velocity);
             }
+        }
+
+        private void ReduceCreatedObjects()
+        {
+            createdObjects--;
         }
     }
 }

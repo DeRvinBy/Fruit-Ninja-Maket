@@ -27,7 +27,8 @@ namespace Scripts.GameEntities
         [SerializeField]
         private ParticleSystem fruitSprayParticles = null;
 
-        private UnityEvent<Vector2> onFruitDestroyed = new UnityEvent<Vector2>();
+        private UnityEvent onFruitDestroyed = new UnityEvent();
+        private UnityEvent<Vector2> onFruitNotSliced = new UnityEvent<Vector2>();
         private UnityEvent<Vector2> onFruitSliced = new UnityEvent<Vector2>();
 
         private FruitSettings fruitSettings;
@@ -35,7 +36,8 @@ namespace Scripts.GameEntities
         private float halfsVelocity;
         private bool isSliced;
 
-        public UnityEvent<Vector2> OnFruitDestroyed { get => onFruitDestroyed; }
+        public UnityEvent OnFruitDestroyed { get => onFruitDestroyed; }
+        public UnityEvent<Vector2> OnFruitNotSliced { get => onFruitNotSliced; }
         public UnityEvent<Vector2> OnFruitSliced { get => onFruitSliced; }
 
         private void Start()
@@ -51,8 +53,9 @@ namespace Scripts.GameEntities
 
         private void OnDestroy()
         {
-            onFruitSliced?.RemoveAllListeners();
             onFruitDestroyed?.RemoveAllListeners();
+            onFruitNotSliced?.RemoveAllListeners();
+            onFruitSliced?.RemoveAllListeners();
         }
 
         public void InitializeFruitSettings(FruitSettings settings, float velocity)
@@ -112,8 +115,9 @@ namespace Scripts.GameEntities
             {
                 Vector2 destroyPosition = transform.position;
                 destroyPosition.y += DESTRUCTION_OFFSET_UP;
-                onFruitDestroyed?.Invoke(destroyPosition);
+                onFruitNotSliced?.Invoke(destroyPosition);
             }
+            onFruitDestroyed?.Invoke();
             Destroy(gameObject);
         }
 
