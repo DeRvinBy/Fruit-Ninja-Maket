@@ -31,7 +31,7 @@ namespace Scripts.Spawn
             transform.position = transformSettings.GetRelativePosition(topLeftCorner, bottomRightCorner);
             transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
 
-            verticalWolrdSize = (topLeftCorner.y - bottomRightCorner.y);
+            verticalWolrdSize = camera.orthographicSize;
         }
 
         public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
@@ -48,7 +48,7 @@ namespace Scripts.Spawn
             objectCreator.SetObjectsCountInBundle(count);
             for (int i = 0; i < count; i++)
             {
-                float velocity = spawnObjectsSettings.BaseVelocityOfObjects / verticalWolrdSize;
+                float velocity = spawnObjectsSettings.BaseVelocityOfObjects * verticalWolrdSize;
                 objectCreator.CreateFruit(spawnPosition, direction, velocity);
                 yield return new WaitForSeconds(spawnObjectsDelay);
             }

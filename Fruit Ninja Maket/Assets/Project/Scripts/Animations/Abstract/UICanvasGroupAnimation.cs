@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Animations.Abstract
 {
-    public abstract class UICanvasGroupAnimation : MonoBehaviour, IPlayAnimation
+    public abstract class UICanvasGroupAnimation : MonoBehaviour, IPlayAnimation, IReverseAnimation
     {
         [SerializeField]
         protected float duration = 1f;
@@ -13,6 +13,8 @@ namespace Scripts.Animations.Abstract
         protected CanvasGroup uiElement = null;
 
         public abstract void PlayAnimation();
+
+        public abstract void PlayReverseAnimation();
 
         private void OnDestroy()
         {

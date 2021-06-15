@@ -10,14 +10,21 @@ namespace Scripts.Controllers
         private ScoreControllerSettings controllerSettings = null;
 
         [SerializeField]
+        private Transform canvas = null;
+
+        [SerializeField]
         private ScoreUI scoreUI = null;
 
-        private int bestScore = 200;
+        private int bestScore;
         private int currentScore;
 
-        public void Start()
+        public int BestScore { get => bestScore; }
+        public int CurrentScore { get => currentScore; }
+
+        public void Initialize()
         {
             currentScore = 0;
+            bestScore = 200;
             scoreUI.SetBestScore(bestScore);
         }
 
@@ -27,6 +34,7 @@ namespace Scripts.Controllers
             scoreUI.SetCurrentScore(currentScore);
             if(currentScore > bestScore)
             {
+                bestScore = currentScore;
                 scoreUI.SetBestScore(currentScore);
             }
 
@@ -36,7 +44,7 @@ namespace Scripts.Controllers
 
         public void CreateSceneScore(Vector2 position)
         {
-            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, scoreUI.transform.parent);
+            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, canvas);
             sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
         }
     }

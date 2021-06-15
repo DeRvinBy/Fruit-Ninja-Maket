@@ -16,15 +16,19 @@ namespace Scripts.Controllers
         private LifesControllerSettings controllerSettings = null;
 
         [SerializeField]
+        private Transform canvas = null;
+
+        [SerializeField]
         private LifesUI lifesUI = null;
 
         private int currentLifes;
         private bool isEndGame;
 
-        private void Start()
+        public void Initialize()
         {
             currentLifes = controllerSettings.MaxLifesCount;
             lifesUI.InitializeSettings(currentLifes);
+            lifesUI.SetLifesCount(currentLifes);
         }
 
         public void RemoveLifes(Vector2 fruitPosition)
@@ -46,7 +50,7 @@ namespace Scripts.Controllers
 
         public void CreateSceneFail(Vector2 position)
         {
-            Instantiate(controllerSettings.SceneFailPrefab, position, Quaternion.identity, lifesUI.transform.parent);
+            Instantiate(controllerSettings.SceneFailPrefab, position, Quaternion.identity, canvas);
         }
     }
 }

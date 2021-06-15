@@ -18,14 +18,14 @@ namespace Scripts.SlicingBehaviour
         private Vector2 previousPointOfSlicingPath;
         private Vector2 currentPointOfSlicingPath;
 
-        private bool isInputEnable = true;
-        private bool isSwipping = false;
+        private bool isInputEnable;
+        private bool isSwipping;
 
         public bool IsSwipping { get => isSwipping; }
 
-        public void DisableInput()
+        public void SetEnableInput(bool isEnable)
         {
-            isInputEnable = false;
+            isInputEnable = isEnable;
         }
 
         public Vector2 GetMediaPointOfSlicingPath()

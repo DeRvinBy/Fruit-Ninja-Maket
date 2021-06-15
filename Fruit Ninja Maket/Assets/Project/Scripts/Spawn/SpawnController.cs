@@ -17,11 +17,12 @@ namespace Scripts.Spawn
 
         private bool isSpawnObjects = true;
 
-        private void Start()
+        public void Initialize()
         {
+            zonesContainer.InitializeZones();
             currentDelayTimeSpawnNextZone = controllerSettings.DelayTimeSpawnNextZone;
             baseCountOfSpawningObjects = 0;
-            zonesContainer.InitializeZones();
+            isSpawnObjects = true;
             StartCoroutine(SpawnObjectsByTime());
         }
 

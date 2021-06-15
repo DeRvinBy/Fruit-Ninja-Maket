@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Scripts.Animations.Abstract
 {
-    public abstract class UIRectTransformAnimation : MonoBehaviour, IPlayAnimation
+    public abstract class UIRectTransformAnimation : MonoBehaviour, IPlayAnimation, IReverseAnimation
     {
         protected const bool SNAPPING = true;
 
@@ -22,6 +22,8 @@ namespace Scripts.Animations.Abstract
         }
 
         public abstract void PlayAnimation();
+
+        public abstract void PlayReverseAnimation();
 
         private void OnDestroy()
         {
