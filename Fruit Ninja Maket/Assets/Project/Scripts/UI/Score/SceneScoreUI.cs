@@ -7,6 +7,7 @@ namespace Scripts.UI.Score
     public class SceneScoreUI : MonoBehaviour
     {
         private const string PLUS_SIGN= "+";
+
         [SerializeField]
         private float destroyDelay = 2f;
 
@@ -14,16 +15,16 @@ namespace Scripts.UI.Score
         private TMP_Text scoreText = null;
 
         [SerializeField]
-        private UIReactAnimation moveAnimation = null;
+        private UIRectTransformAnimation moveAnimation = null;
 
         [SerializeField]
-        private UITextAnimation textAnimation = null;
+        private UICanvasGroupAnimation canvasGroupAnimation = null;
 
         public void InitializeScore(int score)
         {
             scoreText.text = PLUS_SIGN + score.ToString();
             moveAnimation.PlayAnimation();
-            textAnimation.PlayAnimation();
+            canvasGroupAnimation.PlayAnimation();
             Destroy(gameObject, destroyDelay);
         }
     }

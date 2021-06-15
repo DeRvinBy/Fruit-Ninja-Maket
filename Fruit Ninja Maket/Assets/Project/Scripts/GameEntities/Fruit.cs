@@ -9,7 +9,8 @@ namespace Scripts.GameEntities
 {
     public partial class Fruit : MonoBehaviour
     {
-        private const float DESTRUCTION_OFFSET = -1f;
+        private const float DESTRUCTION_OFFSET_UP = 2f;
+        private const float DESTRUCTION_OFFSET_DOWN = -1f;
 
         [SerializeField]
         private SpriteRenderer leftSpriteComp = null;
@@ -26,7 +27,7 @@ namespace Scripts.GameEntities
         [SerializeField]
         private ParticleSystem fruitSprayParticles = null;
 
-        private UnityEvent onFruitDestroyed = new UnityEvent();
+        private UnityEvent<Vector2> onFruitDestroyed = new UnityEvent<Vector2>();
         private UnityEvent<Vector2> onFruitSliced = new UnityEvent<Vector2>();
 
         private FruitSettings fruitSettings;
@@ -34,7 +35,7 @@ namespace Scripts.GameEntities
         private float halfsVelocity;
         private bool isSliced;
 
-        public UnityEvent OnFruitDestroyed { get => onFruitDestroyed; }
+        public UnityEvent<Vector2> OnFruitDestroyed { get => onFruitDestroyed; }
         public UnityEvent<Vector2> OnFruitSliced { get => onFruitSliced; }
 
         private void Start()
@@ -43,7 +44,7 @@ namespace Scripts.GameEntities
             rotateAnimation.PlayAnimation();
 
             destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
-            destructionBoundaryY += DESTRUCTION_OFFSET;
+            destructionBoundaryY += DESTRUCTION_OFFSET_DOWN;
 
             StartCoroutine(DestroyObject());
         }
@@ -109,7 +110,9 @@ namespace Scripts.GameEntities
             yield return new WaitUntil(() => IsCanDestroy());
             if(!isSliced)
             {
-                onFruitDestroyed?.Invoke();
+                Vector2 destroyPosition = transform.position;
+                destroyPosition.y += DESTRUCTION_OFFSET_UP;
+                onFruitDestroyed?.Invoke(destroyPosition);
             }
             Destroy(gameObject);
         }

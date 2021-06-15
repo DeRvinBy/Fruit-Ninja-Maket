@@ -21,10 +21,18 @@ namespace Scripts.Controllers
             lifesUI.InitializeSettings(currentLifes);
         }
 
-        public void RemoveLifes()
+        public void RemoveLifes(Vector2 fruitPosition)
         {
             currentLifes -= controllerSettings.IncresingLifesValue;
             lifesUI.SetLifesCount(currentLifes);
+
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(fruitPosition);
+            CreateSceneFail(screenPosition);
+        }
+
+        public void CreateSceneFail(Vector2 position)
+        {
+            Instantiate(controllerSettings.SceneFailPrefab, position, Quaternion.identity, lifesUI.transform.parent);
         }
     }
 }

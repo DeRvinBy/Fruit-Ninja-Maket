@@ -12,9 +12,6 @@ namespace Scripts.Controllers
         [SerializeField]
         private ScoreUI scoreUI = null;
 
-        [SerializeField]
-        private Transform UI = null;
-
         private int bestScore = 200;
         private int currentScore;
 
@@ -33,13 +30,13 @@ namespace Scripts.Controllers
                 scoreUI.SetBestScore(currentScore);
             }
 
-            var screenPosition = Camera.main.WorldToScreenPoint(slicingPosition);
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(slicingPosition);
             CreateSceneScore(screenPosition);
         }
 
         public void CreateSceneScore(Vector2 position)
         {
-            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, UI);
+            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, scoreUI.transform.parent);
             sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
         }
     }

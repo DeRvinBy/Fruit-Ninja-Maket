@@ -1,18 +1,17 @@
 ﻿using DG.Tweening;
 using Scripts.Animations.Abstract;
-using TMPro;
 using UnityEngine;
 
 namespace Scripts.Animations.UIAnimations
 {
-    public class FadeTextAnimation : UITextAnimation
+    public class FadeCanvasGroupAnimation : UICanvasGroupAnimation
     {
         [SerializeField]
         private float targetAlpha = 0f;
 
         public override void PlayAnimation()
         {
-            text.DOFade(targetAlpha, duration);
+            uiElement.DOFade(targetAlpha, duration);
         }
     }
 }

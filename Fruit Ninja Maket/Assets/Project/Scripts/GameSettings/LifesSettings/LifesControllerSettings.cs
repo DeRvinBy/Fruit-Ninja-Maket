@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Scripts.UI.Lifes;
+using UnityEngine;
 
 namespace Scripts.GameSettings.LifesSettings
 {
@@ -10,7 +11,11 @@ namespace Scripts.GameSettings.LifesSettings
         [SerializeField]
         private int incresingLifesValue = 1;
 
+        [SerializeField]
+        private SceneFailUI sceneFailPrefab = null;
+
         public int MaxLifesCount { get => maxLifesCount; }
         public int IncresingLifesValue { get => incresingLifesValue; }
+        public SceneFailUI SceneFailPrefab { get => sceneFailPrefab; }
     }
 }

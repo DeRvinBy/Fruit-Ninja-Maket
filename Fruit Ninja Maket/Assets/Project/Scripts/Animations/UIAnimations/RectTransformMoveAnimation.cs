@@ -4,10 +4,8 @@ using UnityEngine;
 
 namespace Scripts.Animations.UIAnimations
 {
-    public class RectTransformMoveAnimation : UIReactAnimation
+    public class RectTransformMoveAnimation : UIRectTransformAnimation
     {
-        private const bool SNAPPING = true;
-
         [SerializeField]
         private Vector2 offsetDirection = Vector2.zero;
 
@@ -17,7 +15,7 @@ namespace Scripts.Animations.UIAnimations
         public override void PlayAnimation()
         {
             Vector2 endValue = rectTransform.anchoredPosition + offsetDirection * offset;
-            rectTransform.DOAnchorPos(endValue, duration, SNAPPING);
+            rectTransform.DOAnchorPos(endValue, duration, SNAPPING).SetEase(easeMode);
         }
     }
 }

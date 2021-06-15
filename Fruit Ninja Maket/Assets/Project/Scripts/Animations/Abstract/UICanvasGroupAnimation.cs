@@ -1,23 +1,22 @@
 ﻿using DG.Tweening;
 using Scripts.Animations.Interfaces;
-using TMPro;
 using UnityEngine;
 
 namespace Scripts.Animations.Abstract
 {
-    public abstract class UITextAnimation : MonoBehaviour, IPlayAnimation
+    public abstract class UICanvasGroupAnimation : MonoBehaviour, IPlayAnimation
     {
         [SerializeField]
         protected float duration = 1f;
 
         [SerializeField]
-        protected TMP_Text text = null;
+        protected CanvasGroup uiElement = null;
 
         public abstract void PlayAnimation();
 
         private void OnDestroy()
         {
-            text.DOKill();
+            uiElement.DOKill();
         }
     }
 }
