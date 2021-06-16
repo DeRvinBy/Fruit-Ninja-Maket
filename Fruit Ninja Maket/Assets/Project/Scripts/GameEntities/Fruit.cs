@@ -1,7 +1,7 @@
 using System.Collections;
 using Project.Scripts.Animations.Abstract;
 using Project.Scripts.GameSettings.FruitSettings;
-using Scripts.Physics;
+using Project.Scripts.Physics;
 using UnityEngine;
 using UnityEngine.Events;
 

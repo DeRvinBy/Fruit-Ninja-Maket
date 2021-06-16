@@ -1,9 +1,9 @@
 ﻿using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.FruitSettings.MonoSettings;
-using Scripts.Physics;
+using Project.Scripts.Physics;
 using UnityEngine;
 
-namespace Scripts.Spawn
+namespace Project.Scripts.Spawn
 {
     public class ObjectCreator : MonoBehaviour
     {

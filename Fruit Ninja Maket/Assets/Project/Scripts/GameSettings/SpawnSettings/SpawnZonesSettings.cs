@@ -1,6 +1,6 @@
-using Scripts.Spawn;
 using System;
 using Project.Scripts.GameSettings.SpawnSettings;
+using Project.Scripts.Spawn;
 using UnityEngine;
 
 namespace Scripts.GameSettings.SpawnSettings

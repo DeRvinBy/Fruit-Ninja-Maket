@@ -1,6 +1,6 @@
 ﻿using System.Collections;
-using Scripts.SlicingBehaviour;
-using Scripts.Spawn;
+using Project.Scripts.SlicingBehaviour;
+using Project.Scripts.Spawn;
 using Scripts.UI.Game;
 using UnityEngine;
 
