@@ -1,8 +1,7 @@
-﻿using Scripts.GameEntities;
-using System;
+﻿using System;
 using UnityEngine;
 
-namespace Scripts.GameSettings.FruitSettings
+namespace Project.Scripts.GameSettings.FruitSettings
 {   
     [Serializable]
     public class FruitSettings
@@ -14,23 +13,17 @@ namespace Scripts.GameSettings.FruitSettings
         private Sprite rightHalfOfSprite = null;
 
         [SerializeField]
-        private Color sprayColor = Color.white;
-
-        private FruitBlot fruitBlotSprite;
-        private float blotLifeTime;
+        private Color fruitJuiceColor = Color.white;
+        
         private float halfsVelocityCoef;
 
         public Sprite LeftHalfOfSprite { get => leftHalfOfSprite; }
         public Sprite RightHalfOfSprite { get => rightHalfOfSprite; }
-        public Color SprayColor { get => sprayColor; }
-        public FruitBlot FruitBlotSprite { get => fruitBlotSprite; }
-        public float BlotLifeTime { get => blotLifeTime; }
+        public Color SprayColor { get => fruitJuiceColor; }
         public float HalfsVelocityCoef { get => halfsVelocityCoef; }
 
-        public void SetOtherSettings(FruitBlot fruitBlotSprite, float blotLifeTime, float halfsVelocityCoef)
+        public void SetOtherSettings(float halfsVelocityCoef)
         {
-            this.fruitBlotSprite = fruitBlotSprite;
-            this.blotLifeTime = blotLifeTime;
             this.halfsVelocityCoef = halfsVelocityCoef;
         }
     }
