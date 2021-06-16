@@ -10,12 +10,29 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/FruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/MonoSettings/FruitSettingsContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/ScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/TransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UICanvasGroupAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IPauseAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IPlayAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IReverseAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/FadeCanvasGroupAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIRectTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
     </changedPaths>
   </component>

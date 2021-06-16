@@ -1,5 +1,5 @@
 using System.Collections;
-using Scripts.Animations.Abstract;
+using Project.Scripts.Animations.Abstract;
 using Scripts.GameSettings.FruitSettings;
 using Scripts.Physics;
 using UnityEngine;
@@ -19,10 +19,10 @@ namespace Project.Scripts.GameEntities
         private SpriteRenderer rightSpriteComp = null;
 
         [SerializeField]
-        private TransformAnimation scaleAnimation = null;
+        private RandomTransformAnimation scaleAnimation = null;
 
         [SerializeField]
-        private TransformAnimation rotateAnimation = null;
+        private RandomTransformAnimation rotateAnimation = null;
 
         [SerializeField]
         private ParticleSystem sprayParticles = null;
@@ -122,10 +122,10 @@ namespace Project.Scripts.GameEntities
 
         private bool IsCanDestroy()
         {
-            bool isLeftHalfsOutOfBorder = leftSpriteComp.transform.position.y < destructionBoundaryY;
-            bool isRightHalfsOutOfBorder = rightSpriteComp.transform.position.y < destructionBoundaryY;
-            bool isParticlesPlaying = blotsParticles.isPlaying || sprayParticles.isPlaying;
-            return isLeftHalfsOutOfBorder && isRightHalfsOutOfBorder && !isParticlesPlaying;
+            var isLeftHalfsOutOfBorder = leftSpriteComp.transform.position.y < destructionBoundaryY;
+            var isRightHalfsOutOfBorder = rightSpriteComp.transform.position.y < destructionBoundaryY;
+            var isParticlesCompleted = !blotsParticles.isPlaying || !sprayParticles.isPlaying;
+            return isLeftHalfsOutOfBorder && isRightHalfsOutOfBorder && isParticlesCompleted;
         }
     }
 }
