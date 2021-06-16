@@ -1,6 +1,6 @@
-using Scripts.GameEntities;
 using Scripts.Physics;
 using System.Collections.Generic;
+using Project.Scripts.GameEntities;
 using UnityEngine;
 
 namespace Scripts.SlicingBehaviour

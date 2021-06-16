@@ -1,4 +1,4 @@
-﻿using Scripts.GameEntities;
+﻿using Project.Scripts.GameEntities;
 using UnityEngine;
 
 namespace Scripts.GameSettings.FruitSettings.MonoSettings
@@ -7,12 +7,6 @@ namespace Scripts.GameSettings.FruitSettings.MonoSettings
     {
         [SerializeField]
         private Fruit fruitPrefab = null;
-
-        [SerializeField]
-        private FruitBlot fruitBlotPrefab = null;
-
-        [SerializeField]
-        private float blotLifeTime = 2f;
 
         [SerializeField]
         private float halfsVelocityCoef = 2f;
@@ -25,8 +19,8 @@ namespace Scripts.GameSettings.FruitSettings.MonoSettings
         public FruitSettings GetRandomFruitSettings()
         {
             int index = Random.Range(0, fruitSettings.Length);
-            FruitSettings settings =  fruitSettings[index];
-            settings.SetOtherSettings(fruitBlotPrefab, blotLifeTime, halfsVelocityCoef);
+            FruitSettings settings = fruitSettings[index];
+            settings.SetOtherSettings(halfsVelocityCoef);
             return settings;
         }
     }

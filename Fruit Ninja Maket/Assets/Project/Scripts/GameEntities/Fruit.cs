@@ -1,11 +1,11 @@
+using System.Collections;
 using Scripts.Animations.Abstract;
 using Scripts.GameSettings.FruitSettings;
 using Scripts.Physics;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Scripts.GameEntities
+namespace Project.Scripts.GameEntities
 {
     public partial class Fruit : MonoBehaviour
     {
@@ -25,13 +25,15 @@ namespace Scripts.GameEntities
         private TransformAnimation rotateAnimation = null;
 
         [SerializeField]
-        private ParticleSystem fruitSprayParticles = null;
+        private ParticleSystem sprayParticles = null;
+        
+        [SerializeField]
+        private ParticleSystem blotsParticles = null;
 
         private UnityEvent onFruitDestroyed = new UnityEvent();
         private UnityEvent<Vector2> onFruitNotSliced = new UnityEvent<Vector2>();
         private UnityEvent<Vector2> onFruitSliced = new UnityEvent<Vector2>();
-
-        private FruitSettings fruitSettings;
+        
         private float destructionBoundaryY;
         private float halfsVelocity;
         private bool isSliced;
@@ -62,11 +64,15 @@ namespace Scripts.GameEntities
         {
             leftSpriteComp.sprite = settings.LeftHalfOfSprite;
             rightSpriteComp.sprite = settings.RightHalfOfSprite;
-            var particleSettings = fruitSprayParticles.main;
-            particleSettings.startColor = settings.SprayColor;
+            SetParticlesColor(sprayParticles, settings.SprayColor);
+            SetParticlesColor(blotsParticles, settings.SprayColor);
             halfsVelocity = velocity * settings.HalfsVelocityCoef;
+        }
 
-            fruitSettings = settings;
+        private void SetParticlesColor(ParticleSystem particles, Color color)
+        {
+            var particleSettings = particles.main;
+            particleSettings.startColor = color;
         }
 
         public void Slice(Vector2 slicingDirection)
@@ -74,12 +80,12 @@ namespace Scripts.GameEntities
             if (!isSliced)
             {
                 isSliced = true;
-                fruitSprayParticles.Play();
+                sprayParticles.Play();
+                blotsParticles.Play();
 
                 DisableOptionsOfMainObject();
                 PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
                 PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
-                SpawnFruitBlot();
 
                 onFruitSliced.Invoke(transform.position);
             }
@@ -101,13 +107,6 @@ namespace Scripts.GameEntities
             moevement.enabled = true;
         }
 
-        private void SpawnFruitBlot()
-        {
-            FruitBlot blotSprite = Instantiate(fruitSettings.FruitBlotSprite, transform.position, Quaternion.identity);
-            blotSprite.Initialize(fruitSettings.SprayColor, fruitSettings.BlotLifeTime);
-            blotSprite.transform.localScale = scaleAnimation.transform.localScale;
-        }
-
         private IEnumerator DestroyObject()
         {
             yield return new WaitUntil(() => IsCanDestroy());
@@ -125,7 +124,8 @@ namespace Scripts.GameEntities
         {
             bool isLeftHalfsOutOfBorder = leftSpriteComp.transform.position.y < destructionBoundaryY;
             bool isRightHalfsOutOfBorder = rightSpriteComp.transform.position.y < destructionBoundaryY;
-            return isLeftHalfsOutOfBorder && isRightHalfsOutOfBorder && !fruitSprayParticles.isPlaying;
+            bool isParticlesPlaying = blotsParticles.isPlaying || sprayParticles.isPlaying;
+            return isLeftHalfsOutOfBorder && isRightHalfsOutOfBorder && !isParticlesPlaying;
         }
     }
 }

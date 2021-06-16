@@ -1,5 +1,5 @@
-﻿using Scripts.Controllers;
-using Scripts.GameEntities;
+﻿using Project.Scripts.GameEntities;
+using Scripts.Controllers;
 using Scripts.GameSettings.FruitSettings;
 using Scripts.GameSettings.FruitSettings.MonoSettings;
 using Scripts.Physics;
