@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Scripts.GameSettings.FruitSettings
+namespace Project.Scripts.GameSettings.FruitSettings
 {   
     [Serializable]
     public class FruitSettings

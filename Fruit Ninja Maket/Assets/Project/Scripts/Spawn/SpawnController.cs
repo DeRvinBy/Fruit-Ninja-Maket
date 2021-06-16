@@ -14,8 +14,7 @@ namespace Scripts.Spawn
 
         private float currentDelayTimeSpawnNextZone;
         private int baseCountOfSpawningObjects;
-
-        private bool isSpawnObjects = true;
+        private bool isSpawnObjects;
 
         public void Initialize()
         {

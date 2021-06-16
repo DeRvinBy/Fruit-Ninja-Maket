@@ -1,16 +1,16 @@
 using System.Collections;
 using Project.Scripts.Animations.Abstract;
-using Scripts.GameSettings.FruitSettings;
+using Project.Scripts.GameSettings.FruitSettings;
 using Scripts.Physics;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Project.Scripts.GameEntities
 {
-    public partial class Fruit : MonoBehaviour
+    public class Fruit : MonoBehaviour
     {
-        private const float DESTRUCTION_OFFSET_UP = 2f;
-        private const float DESTRUCTION_OFFSET_DOWN = -1f;
+        private const float DestructionOffsetUp = 2f;
+        private const float DestructionOffsetDown = -1f;
 
         [SerializeField]
         private SpriteRenderer leftSpriteComp = null;
@@ -30,34 +30,30 @@ namespace Project.Scripts.GameEntities
         [SerializeField]
         private ParticleSystem blotsParticles = null;
 
-        private UnityEvent onFruitDestroyed = new UnityEvent();
-        private UnityEvent<Vector2> onFruitNotSliced = new UnityEvent<Vector2>();
-        private UnityEvent<Vector2> onFruitSliced = new UnityEvent<Vector2>();
-        
         private float destructionBoundaryY;
         private float halfsVelocity;
         private bool isSliced;
 
-        public UnityEvent OnFruitDestroyed { get => onFruitDestroyed; }
-        public UnityEvent<Vector2> OnFruitNotSliced { get => onFruitNotSliced; }
-        public UnityEvent<Vector2> OnFruitSliced { get => onFruitSliced; }
+        public UnityEvent OnFruitDestroyed { get; } = new UnityEvent();
+        public UnityEvent<Vector2> OnFruitNotSliced { get; } = new UnityEvent<Vector2>();
+        public UnityEvent<Vector2> OnFruitSliced { get; } = new UnityEvent<Vector2>();
 
         private void Start()
         {
             scaleAnimation.PlayAnimation();
             rotateAnimation.PlayAnimation();
-
+            
             destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
-            destructionBoundaryY += DESTRUCTION_OFFSET_DOWN;
+            destructionBoundaryY += DestructionOffsetDown;
 
             StartCoroutine(DestroyObject());
         }
 
         private void OnDestroy()
         {
-            onFruitDestroyed?.RemoveAllListeners();
-            onFruitNotSliced?.RemoveAllListeners();
-            onFruitSliced?.RemoveAllListeners();
+            OnFruitDestroyed?.RemoveAllListeners();
+            OnFruitNotSliced?.RemoveAllListeners();
+            OnFruitSliced?.RemoveAllListeners();
         }
 
         public void InitializeFruitSettings(FruitSettings settings, float velocity)
@@ -77,18 +73,17 @@ namespace Project.Scripts.GameEntities
 
         public void Slice(Vector2 slicingDirection)
         {
-            if (!isSliced)
-            {
-                isSliced = true;
-                sprayParticles.Play();
-                blotsParticles.Play();
+            if (isSliced) return;
+            
+            isSliced = true;
+            sprayParticles.Play();
+            blotsParticles.Play();
 
-                DisableOptionsOfMainObject();
-                PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
-                PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
+            DisableOptionsOfMainObject();
+            PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
+            PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
 
-                onFruitSliced.Invoke(transform.position);
-            }
+            OnFruitSliced.Invoke(transform.position);
         }
 
         private void DisableOptionsOfMainObject()
@@ -100,23 +95,23 @@ namespace Project.Scripts.GameEntities
             rotateAnimation.PauseAnimation();
         }
 
-        private void PushHalfInDirection(SpriteRenderer halfComponent, Vector2 direction)
+        private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
-            PhysicalMovement moevement = halfComponent.GetComponent<PhysicalMovement>();
+            var moevement = halfComponent.GetComponent<PhysicalMovement>();
             moevement.AddVelocity(direction * halfsVelocity);
             moevement.enabled = true;
         }
 
         private IEnumerator DestroyObject()
         {
-            yield return new WaitUntil(() => IsCanDestroy());
+            yield return new WaitUntil(IsCanDestroy);
             if(!isSliced)
             {
                 Vector2 destroyPosition = transform.position;
-                destroyPosition.y += DESTRUCTION_OFFSET_UP;
-                onFruitNotSliced?.Invoke(destroyPosition);
+                destroyPosition.y += DestructionOffsetUp;
+                OnFruitNotSliced?.Invoke(destroyPosition);
             }
-            onFruitDestroyed?.Invoke();
+            OnFruitDestroyed?.Invoke();
             Destroy(gameObject);
         }
 

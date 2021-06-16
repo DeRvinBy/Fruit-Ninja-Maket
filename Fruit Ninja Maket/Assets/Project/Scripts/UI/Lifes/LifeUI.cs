@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Scripts.UI.Lifes
 {
-    public class LifesUI : MonoBehaviour
+    public class LifeUI : MonoBehaviour
     {
         private List<LifeContainerUI> lifeContainers;
 
