@@ -1,8 +1,8 @@
+using Scripts.GameSettings.SpawnSettings.MonoSettings;
 using System.Collections;
-using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
 using UnityEngine;
 
-namespace Project.Scripts.Spawn
+namespace Scripts.Spawn
 {
     public class SpawnController : MonoBehaviour
     {
@@ -14,7 +14,8 @@ namespace Project.Scripts.Spawn
 
         private float currentDelayTimeSpawnNextZone;
         private int baseCountOfSpawningObjects;
-        private bool isSpawnObjects;
+
+        private bool isSpawnObjects = true;
 
         public void Initialize()
         {
@@ -37,7 +38,7 @@ namespace Project.Scripts.Spawn
 
             while (isSpawnObjects)
             {
-                var zone = zonesContainer.GetRandomSpawnZoneByProbability();
+                SpawnZone zone = zonesContainer.GetRandomSpawnZoneByProbability();
                 zone.SpawnObjectsOnScene(baseCountOfSpawningObjects, controllerSettings.DelayTimeBetweenSpawnObjects);
                 yield return new WaitForSeconds(currentDelayTimeSpawnNextZone);
             }

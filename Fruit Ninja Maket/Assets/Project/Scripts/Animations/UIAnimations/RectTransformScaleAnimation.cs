@@ -1,8 +1,8 @@
 ﻿using DG.Tweening;
-using Project.Scripts.Animations.Abstract;
+using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Project.Scripts.Animations.UIAnimations
+namespace Scripts.Animations.UIAnimations
 {
     public class RectTransformScaleAnimation : UIRectTransformAnimation
     {
@@ -18,7 +18,7 @@ namespace Project.Scripts.Animations.UIAnimations
 
         public override void PlayAnimation()
         {
-            var targetSize = rectTransform.localScale * targetScale;
+            Vector2 targetSize = rectTransform.localScale * targetScale;
             rectTransform.DOScale(targetSize, duration).SetEase(easeMode);
         }
 

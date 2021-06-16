@@ -1,9 +1,9 @@
+using Scripts.GameEntities;
+using Scripts.Physics;
 using System.Collections.Generic;
-using Project.Scripts.GameEntities;
-using Project.Scripts.Physics;
 using UnityEngine;
 
-namespace Project.Scripts.SlicingBehaviour
+namespace Scripts.SlicingBehaviour
 {
     public class Slicer : MonoBehaviour
     {
@@ -12,18 +12,19 @@ namespace Project.Scripts.SlicingBehaviour
 
         private void Update()
         {
-            if (!input.IsSwiping) return;
-            
-            var slicingPoint = input.GetMediaPointOfSlicingPath();
-            var slicingDirection = input.GetDirectionOfSlicingPath();
-
-            var intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
-
-            foreach(var obj in intersectedObjects)
+            if(input.IsSwipping)
             {
-                if(obj.TryGetComponent(out Fruit fruit))
+                Vector2 slicingPoint = input.GetMediaPointOfSlicingPath();
+                Vector2 slicingDirection = input.GetDirectionOfSlicingPath();
+
+                List<GameObject> intersectedObjects = ObjectCollider.GetObjectsIntersectedWithPoint(slicingPoint);
+
+                foreach(var obj in intersectedObjects)
                 {
-                    fruit.Slice(slicingDirection);
+                    if(obj.TryGetComponent(out Fruit fruit))
+                    {
+                        fruit.Slice(slicingDirection);
+                    }
                 }
             }
         }

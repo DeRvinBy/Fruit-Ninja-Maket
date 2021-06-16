@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Project.Scripts.GameSettings.SpawnSettings
+namespace Scripts.GameSettings.SpawnSettings
 {
     [Serializable]
     public class SpawnObjectsSettings
@@ -24,8 +24,8 @@ namespace Project.Scripts.GameSettings.SpawnSettings
         [SerializeField]
         private float baseVelocityOfObjects = 20f;
 
-        public float DirectionAngle => Random.Range(minDirectionAngle, maxDirectionAngle);
-        public int SpawnObjectsCount => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-        public float BaseVelocityOfObjects => baseVelocityOfObjects;
+        public float DirectionAngle { get => Random.Range(minDirectionAngle, maxDirectionAngle); }
+        public int SpawnObjectsCount { get => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount); }
+        public float BaseVelocityOfObjects { get => baseVelocityOfObjects; }
     }
 }

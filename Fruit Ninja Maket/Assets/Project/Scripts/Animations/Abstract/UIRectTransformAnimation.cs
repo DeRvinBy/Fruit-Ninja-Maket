@@ -1,8 +1,8 @@
 ﻿using DG.Tweening;
-using Project.Scripts.Animations.Interfaces;
+using Scripts.Animations.Interfaces;
 using UnityEngine;
 
-namespace Project.Scripts.Animations.Abstract
+namespace Scripts.Animations.Abstract
 {
     public abstract class UIRectTransformAnimation : MonoBehaviour, IPlayAnimation, IReverseAnimation
     {

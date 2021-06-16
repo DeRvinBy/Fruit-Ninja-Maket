@@ -1,24 +1,26 @@
-﻿using Project.Scripts.Controllers;
-using Project.Scripts.GameSettings.FruitSettings.MonoSettings;
-using Project.Scripts.Physics;
+﻿using Scripts.Controllers;
+using Scripts.GameEntities;
+using Scripts.GameSettings.FruitSettings;
+using Scripts.GameSettings.FruitSettings.MonoSettings;
+using Scripts.Physics;
 using UnityEngine;
 
-namespace Project.Scripts.Spawn
+namespace Scripts.Spawn
 {
     public class ObjectCreator : MonoBehaviour
     {
-        private const int ZeroCountObjects = 0;
+        private const int ZERO_COUNT_OBJECTS = 0;
 
         [SerializeField]
         private ScoreController scoreController = null;
 
         [SerializeField]
-        private LifeController lifeController = null;
+        private LifesController lifesController = null;
 
         [SerializeField]
         private FruitSettingsContainer fruitSettingsContainer = null;
 
-        public bool IsExistObjectsOnScene => createdObjects != ZeroCountObjects;
+        public bool IsExistObjectsOnScene { get => createdObjects != ZERO_COUNT_OBJECTS; }
 
         private int createdObjects;
 
@@ -29,13 +31,13 @@ namespace Project.Scripts.Spawn
 
         public void CreateFruit(Vector2 position, Vector2 direction, float velocity)
         {
-            var settings = fruitSettingsContainer.GetRandomFruitSettings();
-            var prefab = fruitSettingsContainer.FruitPrefab;
-            var go = Instantiate(prefab, position, Quaternion.identity, transform);
+            FruitSettings settings = fruitSettingsContainer.GetRandomFruitSettings();
+            Fruit prefab = fruitSettingsContainer.FruitPrefab;
+            Fruit go = Instantiate(prefab, position, Quaternion.identity);
 
             go.InitializeFruitSettings(settings, velocity);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
-            go.OnFruitNotSliced.AddListener(lifeController.RemoveLives);
+            go.OnFruitNotSliced.AddListener(lifesController.RemoveLifes);
             go.OnFruitDestroyed.AddListener(ReduceCreatedObjects);
 
             if (go.TryGetComponent(out PhysicalMovement movement))

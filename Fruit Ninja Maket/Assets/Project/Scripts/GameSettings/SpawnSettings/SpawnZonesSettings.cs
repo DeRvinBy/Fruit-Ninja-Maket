@@ -1,6 +1,5 @@
+using Scripts.Spawn;
 using System;
-using Project.Scripts.GameSettings.SpawnSettings;
-using Project.Scripts.Spawn;
 using UnityEngine;
 
 namespace Scripts.GameSettings.SpawnSettings
@@ -23,7 +22,7 @@ namespace Scripts.GameSettings.SpawnSettings
 
         public float Probability { get => probability; set => probability = value; }
 
-        public SpawnZone SpawnZone => spawnZone;
+        public SpawnZone SpawnZone { get => spawnZone; }
 
         public void InitializeSpawnZone()
         {

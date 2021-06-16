@@ -1,20 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Scripts.UI.Life
+namespace Scripts.UI.Lifes
 {
-    public class LifeUI : MonoBehaviour
+    public class LifesUI : MonoBehaviour
     {
         private List<LifeContainerUI> lifeContainers;
 
-        public void InitializeSettings(int maxLivesCount)
+        public void InitializeSettings(int maxLifesCount)
         {
             lifeContainers = new List<LifeContainerUI>();
 
             for (int i = 0; i < transform.childCount; i++)
             {
-                var child = transform.GetChild(i).GetComponent<LifeContainerUI>();
-                if (i < maxLivesCount)
+                LifeContainerUI child = transform.GetChild(i).GetComponent<LifeContainerUI>();
+                if (i < maxLifesCount)
                 {
                     child.gameObject.SetActive(true);
                     lifeContainers.Add(child);
@@ -26,7 +26,7 @@ namespace Project.Scripts.UI.Life
             }
         }
 
-        public void SetLivesCount(int value)
+        public void SetLifesCount(int value)
         {
             for(int i = 0; i < lifeContainers.Count; i++)
             {

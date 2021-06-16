@@ -1,8 +1,8 @@
-﻿using Project.Scripts.GameSettings.ScoreSettings;
-using Project.Scripts.UI.Score;
+﻿using Scripts.GameSettings.ScoreSettings;
+using Scripts.UI.Score;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Scripts.Controllers
 {
     public class ScoreController : MonoBehaviour
     {
@@ -10,22 +10,16 @@ namespace Project.Scripts.Controllers
         private ScoreControllerSettings controllerSettings = null;
 
         [SerializeField]
-        private Transform uiTransform = null;
+        private Transform canvas = null;
 
         [SerializeField]
         private ScoreUI scoreUI = null;
 
-        private Camera mainCamera;
         private int bestScore;
         private int currentScore;
 
-        public int BestScore => bestScore;
-        public int CurrentScore => currentScore;
-
-        private void Start()
-        {
-            mainCamera = Camera.main;
-        }
+        public int BestScore { get => bestScore; }
+        public int CurrentScore { get => currentScore; }
 
         public void Initialize()
         {
@@ -44,13 +38,13 @@ namespace Project.Scripts.Controllers
                 scoreUI.SetBestScore(currentScore);
             }
 
-            Vector2 screenPosition = mainCamera.WorldToScreenPoint(slicingPosition);
+            Vector2 screenPosition = Camera.main.WorldToScreenPoint(slicingPosition);
             CreateSceneScore(screenPosition);
         }
 
-        private void CreateSceneScore(Vector2 position)
+        public void CreateSceneScore(Vector2 position)
         {
-            var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
+            SceneScoreUI sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, canvas);
             sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
         }
     }
