@@ -37,7 +37,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformScaleAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIRectTransformAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/FruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/MonoSettings/FruitSettingsContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
@@ -59,6 +58,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
