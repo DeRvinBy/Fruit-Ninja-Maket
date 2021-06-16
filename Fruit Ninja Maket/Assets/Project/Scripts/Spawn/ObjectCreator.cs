@@ -18,13 +18,13 @@ namespace Project.Scripts.Spawn
         [SerializeField]
         private FruitSettingsContainer fruitSettingsContainer = null;
 
-        public bool IsExistObjectsOnScene => createdObjects != ZeroCountObjects;
+        public bool IsExistObjectsOnScene => createdObjects > ZeroCountObjects;
 
         private int createdObjects;
 
         public void SetObjectsCountInBundle(int count)
         {
-            createdObjects = count;
+            createdObjects += count;
         }
 
         public void CreateFruit(Vector2 position, Vector2 direction, float velocity)

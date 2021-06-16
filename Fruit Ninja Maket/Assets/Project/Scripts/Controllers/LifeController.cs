@@ -28,10 +28,12 @@ namespace Project.Scripts.Controllers
         private void Start()
         {
             mainCamera = Camera.main;
+            Initialize();
         }
 
         public void Initialize()
         {
+            isEndGame = false;
             currentLives = controllerSettings.MaxLivesCount;
             lifeUI.InitializeSettings(currentLives);
             lifeUI.SetLivesCount(currentLives);
@@ -39,19 +41,18 @@ namespace Project.Scripts.Controllers
 
         public void RemoveLives(Vector2 fruitPosition)
         {
-            if (!isEndGame)
+            if (isEndGame) return;
+            
+            currentLives -= controllerSettings.IncreasingLivesValue;
+            lifeUI.SetLivesCount(currentLives);
+            if (currentLives <= LoseLives)
             {
-                currentLives -= controllerSettings.IncreasingLivesValue;
-                lifeUI.SetLivesCount(currentLives);
-                if (currentLives <= LoseLives)
-                {
-                    gameController.EndGame();
-                    isEndGame = true;
-                }
-
-                Vector2 screenPosition = mainCamera.WorldToScreenPoint(fruitPosition);
-                CreateSceneFail(screenPosition);
+                gameController.EndGame();
+                isEndGame = true;
             }
+
+            Vector2 screenPosition = mainCamera.WorldToScreenPoint(fruitPosition);
+            CreateSceneFail(screenPosition);
         }
 
         public void CreateSceneFail(Vector2 position)

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Project.Scripts.Animations.UIAnimations;
 using Project.Scripts.SlicingBehaviour;
 using Project.Scripts.Spawn;
 using Project.Scripts.UI.Game;
@@ -24,6 +25,9 @@ namespace Project.Scripts.Controllers
         [SerializeField]
         private LifeController lifeController = null;
 
+        [SerializeField] 
+        private SceneTransition sceneTransition = null;
+        
         [SerializeField]
         private RestartUI restartUI = null;
 
@@ -32,9 +36,17 @@ namespace Project.Scripts.Controllers
         
         private void Start()
         {
-            StartScene();
+            sceneTransition.HideTransition(StartScene);
         }
 
+        public void StartScene()
+        {
+            playerInput.SetEnableInput(true);
+            spawnController.Initialize();
+            lifeController.Initialize();
+            scoreController.Initialize();
+        }
+        
         public void EndGame()
         {            
             playerInput.SetEnableInput(false);
@@ -45,15 +57,12 @@ namespace Project.Scripts.Controllers
         
         public void StartMenuScene()
         {
-            SceneManager.LoadScene(menuSceneIndex);
+            sceneTransition.ShowTransition(LoadMenuScene);
         }
 
-        public void StartScene()
+        private void LoadMenuScene()
         {
-            playerInput.SetEnableInput(true);
-            spawnController.Initialize();
-            lifeController.Initialize();
-            scoreController.Initialize();
+            SceneManager.LoadScene(menuSceneIndex);
         }
 
         private IEnumerator WaitToDestroyObjects()
