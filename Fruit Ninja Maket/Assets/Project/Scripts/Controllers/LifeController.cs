@@ -1,4 +1,4 @@
-﻿using Scripts.GameSettings.LifesSettings;
+﻿using Project.Scripts.GameSettings.LifeSettings;
 using Scripts.UI.Lifes;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ namespace Project.Scripts.Controllers
         private GameController gameController = null;
 
         [SerializeField]
-        private LifesControllerSettings controllerSettings = null;
+        private LifeControllerSettings controllerSettings = null;
 
         [SerializeField]
         private Transform uiTransform = null;
@@ -32,7 +32,7 @@ namespace Project.Scripts.Controllers
 
         public void Initialize()
         {
-            currentLives = controllerSettings.MaxLifesCount;
+            currentLives = controllerSettings.MaxLivesCount;
             lifeUI.InitializeSettings(currentLives);
             lifeUI.SetLifesCount(currentLives);
         }
@@ -41,7 +41,7 @@ namespace Project.Scripts.Controllers
         {
             if (!isEndGame)
             {
-                currentLives -= controllerSettings.IncresingLifesValue;
+                currentLives -= controllerSettings.IncreasingLivesValue;
                 lifeUI.SetLifesCount(currentLives);
                 if (currentLives <= LoseLives)
                 {

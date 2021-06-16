@@ -1,5 +1,6 @@
 using Scripts.GameSettings.SpawnSettings;
 using System.Collections;
+using Project.Scripts.GameSettings.SpawnSettings;
 using UnityEngine;
 
 namespace Scripts.Spawn

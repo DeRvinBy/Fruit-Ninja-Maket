@@ -31,7 +31,7 @@ namespace Scripts.Spawn
         {
             var settings = fruitSettingsContainer.GetRandomFruitSettings();
             var prefab = fruitSettingsContainer.FruitPrefab;
-            var go = Instantiate(prefab, position, Quaternion.identity);
+            var go = Instantiate(prefab, position, Quaternion.identity, transform);
 
             go.InitializeFruitSettings(settings, velocity);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);

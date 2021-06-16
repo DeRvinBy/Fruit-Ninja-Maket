@@ -1,4 +1,4 @@
-﻿using Scripts.GameSettings.ScoreSettings;
+﻿using Project.Scripts.GameSettings.ScoreSettings;
 using Scripts.UI.Score;
 using UnityEngine;
 
@@ -50,7 +50,7 @@ namespace Project.Scripts.Controllers
 
         private void CreateSceneScore(Vector2 position)
         {
-            var sceneScore = Instantiate(controllerSettings.SceneScorePrafab, position, Quaternion.identity, uiTransform);
+            var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
             sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
         }
     }

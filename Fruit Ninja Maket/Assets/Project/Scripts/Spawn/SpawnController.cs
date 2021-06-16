@@ -1,5 +1,5 @@
-using Scripts.GameSettings.SpawnSettings.MonoSettings;
 using System.Collections;
+using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
 using UnityEngine;
 
 namespace Scripts.Spawn
