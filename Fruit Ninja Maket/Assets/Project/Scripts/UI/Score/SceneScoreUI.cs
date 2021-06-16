@@ -1,13 +1,12 @@
-using System;
-using Project.Scripts.Animations.Abstract;
+using Scripts.Animations.Abstract;
 using TMPro;
 using UnityEngine;
 
-namespace Project.Scripts.UI.Score
+namespace Scripts.UI.Score
 {
     public class SceneScoreUI : MonoBehaviour
     {
-        private const string TextFormat= "+{0}";
+        private const string PLUS_SIGN= "+";
 
         [SerializeField]
         private float destroyDelay = 2f;
@@ -23,7 +22,7 @@ namespace Project.Scripts.UI.Score
 
         public void InitializeScore(int score)
         {
-            scoreText.text = String.Format(TextFormat, score.ToString());
+            scoreText.text = PLUS_SIGN + score.ToString();
             moveAnimation.PlayAnimation();
             canvasGroupAnimation.PlayAnimation();
             Destroy(gameObject, destroyDelay);

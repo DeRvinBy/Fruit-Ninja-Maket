@@ -1,8 +1,8 @@
 ﻿using DG.Tweening;
-using Project.Scripts.Animations.Abstract;
+using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Project.Scripts.Animations.UIAnimations
+namespace Scripts.Animations.UIAnimations
 {
     public class RectTransformMoveAnimation : UIRectTransformAnimation
     {
@@ -21,7 +21,7 @@ namespace Project.Scripts.Animations.UIAnimations
 
         public override void PlayAnimation()
         {
-            var endValue = rectTransform.anchoredPosition + offsetDirection * offset;
+            Vector2 endValue = rectTransform.anchoredPosition + offsetDirection * offset;
             rectTransform.DOAnchorPos(endValue, duration, SNAPPING).SetEase(easeMode);
         }
 

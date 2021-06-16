@@ -1,7 +1,7 @@
-﻿using Project.Scripts.Animations.Abstract;
+﻿using Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Project.Scripts.UI.Life
+namespace Scripts.UI.Lifes
 {
     public class SceneFailUI : MonoBehaviour
     {

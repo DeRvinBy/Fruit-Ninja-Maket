@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.SlicingBehaviour
+namespace Scripts.SlicingBehaviour
 {
     public class SliceTrace : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Project.Scripts.SlicingBehaviour
 
         private void LateUpdate()
         {
-            if (input.IsSwiping)
+            if (input.IsSwipping)
             {
                 UpdateSliceTrace();
             }
@@ -24,7 +24,7 @@ namespace Project.Scripts.SlicingBehaviour
 
         private void UpdateSliceTrace()
         {
-            var trailPosition = input.GetCurrentPointOfSlicingPath();
+            Vector2 trailPosition = input.GetCurrentPointOfSlicingPath();
             if (trail.emitting)
             {
                 transform.position = trailPosition;

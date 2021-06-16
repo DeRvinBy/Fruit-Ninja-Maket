@@ -1,8 +1,8 @@
+using Scripts.GameSettings.SpawnSettings;
 using System.Collections;
-using Project.Scripts.GameSettings.SpawnSettings;
 using UnityEngine;
 
-namespace Project.Scripts.Spawn
+namespace Scripts.Spawn
 {
     public class SpawnZone : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Project.Scripts.Spawn
         private ObjectCreator objectCreator = null;
 
         private SpawnObjectsSettings spawnObjectsSettings;
-        private float verticalWorldSize;
+        private float verticalWolrdSize;
 
         public void InitializeSpawnObjectsSettings(SpawnObjectsSettings spawnObjectsSettings)
         {
@@ -25,13 +25,13 @@ namespace Project.Scripts.Spawn
 
         public void InitializeTransformSettings(SpawnZoneTransformSettings transformSettings)
         {
-            var camera = Camera.main;
-            var topLeftCorner = camera.ScreenToWorldPoint(new Vector2(0, camera.pixelHeight));
-            var bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
+            Camera camera = Camera.main;
+            Vector3 topLeftCorner = camera.ScreenToWorldPoint(new Vector2(0, camera.pixelHeight));
+            Vector3 bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
             transform.position = transformSettings.GetRelativePosition(topLeftCorner, bottomRightCorner);
             transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
 
-            verticalWorldSize = camera.orthographicSize;
+            verticalWolrdSize = camera.orthographicSize;
         }
 
         public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
@@ -41,14 +41,14 @@ namespace Project.Scripts.Spawn
 
         private IEnumerator SpawnObjectsWithDelay(int baseCount, float spawnObjectsDelay)
         {
-            var spawnPosition = GetSpawnPosition();
-            var direction = GetMovementDirection();
+            Vector2 spawnPosition = GetSpawnPosition();
+            Vector2 direction = GetMovementDirection();
 
-            var count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
+            int count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
             objectCreator.SetObjectsCountInBundle(count);
             for (int i = 0; i < count; i++)
             {
-                var velocity = spawnObjectsSettings.BaseVelocityOfObjects * verticalWorldSize;
+                float velocity = spawnObjectsSettings.BaseVelocityOfObjects * verticalWolrdSize;
                 objectCreator.CreateFruit(spawnPosition, direction, velocity);
                 yield return new WaitForSeconds(spawnObjectsDelay);
             }
@@ -56,14 +56,14 @@ namespace Project.Scripts.Spawn
 
         private Vector2 GetSpawnPosition()
         {
-            var lerpCoef = Random.Range(0f, 1f);
+            float lerpCoef = Random.Range(0f, 1f);
             return Vector2.Lerp(startBoundary.position, endBoundary.position, lerpCoef);
         }
 
         private Vector2 GetMovementDirection()
         {
-            var angle = spawnObjectsSettings.DirectionAngle;
-            var zoneDirection = (endBoundary.position - startBoundary.position).normalized;
+            float angle = spawnObjectsSettings.DirectionAngle;
+            Vector2 zoneDirection = (endBoundary.position - startBoundary.position).normalized;
             return (Quaternion.Euler(0, 0, angle) * zoneDirection);
         }
     }

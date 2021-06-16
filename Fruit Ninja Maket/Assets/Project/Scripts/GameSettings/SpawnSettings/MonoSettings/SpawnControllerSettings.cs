@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
+namespace Scripts.GameSettings.SpawnSettings.MonoSettings
 {
     public class SpawnControllerSettings : MonoBehaviour
     {
@@ -19,10 +19,10 @@ namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
         [SerializeField]
         private int increasingValueOfCountObjectsForDifficulty = 1;
 
-        public float StartTimeOfSpawnZone => startTimeOfSpawnZone;
-        public float DelayTimeSpawnNextZone => delayTimeSpawnNextZone;
-        public float DelayTimeBetweenSpawnObjects => delayTimeBetweenSpawnObjects;
-        public float DecreasingValueOfDelayTimeForDifficulty => decreasingValueOfDelayTimeForDifficulty;
-        public int IncreasingValueOfCountObjectsForDifficulty => increasingValueOfCountObjectsForDifficulty;
+        public float StartTimeOfSpawnZone { get => startTimeOfSpawnZone; }
+        public float DelayTimeSpawnNextZone { get => delayTimeSpawnNextZone; }
+        public float DelayTimeBetweenSpawnObjects { get => delayTimeBetweenSpawnObjects; }
+        public float DecreasingValueOfDelayTimeForDifficulty { get => decreasingValueOfDelayTimeForDifficulty; }
+        public int IncreasingValueOfCountObjectsForDifficulty { get => increasingValueOfCountObjectsForDifficulty; }
     }
 }

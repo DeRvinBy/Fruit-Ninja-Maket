@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.UI.Life
+namespace Scripts.UI.Lifes
 {
     public class LifeContainerUI : MonoBehaviour
     {

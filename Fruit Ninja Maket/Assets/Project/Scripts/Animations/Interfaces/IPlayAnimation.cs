@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.Animations.Interfaces
+﻿namespace Scripts.Animations.Interfaces
 {
     public interface IPlayAnimation
     {

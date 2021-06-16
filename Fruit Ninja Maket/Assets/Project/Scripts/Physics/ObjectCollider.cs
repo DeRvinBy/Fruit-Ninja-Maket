@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Project.Scripts.Physics
+namespace Scripts.Physics
 {
     public class ObjectCollider : MonoBehaviour
     {
@@ -22,7 +22,7 @@ namespace Project.Scripts.Physics
 
         public static List<GameObject> GetObjectsIntersectedWithPoint(Vector2 point)
         {
-            var result = new List<GameObject>();
+            List<GameObject> result = new List<GameObject>();
             foreach(var collider in colliders)
             {
                 if(collider.IsIntersectWithPoint(point))
@@ -35,7 +35,7 @@ namespace Project.Scripts.Physics
 
         private bool IsIntersectWithPoint(Vector2 point)
         {
-            var distance = ((Vector2)transform.position - point).magnitude;
+            float distance = ((Vector2)transform.position - point).magnitude;
             return distance < radius;
         }
 
