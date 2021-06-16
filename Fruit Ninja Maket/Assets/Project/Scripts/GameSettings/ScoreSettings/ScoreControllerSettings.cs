@@ -1,7 +1,7 @@
-﻿using Scripts.UI.Score;
+﻿using Project.Scripts.UI.Score;
 using UnityEngine;
 
-namespace Scripts.GameSettings.ScoreSettings
+namespace Project.Scripts.GameSettings.ScoreSettings
 {
     public class ScoreControllerSettings : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Scripts.GameSettings.ScoreSettings
         [SerializeField]
         private SceneScoreUI sceneScorePrefab = null;
 
-        public int ScoreValueByOneFruit { get => scoreValueByOneFruit; }
-        public SceneScoreUI SceneScorePrafab { get => sceneScorePrefab; }
+        public int ScoreValueByOneFruit => scoreValueByOneFruit;
+        public SceneScoreUI SceneScorePrefab => sceneScorePrefab;
     }
 }

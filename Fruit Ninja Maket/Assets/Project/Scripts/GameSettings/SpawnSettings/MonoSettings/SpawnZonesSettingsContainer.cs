@@ -1,11 +1,12 @@
-using Scripts.Spawn;
+using Project.Scripts.Spawn;
+using Scripts.GameSettings.SpawnSettings;
 using UnityEngine;
 
-namespace Scripts.GameSettings.SpawnSettings.MonoSettings
+namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
 {
     public class SpawnZonesSettingsContainer : MonoBehaviour
     {
-        private const float PROBABILITY_OF_ALL_ZONES = 1f;
+        private const float ProbabilityOfAllZones = 1f;
 
         [SerializeField]
         private SpawnZonesSettings[] spawnZonesSettings = null;
@@ -14,23 +15,22 @@ namespace Scripts.GameSettings.SpawnSettings.MonoSettings
 
         private void OnValidate()
         {
-            if (spawnZonesSettings.Length != 0)
+            if (spawnZonesSettings.Length == 0) return;
+            
+            float probabilitySum = 0;
+            foreach (var spawnZone in spawnZonesSettings)
             {
-                float probabilitySum = 0;
-                for (int i = 0; i < spawnZonesSettings.Length; i++)
+                if (spawnZone.Probability + probabilitySum <= ProbabilityOfAllZones)
                 {
-                    if (spawnZonesSettings[i].Probability + probabilitySum <= PROBABILITY_OF_ALL_ZONES)
-                    {
-                        probabilitySum += spawnZonesSettings[i].Probability;
-                    }
-                    else
-                    {
-                        spawnZonesSettings[i].Probability = PROBABILITY_OF_ALL_ZONES - probabilitySum;
-                        probabilitySum += spawnZonesSettings[i].Probability;
-                    }
-
-                    spawnZonesSettings[i].UpdateSpawnZoneTransform();
+                    probabilitySum += spawnZone.Probability;
                 }
+                else
+                {
+                    spawnZone.Probability = ProbabilityOfAllZones - probabilitySum;
+                    probabilitySum += spawnZone.Probability;
+                }
+
+                spawnZone.UpdateSpawnZoneTransform();
             }
         }
 
@@ -47,7 +47,7 @@ namespace Scripts.GameSettings.SpawnSettings.MonoSettings
 
         public SpawnZone GetRandomSpawnZoneByProbability()
         {
-            float randomPoint = Random.value * PROBABILITY_OF_ALL_ZONES;
+            var randomPoint = Random.value * ProbabilityOfAllZones;
 
             for (int i = 0; i < probabilities.Length; i++)
             {
