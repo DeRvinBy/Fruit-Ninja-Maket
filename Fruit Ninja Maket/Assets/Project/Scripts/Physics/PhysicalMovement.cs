@@ -11,11 +11,6 @@ namespace Project.Scripts.Physics
         private readonly Vector2 gravityDirection = Vector2.down;
         private Vector2 velocity;
 
-        public void Start()
-        {
-            throw new NotImplementedException();
-        }
-
         public void AddVelocity(Vector2 newVelocity)
         {
             velocity += newVelocity;
