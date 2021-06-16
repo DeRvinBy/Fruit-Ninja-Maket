@@ -39,6 +39,7 @@ namespace Project.Scripts.Controllers
         {            
             playerInput.SetEnableInput(false);
             spawnController.StopSpawnObjects();
+            scoreController.SetBestScoreInSave();
             StartCoroutine(WaitToDestroyObjects());
         }
         
