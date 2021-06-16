@@ -13,7 +13,7 @@ namespace Project.Scripts.Animations.UIAnimations
 
         private void Start()
         {
-            startAlpha = GetComponent<CanvasGroup>().alpha;
+            startAlpha = uiElement.alpha;
         }
 
         public override void PlayAnimation()

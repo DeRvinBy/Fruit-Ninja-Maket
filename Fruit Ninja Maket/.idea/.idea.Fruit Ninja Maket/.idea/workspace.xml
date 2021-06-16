@@ -22,26 +22,16 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SaveController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/48/08084133/TweenCallback.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/ScaleAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/TransformAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomScaleAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UICanvasGroupAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IPauseAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IPlayAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IReverseAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/FadeCanvasGroupAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformScaleAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIRectTransformAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/FruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/MonoSettings/FruitSettingsContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/LifesSettings/LifeControllerSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/LifeSettings/LifeControllerSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
@@ -54,14 +44,27 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IPlayAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UICanvasGroupAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIRectTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Interfaces/IReverseAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/FadeCanvasGroupAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/SceneTransition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

@@ -25,6 +25,7 @@ namespace Project.Scripts.Controllers
         private void Start()
         {
             mainCamera = Camera.main;
+            Initialize();
         }
 
         public void Initialize()
