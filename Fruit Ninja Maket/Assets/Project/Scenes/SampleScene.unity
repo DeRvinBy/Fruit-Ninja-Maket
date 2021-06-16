@@ -304,8 +304,8 @@ MonoBehaviour:
   spawnZonesSettings:
   - probability: 0.35
     transformSettings:
-      relativePostionX: 0.25
-      relativePostionY: 1
+      relativePositionX: 0.3
+      relativePositionY: 1
       relativeSize: 0.65
     spawnObjectsSettings:
       minDirectionAngle: 70
@@ -316,8 +316,8 @@ MonoBehaviour:
     spawnZone: {fileID: 655110552}
   - probability: 0.35
     transformSettings:
-      relativePostionX: 0.75
-      relativePostionY: 1
+      relativePositionX: 0.7
+      relativePositionY: 1
       relativeSize: 0.65
     spawnObjectsSettings:
       minDirectionAngle: 90
@@ -328,8 +328,8 @@ MonoBehaviour:
     spawnZone: {fileID: 377847968}
   - probability: 0.15
     transformSettings:
-      relativePostionX: 0
-      relativePostionY: 0.5
+      relativePositionX: 0
+      relativePositionY: 0.5
       relativeSize: 0.4
     spawnObjectsSettings:
       minDirectionAngle: 135
@@ -340,8 +340,8 @@ MonoBehaviour:
     spawnZone: {fileID: 2124790058}
   - probability: 0.14999998
     transformSettings:
-      relativePostionX: 1
-      relativePostionY: 0.5
+      relativePositionX: 1
+      relativePositionY: 0.5
       relativeSize: 0.6
     spawnObjectsSettings:
       minDirectionAngle: 35
@@ -817,9 +817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  fruitBlotPrefab: {fileID: 105282469102559286, guid: 0bc343f5fcaa3fb48be6ce4c2713dfb9, type: 3}
-  blotLifeTime: 2
-  halfsVelocityCoef: 0.4
+  halfsVelocityCoefficient: 0.4
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
@@ -1938,7 +1936,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.055556
+      value: 2.0000005
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.y
@@ -1950,7 +1948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.277778
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2063,7 +2061,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.0833328
+      value: 2.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.y
@@ -2075,7 +2073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.138889
+      value: 3.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2816,7 +2814,7 @@ MonoBehaviour:
   playerInput: {fileID: 613643902}
   objectCreator: {fileID: 1349449991}
   scoreController: {fileID: 2115108505}
-  lifesController: {fileID: 2002008482}
+  lifeController: {fileID: 2002008482}
   restartUI: {fileID: 1552140878}
 --- !u!1 &1301090752
 GameObject:
@@ -2982,7 +2980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreController: {fileID: 2115108505}
-  lifesController: {fileID: 2002008482}
+  lifeController: {fileID: 2002008482}
   fruitSettingsContainer: {fileID: 157836916}
 --- !u!4 &1349449992
 Transform:
@@ -3102,8 +3100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f203403817fb2b14e9b77e339da2efe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLifesCount: 3
-  incresingLifesValue: 1
+  maxLivesCount: 3
+  increasingLivesValue: 1
   sceneFailPrefab: {fileID: 1485875797955022203, guid: e3a38dfd63aedf34da2e205ee14cfa00, type: 3}
 --- !u!4 &1366761135
 Transform:
@@ -4643,7 +4641,7 @@ GameObject:
   - component: {fileID: 2002008481}
   - component: {fileID: 2002008482}
   m_Layer: 0
-  m_Name: LifesController
+  m_Name: LifeController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4677,8 +4675,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameController: {fileID: 1298346910}
   controllerSettings: {fileID: 1366761134}
-  canvas: {fileID: 942328532}
-  lifesUI: {fileID: 24866573}
+  uiTransform: {fileID: 942328532}
+  lifeUI: {fileID: 24866573}
 --- !u!1 &2031448735
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,7 +5040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controllerSettings: {fileID: 1953611277}
-  canvas: {fileID: 942328532}
+  uiTransform: {fileID: 942328532}
   scoreUI: {fileID: 789459058}
 --- !u!4 &2115108506
 Transform:
@@ -5184,7 +5182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: -2.0555553
+      value: -1.9999999
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.y
@@ -5196,7 +5194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.277778
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5309,7 +5307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3.0833328
+      value: 2.9999995
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalScale.y
@@ -5321,7 +5319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.138889
+      value: -3.9999998
       objectReference: {fileID: 0}
     - target: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
       propertyPath: m_LocalPosition.y
