@@ -1,8 +1,8 @@
 ﻿using DG.Tweening;
-using Scripts.Animations.Interfaces;
+using Project.Scripts.Animations.Interfaces;
 using UnityEngine;
 
-namespace Scripts.Animations.Abstract
+namespace Project.Scripts.Animations.Abstract
 {
     public abstract class UICanvasGroupAnimation : MonoBehaviour, IPlayAnimation, IReverseAnimation
     {

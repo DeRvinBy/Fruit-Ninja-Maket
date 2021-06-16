@@ -1,10 +1,10 @@
-﻿using Scripts.SlicingBehaviour;
-using Scripts.Spawn;
-using Scripts.UI.Game;
-using System.Collections;
+﻿using System.Collections;
+using Project.Scripts.SlicingBehaviour;
+using Project.Scripts.Spawn;
+using Project.Scripts.UI.Game;
 using UnityEngine;
 
-namespace Scripts.Controllers
+namespace Project.Scripts.Controllers
 {
     public class GameController : MonoBehaviour
     {
@@ -21,7 +21,7 @@ namespace Scripts.Controllers
         private ScoreController scoreController = null;
 
         [SerializeField]
-        private LifesController lifesController = null;
+        private LifeController lifeController = null;
 
         [SerializeField]
         private RestartUI restartUI = null;
@@ -33,16 +33,16 @@ namespace Scripts.Controllers
 
         public void EndGame()
         {            
-            spawnController.StopSpawnObjects();
             playerInput.SetEnableInput(false);
+            spawnController.StopSpawnObjects();
             StartCoroutine(WaitToDestroyObjects());
         }
 
         public void StartScene()
         {
-            spawnController.Initialize();
             playerInput.SetEnableInput(true);
-            lifesController.Initialize();
+            spawnController.Initialize();
+            lifeController.Initialize();
             scoreController.Initialize();
         }
 

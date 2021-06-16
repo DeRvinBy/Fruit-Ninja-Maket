@@ -821,19 +821,19 @@ MonoBehaviour:
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    sprayColor: {r: 0.3254902, g: 0.15686275, b: 0.5764706, a: 1}
+    fruitJuiceColor: {r: 0.32156864, g: 0.15294118, b: 0.5764706, a: 1}
   - leftHalfOfSprite: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
     rightHalfOfSprite: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    sprayColor: {r: 0.92460704, g: 1, b: 0, a: 1}
+    fruitJuiceColor: {r: 0.8078432, g: 0.9960785, b: 0.003921569, a: 1}
   - leftHalfOfSprite: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
     rightHalfOfSprite: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    sprayColor: {r: 1, g: 0.67058825, b: 0, a: 1}
+    fruitJuiceColor: {r: 1, g: 0.67058825, b: 0, a: 1}
   - leftHalfOfSprite: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
     rightHalfOfSprite: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    sprayColor: {r: 0.8313726, g: 0, b: 0, a: 1}
+    fruitJuiceColor: {r: 0.8941177, g: 0.06666667, b: 0.06666667, a: 1}
   - leftHalfOfSprite: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
     rightHalfOfSprite: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    sprayColor: {r: 0.8867924, g: 0.28862584, b: 0.28862584, a: 1}
+    fruitJuiceColor: {r: 1, g: 0.34117648, b: 0.34117648, a: 1}
 --- !u!1 &180458886
 GameObject:
   m_ObjectHideFlags: 0

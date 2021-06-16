@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-namespace Scripts.GameSettings.SpawnSettings
+namespace Project.Scripts.GameSettings.SpawnSettings
 {
     [Serializable]
     public class SpawnZoneTransformSettings
     {
         [SerializeField]
         [Range(0f, 1f)]
-        private float relativePostionX = 0f;
+        private float relativePositionX = 0f;
 
         [SerializeField]
         [Range(0f, 1f)]
-        private float relativePostionY = 0f;
+        private float relativePositionY = 0f;
 
         [SerializeField]
         [Range(0f, 1f)]
@@ -20,15 +20,15 @@ namespace Scripts.GameSettings.SpawnSettings
 
         public Vector3 GetRelativePosition(Vector3 topLeftCorner, Vector3 bottomRightCorner)
         {
-            float positionX = Mathf.Lerp(topLeftCorner.x, bottomRightCorner.x, relativePostionX);
-            float positionY = Mathf.Lerp(topLeftCorner.y, bottomRightCorner.y, relativePostionY);
+            var positionX = Mathf.Lerp(topLeftCorner.x, bottomRightCorner.x, relativePositionX);
+            var positionY = Mathf.Lerp(topLeftCorner.y, bottomRightCorner.y, relativePositionY);
             return new Vector3(positionX, positionY);
         }
 
         public Vector3 GetRelativeScale(Vector3 topLeftCorner, Vector3 bottomRightCorner)
         {
-            float sizeX = Mathf.Lerp(topLeftCorner.x, bottomRightCorner.x, relativeSize);
-            float sizeY = Mathf.Lerp(topLeftCorner.y, bottomRightCorner.y, relativeSize);
+            var sizeX = Mathf.Lerp(topLeftCorner.x, bottomRightCorner.x, relativeSize);
+            var sizeY = Mathf.Lerp(topLeftCorner.y, bottomRightCorner.y, relativeSize);
             return new Vector3(sizeX, sizeY);
         }
     }

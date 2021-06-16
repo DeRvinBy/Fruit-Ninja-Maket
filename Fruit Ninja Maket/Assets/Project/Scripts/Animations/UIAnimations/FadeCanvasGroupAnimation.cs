@@ -1,8 +1,8 @@
 ﻿using DG.Tweening;
-using Scripts.Animations.Abstract;
+using Project.Scripts.Animations.Abstract;
 using UnityEngine;
 
-namespace Scripts.Animations.UIAnimations
+namespace Project.Scripts.Animations.UIAnimations
 {
     public class FadeCanvasGroupAnimation : UICanvasGroupAnimation
     {
