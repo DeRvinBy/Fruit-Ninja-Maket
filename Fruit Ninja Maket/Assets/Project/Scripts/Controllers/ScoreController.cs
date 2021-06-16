@@ -30,7 +30,8 @@ namespace Project.Scripts.Controllers
         public void Initialize()
         {
             currentScore = 0;
-            bestScore = 200;
+            scoreUI.SetCurrentScore(currentScore);
+            bestScore = SaveController.Instance.GetBestScore();
             scoreUI.SetBestScore(bestScore);
         }
 
@@ -46,6 +47,11 @@ namespace Project.Scripts.Controllers
 
             Vector2 screenPosition = mainCamera.WorldToScreenPoint(slicingPosition);
             CreateSceneScore(screenPosition);
+        }
+
+        public void SetBestScoreInSave()
+        {
+            SaveController.Instance.SetBestScore(bestScore);
         }
 
         private void CreateSceneScore(Vector2 position)

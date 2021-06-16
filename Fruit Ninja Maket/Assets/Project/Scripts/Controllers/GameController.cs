@@ -3,6 +3,7 @@ using Project.Scripts.SlicingBehaviour;
 using Project.Scripts.Spawn;
 using Project.Scripts.UI.Game;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Project.Scripts.Controllers
 {
@@ -26,6 +27,9 @@ namespace Project.Scripts.Controllers
         [SerializeField]
         private RestartUI restartUI = null;
 
+        [SerializeField] 
+        private int menuSceneIndex = 0;
+        
         private void Start()
         {
             StartScene();
@@ -35,7 +39,13 @@ namespace Project.Scripts.Controllers
         {            
             playerInput.SetEnableInput(false);
             spawnController.StopSpawnObjects();
+            scoreController.SetBestScoreInSave();
             StartCoroutine(WaitToDestroyObjects());
+        }
+        
+        public void StartMenuScene()
+        {
+            SceneManager.LoadScene(menuSceneIndex);
         }
 
         public void StartScene()
