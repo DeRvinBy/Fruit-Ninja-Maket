@@ -1,4 +1,4 @@
-﻿using Scripts.UI.Lifes;
+﻿using Project.Scripts.UI.Life;
 using UnityEngine;
 
 namespace Project.Scripts.GameSettings.LifeSettings

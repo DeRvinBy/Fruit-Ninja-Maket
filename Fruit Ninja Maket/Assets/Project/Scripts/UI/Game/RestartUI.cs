@@ -2,7 +2,7 @@ using Project.Scripts.Animations.Abstract;
 using TMPro;
 using UnityEngine;
 
-namespace Scripts.UI.Game
+namespace Project.Scripts.UI.Game
 {
     public class RestartUI : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-﻿using Scripts.UI.Score;
+﻿using Project.Scripts.UI.Score;
 using UnityEngine;
 
 namespace Project.Scripts.GameSettings.ScoreSettings

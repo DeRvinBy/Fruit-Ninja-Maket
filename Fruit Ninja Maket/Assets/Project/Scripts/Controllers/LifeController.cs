@@ -1,5 +1,5 @@
 ﻿using Project.Scripts.GameSettings.LifeSettings;
-using Scripts.UI.Lifes;
+using Project.Scripts.UI.Life;
 using UnityEngine;
 
 namespace Project.Scripts.Controllers
@@ -34,7 +34,7 @@ namespace Project.Scripts.Controllers
         {
             currentLives = controllerSettings.MaxLivesCount;
             lifeUI.InitializeSettings(currentLives);
-            lifeUI.SetLifesCount(currentLives);
+            lifeUI.SetLivesCount(currentLives);
         }
 
         public void RemoveLives(Vector2 fruitPosition)
@@ -42,7 +42,7 @@ namespace Project.Scripts.Controllers
             if (!isEndGame)
             {
                 currentLives -= controllerSettings.IncreasingLivesValue;
-                lifeUI.SetLifesCount(currentLives);
+                lifeUI.SetLivesCount(currentLives);
                 if (currentLives <= LoseLives)
                 {
                     gameController.EndGame();

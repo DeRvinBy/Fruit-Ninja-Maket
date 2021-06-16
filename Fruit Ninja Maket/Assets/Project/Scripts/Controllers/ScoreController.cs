@@ -1,5 +1,5 @@
 ﻿using Project.Scripts.GameSettings.ScoreSettings;
-using Scripts.UI.Score;
+using Project.Scripts.UI.Score;
 using UnityEngine;
 
 namespace Project.Scripts.Controllers

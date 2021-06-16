@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Project.Scripts.SlicingBehaviour;
 using Project.Scripts.Spawn;
-using Scripts.UI.Game;
+using Project.Scripts.UI.Game;
 using UnityEngine;
 
 namespace Project.Scripts.Controllers
