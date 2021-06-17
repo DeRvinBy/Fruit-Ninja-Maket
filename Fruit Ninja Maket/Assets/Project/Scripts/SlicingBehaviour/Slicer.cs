@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Project.Scripts.GameEntities;
+using Project.Scripts.Blocks;
 using Project.Scripts.Physics;
 using UnityEngine;
 

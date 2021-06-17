@@ -170,10 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aced9f654e201c941b227d69f98125cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftSpriteComp: {fileID: 5194728085459149923}
-  rightSpriteComp: {fileID: 6844950957896008368}
+  objectCollider: {fileID: -20643610181989524}
+  physicalMovement: {fileID: 792806275497476818}
   scaleAnimation: {fileID: 1213835088050952496}
   rotateAnimation: {fileID: 7827361500517077126}
+  leftSpriteComp: {fileID: 5194728085459149923}
+  rightSpriteComp: {fileID: 6844950957896008368}
   sprayParticles: {fileID: 2646527060148761733}
   blotsParticles: {fileID: 5216270337270117322}
 --- !u!1 &2210487069211148707

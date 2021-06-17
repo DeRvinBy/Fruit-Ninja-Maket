@@ -1,4 +1,4 @@
-﻿using Project.Scripts.GameEntities;
+﻿using Project.Scripts.Blocks;
 using UnityEngine;
 
 namespace Project.Scripts.GameSettings.BlockSettings.MonoSettings

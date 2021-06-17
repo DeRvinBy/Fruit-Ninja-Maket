@@ -1,4 +1,5 @@
-﻿using Project.Scripts.Controllers;
+﻿using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.MonoSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -34,7 +35,7 @@ namespace Project.Scripts.Spawn
             go.InitializeFruitSettings(settings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
             go.OnFruitNotSliced.AddListener(lifeController.RemoveLives);
-            go.OnFruitDestroyed.AddListener(ReduceCreatedObjects);
+            go.OnBlockDestroyed.AddListener(ReduceCreatedObjects);
 
             if (go.TryGetComponent(out PhysicalMovement movement))
             {
@@ -44,7 +45,7 @@ namespace Project.Scripts.Spawn
             createdObjects++;
         }
 
-        private void ReduceCreatedObjects()
+        private void ReduceCreatedObjects(SliceBlock block)
         {
             createdObjects--;
         }
