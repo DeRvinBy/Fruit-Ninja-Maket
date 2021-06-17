@@ -16,7 +16,6 @@ namespace Project.Scripts.Spawn
         private ObjectCreator objectCreator = null;
 
         private SpawnObjectsSettings spawnObjectsSettings;
-        private float verticalWorldSize;
 
         public void InitializeSpawnObjectsSettings(SpawnObjectsSettings spawnObjectsSettings)
         {
@@ -30,8 +29,6 @@ namespace Project.Scripts.Spawn
             var bottomRightCorner = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, 0));
             transform.position = transformSettings.GetRelativePosition(topLeftCorner, bottomRightCorner);
             transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
-
-            verticalWorldSize = camera.orthographicSize;
         }
 
         public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
@@ -48,7 +45,7 @@ namespace Project.Scripts.Spawn
             objectCreator.SetObjectsCountInBundle(count);
             for (int i = 0; i < count; i++)
             {
-                var velocity = spawnObjectsSettings.BaseVelocityOfObjects * verticalWorldSize;
+                var velocity = spawnObjectsSettings.VelocityOfObjects;
                 objectCreator.CreateFruit(spawnPosition, direction, velocity);
                 yield return new WaitForSeconds(spawnObjectsDelay);
             }

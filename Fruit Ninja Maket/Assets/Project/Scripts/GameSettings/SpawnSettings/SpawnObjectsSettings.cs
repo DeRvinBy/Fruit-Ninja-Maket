@@ -22,10 +22,10 @@ namespace Project.Scripts.GameSettings.SpawnSettings
         private int maxSpawnObjectsCount = 5;
 
         [SerializeField]
-        private float baseVelocityOfObjects = 20f;
+        private float velocityOfObjects = 20f;
 
         public float DirectionAngle => Random.Range(minDirectionAngle, maxDirectionAngle);
         public int SpawnObjectsCount => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-        public float BaseVelocityOfObjects => baseVelocityOfObjects;
+        public float VelocityOfObjects => velocityOfObjects;
     }
 }
