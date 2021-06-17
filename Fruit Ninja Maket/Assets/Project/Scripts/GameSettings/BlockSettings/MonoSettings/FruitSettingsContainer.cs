@@ -1,7 +1,7 @@
 ﻿using Project.Scripts.GameEntities;
 using UnityEngine;
 
-namespace Project.Scripts.GameSettings.FruitSettings.MonoSettings
+namespace Project.Scripts.GameSettings.BlockSettings.MonoSettings
 {
     public class FruitSettingsContainer : MonoBehaviour
     {
@@ -9,7 +9,7 @@ namespace Project.Scripts.GameSettings.FruitSettings.MonoSettings
         private Fruit fruitPrefab = null;
 
         [SerializeField]
-        private float halfsVelocityCoefficient = 0.4f;
+        private float halfVelocityCoefficient = 0.4f;
 
         [SerializeField]
         private FruitSettings[] fruitSettings = null;
@@ -20,7 +20,7 @@ namespace Project.Scripts.GameSettings.FruitSettings.MonoSettings
         {
             var index = Random.Range(0, fruitSettings.Length);
             var settings = fruitSettings[index];
-            settings.SetOtherSettings(halfsVelocityCoefficient);
+            settings.SetOtherSettings(halfVelocityCoefficient);
             return settings;
         }
     }

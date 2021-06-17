@@ -15,17 +15,12 @@ namespace Project.Scripts.GameSettings.SpawnSettings
         [Range(0f, 180f)]
         private float maxDirectionAngle = 120f;
 
-        [SerializeField]
-        private int minSpawnObjectsCount = 1;
-
-        [SerializeField]
-        private int maxSpawnObjectsCount = 5;
-
-        [SerializeField]
-        private float velocityOfObjects = 20f;
-
+        [SerializeField] 
+        [Range(0f, 1f)] 
+        private float fromBaseVelocityCoefficient = 1f;
+        
         public float DirectionAngle => Random.Range(minDirectionAngle, maxDirectionAngle);
-        public int SpawnObjectsCount => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-        public float VelocityOfObjects => velocityOfObjects;
+
+        public float FromBaseVelocityCoefficient => fromBaseVelocityCoefficient;
     }
 }

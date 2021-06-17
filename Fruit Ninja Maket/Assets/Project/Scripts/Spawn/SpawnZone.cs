@@ -31,26 +31,15 @@ namespace Project.Scripts.Spawn
             transform.localScale = transformSettings.GetRelativeScale(topLeftCorner, bottomRightCorner);
         }
 
-        public void SpawnObjectsOnScene(int baseCount, float spawnObjectsDelay)
-        {
-            StartCoroutine(SpawnObjectsWithDelay(baseCount, spawnObjectsDelay));
-        }
-
-        private IEnumerator SpawnObjectsWithDelay(int baseCount, float spawnObjectsDelay)
+        public void SpawnObjectsOnScene()
         {
             var spawnPosition = GetSpawnPosition();
             var direction = GetMovementDirection();
-
-            var count = baseCount + spawnObjectsSettings.SpawnObjectsCount;
-            objectCreator.SetObjectsCountInBundle(count);
-            for (int i = 0; i < count; i++)
-            {
-                var velocity = spawnObjectsSettings.VelocityOfObjects;
-                objectCreator.CreateFruit(spawnPosition, direction, velocity);
-                yield return new WaitForSeconds(spawnObjectsDelay);
-            }
+            
+            var velocityCoef = spawnObjectsSettings.FromBaseVelocityCoefficient;
+            objectCreator.CreateFruit(spawnPosition, direction * velocityCoef);
         }
-
+        
         private Vector2 GetSpawnPosition()
         {
             var lerpCoef = Random.Range(0f, 1f);

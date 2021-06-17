@@ -1,6 +1,6 @@
 using System.Collections;
 using Project.Scripts.Animations.Abstract;
-using Project.Scripts.GameSettings.FruitSettings;
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -56,13 +56,13 @@ namespace Project.Scripts.GameEntities
             OnFruitSliced?.RemoveAllListeners();
         }
 
-        public void InitializeFruitSettings(FruitSettings settings, float velocity)
+        public void InitializeFruitSettings(FruitSettings settings)
         {
             leftSpriteComp.sprite = settings.LeftHalfOfSprite;
             rightSpriteComp.sprite = settings.RightHalfOfSprite;
             SetParticlesColor(sprayParticles, settings.SprayColor);
             SetParticlesColor(blotsParticles, settings.SprayColor);
-            halfsVelocity = velocity * settings.HalfsVelocityCoef;
+            halfsVelocity = settings.HalfVelocity;
         }
 
         private void SetParticlesColor(ParticleSystem particles, Color color)
