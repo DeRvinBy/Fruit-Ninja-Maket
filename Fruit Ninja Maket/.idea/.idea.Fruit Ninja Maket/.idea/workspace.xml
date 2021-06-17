@@ -63,8 +63,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnZone.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnObjectsSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
