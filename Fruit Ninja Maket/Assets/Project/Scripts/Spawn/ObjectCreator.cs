@@ -1,15 +1,14 @@
-﻿using Project.Scripts.Blocks;
-using Project.Scripts.Controllers;
+﻿using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.MonoSettings;
-using Project.Scripts.Physics;
 using UnityEngine;
 
 namespace Project.Scripts.Spawn
 {
     public class ObjectCreator : MonoBehaviour
     {
-        private const int ZeroCountObjects = 0;
-
+        [SerializeField] 
+        private BlockController blockController = null;
+        
         [SerializeField]
         private ScoreController scoreController = null;
 
@@ -21,33 +20,20 @@ namespace Project.Scripts.Spawn
         
         [SerializeField]
         private FruitSettingsContainer fruitSettingsContainer = null;
-
-        public bool IsExistObjectsOnScene => createdObjects > ZeroCountObjects;
-
-        private int createdObjects;
-
+        
         public void CreateFruit(Vector2 position, Vector2 direction)
         {
             var settings = fruitSettingsContainer.GetRandomFruitSettings();
             var prefab = fruitSettingsContainer.FruitPrefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
 
+            var velocity = direction * blockSettingsContainer.VelocityOfObjects;
+            go.SetMovement(velocity);
             go.InitializeFruitSettings(settings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
             go.OnFruitNotSliced.AddListener(lifeController.RemoveLives);
-            go.OnBlockDestroyed.AddListener(ReduceCreatedObjects);
-
-            if (go.TryGetComponent(out PhysicalMovement movement))
-            {
-                movement.AddVelocity(direction * blockSettingsContainer.VelocityOfObjects);
-            }
-
-            createdObjects++;
-        }
-
-        private void ReduceCreatedObjects(SliceBlock block)
-        {
-            createdObjects--;
+            go.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
+            blockController.AddBlock(go);
         }
     }
 }

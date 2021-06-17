@@ -6,15 +6,13 @@ using UnityEngine.Events;
 
 namespace Project.Scripts.Blocks
 {
-    public abstract class SliceBlock : MonoBehaviour
+    public abstract class SliceBlock : ObjectCollider
     {
         protected const float DESTRUCTION_OFFSET_UP = 2f;
         protected const float DESTRUCTION_OFFSET_DOWN = -1f;
 
-        [Header("Physics Components")] 
-        [SerializeField]
-        private ObjectCollider objectCollider = null;
-        
+        [Header("Physics Components")]
+
         [SerializeField]
         private PhysicalMovement physicalMovement = null;
         
@@ -55,6 +53,11 @@ namespace Project.Scripts.Blocks
         {
             OnBlockDestroyed?.RemoveAllListeners();
         }
+
+        public void SetMovement(Vector2 velocity)
+        {
+            physicalMovement.AddVelocity(velocity);
+        }
         
         public virtual void Slice(Vector2 slicingDirection)
         {
@@ -65,7 +68,6 @@ namespace Project.Scripts.Blocks
 
         protected virtual void DisableBlockComponent()
         {
-            objectCollider.enabled = false;
             physicalMovement.enabled = false;
 
             scaleAnimation.PauseAnimation();

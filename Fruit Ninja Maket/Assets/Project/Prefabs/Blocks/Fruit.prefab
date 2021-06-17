@@ -105,7 +105,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 792806275497476816}
-  - component: {fileID: -20643610181989524}
   - component: {fileID: 792806275497476818}
   - component: {fileID: 3675293215862686405}
   m_Layer: 0
@@ -132,19 +131,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-20643610181989524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792806275497476819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7283f3ec322faf498a5cb043c447c32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 0.8
 --- !u!114 &792806275497476818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aced9f654e201c941b227d69f98125cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectCollider: {fileID: -20643610181989524}
+  colliderRadius: 0.8
   physicalMovement: {fileID: 792806275497476818}
   scaleAnimation: {fileID: 1213835088050952496}
   rotateAnimation: {fileID: 7827361500517077126}

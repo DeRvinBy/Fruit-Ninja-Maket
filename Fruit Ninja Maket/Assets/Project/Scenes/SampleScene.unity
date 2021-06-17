@@ -310,9 +310,7 @@ MonoBehaviour:
     spawnObjectsSettings:
       minDirectionAngle: 80
       maxDirectionAngle: 90
-      minSpawnObjectsCount: 1
-      maxSpawnObjectsCount: 5
-      velocityOfObjects: 16
+      fromBaseVelocityCoefficient: 1
     spawnZone: {fileID: 655110552}
   - probability: 0.35
     transformSettings:
@@ -322,9 +320,7 @@ MonoBehaviour:
     spawnObjectsSettings:
       minDirectionAngle: 100
       maxDirectionAngle: 110
-      minSpawnObjectsCount: 1
-      maxSpawnObjectsCount: 5
-      velocityOfObjects: 16
+      fromBaseVelocityCoefficient: 1
     spawnZone: {fileID: 377847968}
   - probability: 0.15
     transformSettings:
@@ -334,9 +330,7 @@ MonoBehaviour:
     spawnObjectsSettings:
       minDirectionAngle: 135
       maxDirectionAngle: 145
-      minSpawnObjectsCount: 1
-      maxSpawnObjectsCount: 3
-      velocityOfObjects: 14
+      fromBaseVelocityCoefficient: 0.8
     spawnZone: {fileID: 2124790058}
   - probability: 0.14999998
     transformSettings:
@@ -346,9 +340,7 @@ MonoBehaviour:
     spawnObjectsSettings:
       minDirectionAngle: 35
       maxDirectionAngle: 45
-      minSpawnObjectsCount: 1
-      maxSpawnObjectsCount: 3
-      velocityOfObjects: 14
+      fromBaseVelocityCoefficient: 0.8
     spawnZone: {fileID: 970086011}
 --- !u!114 &19734838
 MonoBehaviour:
@@ -365,6 +357,8 @@ MonoBehaviour:
   startTimeOfSpawnZone: 2
   delayTimeSpawnNextZone: 3
   delayTimeBetweenSpawnObjects: 0.5
+  minSpawnObjectsCount: 1
+  maxSpawnObjectsCount: 5
   decreasingValueOfDelayTimeForDifficulty: 0.5
   increasingValueOfCountObjectsForDifficulty: 1
 --- !u!1 &20933063
@@ -395,9 +389,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 19734836}
-  - {fileID: 157836915}
   - {fileID: 1366761135}
   - {fileID: 1953611276}
+  - {fileID: 1325425214}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -773,67 +767,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154626786}
   m_CullTransparentMesh: 1
---- !u!1 &157836914
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 157836915}
-  - component: {fileID: 157836916}
-  m_Layer: 0
-  m_Name: FruitSettings
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &157836915
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157836914}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 20933064}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &157836916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157836914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ca7d8529e2ae24ab5463e8dd0883df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfsVelocityCoefficient: 0.2
-  fruitSettings:
-  - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    fruitJuiceColor: {r: 0.32156864, g: 0.15294118, b: 0.5764706, a: 1}
-  - leftHalfOfSprite: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    rightHalfOfSprite: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    fruitJuiceColor: {r: 0.8078432, g: 0.9960785, b: 0.003921569, a: 1}
-  - leftHalfOfSprite: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    rightHalfOfSprite: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    fruitJuiceColor: {r: 1, g: 0.67058825, b: 0, a: 1}
-  - leftHalfOfSprite: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    rightHalfOfSprite: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    fruitJuiceColor: {r: 0.8941177, g: 0.06666667, b: 0.06666667, a: 1}
-  - leftHalfOfSprite: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    rightHalfOfSprite: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    fruitJuiceColor: {r: 1, g: 0.34117648, b: 0.34117648, a: 1}
 --- !u!1 &180458886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 613643902}
+  blockController: {fileID: 2132663860}
 --- !u!1 &815970132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2678,7 @@ Transform:
   - {fileID: 2002008481}
   - {fileID: 613643903}
   - {fileID: 1298346909}
+  - {fileID: 2132663859}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2872,7 +2807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnController: {fileID: 285971089}
   playerInput: {fileID: 613643902}
-  objectCreator: {fileID: 1349449991}
+  blockController: {fileID: 2132663860}
   scoreController: {fileID: 2115108505}
   lifeController: {fileID: 2002008482}
   sceneTransition: {fileID: 319816931}
@@ -3012,6 +2947,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301090752}
   m_CullTransparentMesh: 1
+--- !u!1 &1325425213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1325425214}
+  - component: {fileID: 1325425216}
+  - component: {fileID: 1325425215}
+  m_Layer: 0
+  m_Name: BlockSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1325425214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325425213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 20933064}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1325425215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325425213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ca7d8529e2ae24ab5463e8dd0883df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
+  halfVelocityCoefficient: 2
+  fruitSettings:
+  - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
+    rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
+    fruitJuiceColor: {r: 0.32156864, g: 0.15294118, b: 0.5764706, a: 1}
+  - leftHalfOfSprite: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
+    rightHalfOfSprite: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
+    fruitJuiceColor: {r: 0.8078432, g: 0.9960785, b: 0.003921569, a: 1}
+  - leftHalfOfSprite: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
+    rightHalfOfSprite: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
+    fruitJuiceColor: {r: 1, g: 0.67058825, b: 0, a: 1}
+  - leftHalfOfSprite: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
+    rightHalfOfSprite: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
+    fruitJuiceColor: {r: 0.8941177, g: 0.06666667, b: 0.06666667, a: 1}
+  - leftHalfOfSprite: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
+    rightHalfOfSprite: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
+    fruitJuiceColor: {r: 1, g: 0.34117648, b: 0.34117648, a: 1}
+--- !u!114 &1325425216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325425213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a33883ac55848e0b455964a7c3ef452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityOfObjects: 20
 --- !u!1 &1349449990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,9 +3051,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7151b2e6fed65b4eb76d1473a97ce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockController: {fileID: 2132663860}
   scoreController: {fileID: 2115108505}
   lifeController: {fileID: 2002008482}
-  fruitSettingsContainer: {fileID: 157836916}
+  blockSettingsContainer: {fileID: 1325425216}
+  fruitSettingsContainer: {fileID: 1325425215}
 --- !u!4 &1349449992
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,7 +3189,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 20933064}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1386556888
 GameObject:
@@ -4479,7 +4491,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 20933064}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1953611277
 MonoBehaviour:
@@ -5441,6 +5453,49 @@ PrefabInstance:
       objectReference: {fileID: 792806275497476819, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
+--- !u!1 &2132663858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2132663859}
+  - component: {fileID: 2132663860}
+  m_Layer: 0
+  m_Name: BlocksController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2132663859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132663858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1205373107}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2132663860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132663858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5520c00e7646409c8e44eb1aca6cc4f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6742746221955846421
 PrefabInstance:
   m_ObjectHideFlags: 0
