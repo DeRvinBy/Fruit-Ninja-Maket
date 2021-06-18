@@ -6,19 +6,19 @@ namespace Project.Scripts.BlockFactory
     public class FruitFactory : SliceBlockFactory
     { 
         [SerializeField]
-        private BaseFruitSettings baseFruitSettings = null;
+        private BaseFruitSettings fruitSettings = null;
 
         public override void CreateBlock(Vector2 position, Vector2 direction)
         {
-            var prefab = baseFruitSettings.FruitPrefab;
+            var prefab = fruitSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            var settings = baseFruitSettings.GetRandomFruitSettings();
-            go.InitializeFruitSettings(settings);
+            var settings = fruitSettings.GetRandomFruitSettings();
+            go.InitializeSettings(settings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
-            go.OnFruitNotSliced.AddListener(lifeController.RemoveLives);
+            go.OnFruitNotSliced.AddListener(lifeController.RemoveLivesWithSpawnFail);
             
-            var velocity = direction * baseFruitSettings.VelocityOfObjects;
+            var velocity = direction * fruitSettings.VelocityOfBlock;
             InitializeBlock(go, velocity);
         }
     }

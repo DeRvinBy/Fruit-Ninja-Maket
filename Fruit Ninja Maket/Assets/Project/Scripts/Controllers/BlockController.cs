@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Project.Scripts.Blocks;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ namespace Project.Scripts.Controllers
             blocks.Remove(block);
             createdObjects--;
         }
-        
+
         public List<SliceBlock> GetBlocksIntersectedWithPoint(Vector2 point)
         {
             var result = new List<SliceBlock>();

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1286096222658675951}
   - component: {fileID: 1286096222658675949}
+  - component: {fileID: -4951373324098148696}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Untagged
@@ -46,6 +47,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 25
+--- !u!114 &-4951373324098148696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286096222658675948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb7e3924b95a432e824b028968b00cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderRadius: 0.8
+  physicalMovement: {fileID: 1286096222658675949}
+  scaleAnimation: {fileID: 721090773530844943}
+  rotateAnimation: {fileID: 8537104675320829625}
+  explosionParticles: {fileID: 4495690835476656826}
+  spriteObject: {fileID: 5958963211953999972}
 --- !u!1 &5221219100832067315
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +77,7 @@ GameObject:
   - component: {fileID: 4495690835476656826}
   - component: {fileID: 940860585705272217}
   m_Layer: 0
-  m_Name: SprayParticles
+  m_Name: ExplosionParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +113,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -792,7 +811,7 @@ ParticleSystem:
     sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
-      value: 0.39
+      value: 3
       mode: 0
       spread: 0
       speed:

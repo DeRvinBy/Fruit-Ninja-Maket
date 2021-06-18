@@ -357,7 +357,7 @@ MonoBehaviour:
   startTimeOfSpawnZone: 2
   delayTimeSpawnNextZone: 3
   delayTimeBetweenSpawnObjects: 0.5
-  minSpawnObjectsCount: 1
+  minSpawnObjectsCount: 5
   maxSpawnObjectsCount: 5
   decreasingValueOfDelayTimeForDifficulty: 0.5
   increasingValueOfCountObjectsForDifficulty: 1
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c273a3a07b3e54a47b4b31aa214037a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectCreator: {fileID: 1349449991}
   controllerSettings: {fileID: 19734838}
   zonesContainer: {fileID: 19734837}
 --- !u!4 &285971090
@@ -1119,6 +1120,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ebdc339560c104bbdd6e19545aab62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &324286086
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324286088}
+  - component: {fileID: 324286087}
+  m_Layer: 0
+  m_Name: BombFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &324286087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324286086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc56adfc0ff44745acc6b8cb262b8d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombSettings: {fileID: 452197364}
+--- !u!4 &324286088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324286086}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1349449992}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &377847968 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8214590270218896097, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
@@ -1205,6 +1250,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 422441977}
   m_CullTransparentMesh: 1
+--- !u!1 &452197363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 452197365}
+  - component: {fileID: 452197364}
+  m_Layer: 0
+  m_Name: BombSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &452197364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452197363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 380ab6d3c42e495f96794b9360365e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityOfBlock: 20
+  countOfReducingLives: 1
+  prefab: {fileID: -4951373324098148696, guid: fe8c561cc97d6f24dad2fc3f0bd2992e, type: 3}
+  explosionRadius: 1
+  explosionForce: 5
+  particleSpeed: 0.5
+--- !u!4 &452197365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452197363}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516407544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,9 +1481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68ca7d8529e2ae24ab5463e8dd0883df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityOfObjects: 20
-  fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfVelocityCoefficient: 0.4
+  velocityOfBlock: 20
+  countOfReducingLives: 1
+  prefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
+  halfVelocityCoefficient: 1
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
@@ -2428,7 +2523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d84522821ed3414cb371f7d043239d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseFruitSettings: {fileID: 516567225}
+  fruitSettings: {fileID: 516567225}
 --- !u!1 &942328528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3064,7 +3159,7 @@ GameObject:
   - component: {fileID: 1325425214}
   - component: {fileID: 1325425216}
   m_Layer: 0
-  m_Name: FactorySettings
+  m_Name: ObjectCreatorSettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3082,6 +3177,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 516567224}
+  - {fileID: 452197365}
   m_Father: {fileID: 20933064}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3099,7 +3195,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factories:
   - spawnProbability: 1
+    percentBlocksInBundle: 1
     blockFactory: {fileID: 899489463}
+  - spawnProbability: 1
+    percentBlocksInBundle: 0.4
+    blockFactory: {fileID: 324286087}
 --- !u!1 &1349449990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,7 +3232,7 @@ MonoBehaviour:
   blockController: {fileID: 2132663860}
   scoreController: {fileID: 2115108505}
   lifeController: {fileID: 2002008482}
-  factoriesContainer: {fileID: 1325425216}
+  objectCreatorSettings: {fileID: 1325425216}
 --- !u!4 &1349449992
 Transform:
   m_ObjectHideFlags: 0
@@ -3145,6 +3245,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 899489462}
+  - {fileID: 324286088}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3253,7 +3354,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLivesCount: 3
-  increasingLivesValue: 1
   sceneFailPrefab: {fileID: 1485875797955022203, guid: e3a38dfd63aedf34da2e205ee14cfa00, type: 3}
 --- !u!4 &1366761135
 Transform:

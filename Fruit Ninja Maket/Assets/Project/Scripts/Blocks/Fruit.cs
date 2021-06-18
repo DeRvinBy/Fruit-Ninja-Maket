@@ -1,4 +1,3 @@
-using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -21,19 +20,19 @@ namespace Project.Scripts.Blocks
         
         [SerializeField]
         private ParticleSystem blotsParticles = null;
+
+        private AdditionalFruitSettings fruitSettings;
         
-        private float halfVelocity;
-        
-        public UnityEvent<Vector2> OnFruitNotSliced { get; } = new UnityEvent<Vector2>();
+        public UnityEvent<Vector2, int> OnFruitNotSliced { get; } = new UnityEvent<Vector2, int>();
         public UnityEvent<Vector2> OnFruitSliced { get; } = new UnityEvent<Vector2>();
 
-        public void InitializeFruitSettings(AdditionalFruitSettings settings)
+        public void InitializeSettings(AdditionalFruitSettings settings)
         {
             leftSpriteComp.sprite = settings.LeftHalfOfSprite;
             rightSpriteComp.sprite = settings.RightHalfOfSprite;
             SetParticlesColor(sprayParticles, settings.SprayColor);
             SetParticlesColor(blotsParticles, settings.SprayColor);
-            halfVelocity = settings.HalfVelocity;
+            fruitSettings = settings;
         }
 
         private void SetParticlesColor(ParticleSystem particles, Color color)
@@ -54,13 +53,13 @@ namespace Project.Scripts.Blocks
             PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
             PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
 
-            OnFruitSliced.Invoke(transform.position);
+            OnFruitSliced?.Invoke(transform.position);
         }
 
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
             var movement = halfComponent.GetComponent<PhysicalMovement>();
-            movement.AddVelocity(direction * halfVelocity);
+            movement.AddVelocity(direction * fruitSettings.HalfVelocity);
             movement.enabled = true;
         }
         
@@ -71,7 +70,7 @@ namespace Project.Scripts.Blocks
             {
                 Vector2 destroyPosition = transform.position;
                 destroyPosition.y += DESTRUCTION_OFFSET_UP;
-                OnFruitNotSliced?.Invoke(destroyPosition);
+                OnFruitNotSliced?.Invoke(destroyPosition, fruitSettings.CountOfReducingLives);
             }
             OnFruitNotSliced?.RemoveAllListeners();
             OnFruitSliced?.RemoveAllListeners();

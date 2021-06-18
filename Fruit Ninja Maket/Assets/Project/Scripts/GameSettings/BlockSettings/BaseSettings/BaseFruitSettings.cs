@@ -9,8 +9,9 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
     [Serializable]
     public class BaseFruitSettings : BaseBlockSettings
     {
+        [Header("Fruit settings")]
         [SerializeField]
-        private Fruit fruitPrefab = null;
+        private Fruit prefab = null;
 
         [SerializeField]
         private float halfVelocityCoefficient = 0.4f;
@@ -18,12 +19,12 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
         [SerializeField]
         private AdditionalFruitSettings[] fruitSettings = null;
 
-        public Fruit FruitPrefab => fruitPrefab;
+        public Fruit Prefab => prefab;
 
         public AdditionalFruitSettings GetRandomFruitSettings()
         {
             var settings = fruitSettings.GetRandomItem();
-            settings.SetOtherSettings(halfVelocityCoefficient);
+            settings.SetOtherSettings(halfVelocityCoefficient, countOfReducingLives);
             return settings;
         }
     }

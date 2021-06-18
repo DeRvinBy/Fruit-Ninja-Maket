@@ -6,9 +6,14 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
     [Serializable]
     public class BaseBlockSettings : MonoBehaviour
     {
+        [Header("Base settings")]
         [SerializeField]
-        private float velocityOfObjects = 20f;
+        protected float velocityOfBlock = 20f;
         
-        public float VelocityOfObjects => velocityOfObjects;
+        [SerializeField] 
+        protected int countOfReducingLives = 1;
+        
+        public float VelocityOfBlock => velocityOfBlock;
+        public int CountOfReducingLives => countOfReducingLives;
     }
 }

@@ -6,7 +6,7 @@ namespace Project.Scripts.BlockFactory
 {
     public abstract class SliceBlockFactory : MonoBehaviour
     {
-        private BlockController blockController;
+        protected BlockController blockController;
         protected ScoreController scoreController;
         protected LifeController lifeController;
         

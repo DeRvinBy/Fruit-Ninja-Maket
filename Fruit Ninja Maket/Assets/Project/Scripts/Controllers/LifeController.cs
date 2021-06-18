@@ -39,25 +39,26 @@ namespace Project.Scripts.Controllers
             lifeUI.SetLivesCount(currentLives);
         }
 
-        public void RemoveLives(Vector2 fruitPosition)
+        public void RemoveLives(int count)
         {
             if (isEndGame) return;
             
-            currentLives -= controllerSettings.IncreasingLivesValue;
+            currentLives -= count;
             lifeUI.SetLivesCount(currentLives);
             if (currentLives <= LoseLives)
             {
                 gameController.EndGame();
                 isEndGame = true;
             }
-
-            Vector2 screenPosition = mainCamera.WorldToScreenPoint(fruitPosition);
-            CreateSceneFail(screenPosition);
         }
 
-        public void CreateSceneFail(Vector2 position)
+        public void RemoveLivesWithSpawnFail(Vector2 position, int count)
         {
-            Instantiate(controllerSettings.SceneFailPrefab, position, Quaternion.identity, uiTransform);
+            if (isEndGame) return;
+            
+            RemoveLives(count);
+            Vector2 screenPosition = mainCamera.WorldToScreenPoint(position);
+            Instantiate(controllerSettings.SceneFailPrefab, screenPosition, Quaternion.identity, uiTransform);
         }
     }
 }
