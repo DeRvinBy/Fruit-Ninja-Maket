@@ -21,12 +21,17 @@ namespace Project.Scripts.UI.Game
         public void HideTransition(Action callback)
         {
             uiElement.alpha = hideAlpha;
-            uiElement.DOFade(showAlpha, duration).OnComplete(() => callback?.Invoke());
+            uiElement.DOFade(showAlpha, duration).OnComplete(() =>
+            {
+                uiElement.blocksRaycasts = false;
+                callback?.Invoke();
+            });
         }
 
         public void ShowTransition(Action callback)
         {
             uiElement.alpha = showAlpha;
+            uiElement.blocksRaycasts = true;
             uiElement.DOFade(hideAlpha, duration).OnComplete(() => callback?.Invoke());
         }
     }

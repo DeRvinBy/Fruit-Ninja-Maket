@@ -46,6 +46,9 @@ namespace Project.Scripts.Animations.UIAnimations
             var scaleParams = new TweenParams().SetEase(scaleEase);
 
             sequence = DOTween.Sequence();
+            sequence.Pause();
+            sequence.SetAutoKill(false);
+            
             var scale = localScale * targetScale;
             sequence.Append(rectTransform.DOScale(scale, halfDuration).SetAs(scaleParams));
             sequence.Join(image.DOColor(targetColor, halfDuration));
@@ -53,7 +56,6 @@ namespace Project.Scripts.Animations.UIAnimations
             sequence.Append(rectTransform.DOScale(scale, halfDuration).SetAs(scaleParams));
             sequence.Join(image.DOColor(startColor, halfDuration));
             
-            sequence.SetAutoKill(false);
             sequence.OnComplete(() => sequence.Rewind());
         }
 
