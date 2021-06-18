@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 177700259}
   - component: {fileID: 177700262}
   - component: {fileID: 177700261}
+  - component: {fileID: 177700263}
   - component: {fileID: 177700260}
   m_Layer: 5
   m_Name: PlayButton
@@ -181,7 +182,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -206,9 +207,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966012899}
-        m_TargetAssemblyTypeName: Project.Scripts.Controllers.MenuController, Assembly-CSharp
-        m_MethodName: StartGameScene
+      - m_Target: {fileID: 177700263}
+        m_TargetAssemblyTypeName: Project.Scripts.Animations.UIAnimations.ButtonAnimation,
+          Assembly-CSharp
+        m_MethodName: PlayAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -231,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.31585974, g: 0.5907617, b: 0.735849, a: 1}
+  m_Color: {r: 0.31764707, g: 0.5921569, b: 0.7372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -256,6 +258,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177700258}
   m_CullTransparentMesh: 1
+--- !u!114 &177700263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177700258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c44b7c4c214f7abd16ee2750f1e990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.4
+  rectTransform: {fileID: 177700259}
+  scaleEase: 6
+  startScale: 1
+  targetScale: 0.9
+  image: {fileID: 177700261}
+  startColor: {r: 0.31764707, g: 0.5921569, b: 0.7372549, a: 1}
+  targetColor: {r: 0.21293165, g: 0.41089046, b: 0.5188679, a: 1}
 --- !u!1 &182719002
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +447,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 788.6814, y: 178.76}
+  m_SizeDelta: {x: 0, y: 178.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257717413
 MonoBehaviour:
@@ -1073,7 +1095,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800.23145, y: 178.76}
+  m_SizeDelta: {x: 0, y: 178.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1348667126
 MonoBehaviour:
@@ -1095,7 +1117,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7c2d01e110f88b4fa463432f7de72db, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 2a0deb0a535215f46964df1ce9ef05e7, type: 2}
@@ -1315,7 +1337,7 @@ MonoBehaviour:
   m_Spacing: 20
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1

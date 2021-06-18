@@ -26,12 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnControllerSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/FruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/FruitSettings/MonoSettings/FruitSettingsContainer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnObjectsSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ICollide.cs" />
@@ -77,6 +71,12 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/ButtonAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIButtonAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIImageAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/CustomButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/ButtonAnimation.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
