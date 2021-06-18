@@ -7,6 +7,7 @@ namespace Project.Scripts.Controllers
     public class BlockController : MonoBehaviour
     {
         private const int ZeroCountObjects = 0;
+        
         private readonly List<SliceBlock> blocks = new List<SliceBlock>();
         
         private int createdObjects;

@@ -1,4 +1,5 @@
 using System.Collections;
+using Project.Scripts.BlockFactory;
 using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace Project.Scripts.Spawn
 {
     public class SpawnController : MonoBehaviour
     {
+        [SerializeField] 
+        private ObjectCreator objectCreator = null;
+        
         [SerializeField]
         private SpawnControllerSettings controllerSettings = null;
 
@@ -46,6 +50,7 @@ namespace Project.Scripts.Spawn
         private IEnumerator SpawnObjectsWithDelay()
         {
             var count = baseCountOfSpawningObjects + controllerSettings.SpawnObjectsCount;
+            objectCreator.SetCountInBundle(count);
             for (int i = 0; i < count && isSpawnObjects; i++)
             {
                 var zone = zonesContainer.GetRandomSpawnZoneByProbability();
