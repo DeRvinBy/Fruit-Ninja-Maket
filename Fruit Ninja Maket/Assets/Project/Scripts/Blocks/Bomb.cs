@@ -43,7 +43,6 @@ namespace Project.Scripts.Blocks
         private void PushBlocksFromBomb()
         {
             var blocks = blockController.GetBlocksInRadius(transform.position, bombSettings.ExplosionRadius);
-            print(blocks.Count);
             foreach (var block in blocks)
             {
                 var direction = block.transform.position - transform.position;

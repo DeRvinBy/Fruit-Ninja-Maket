@@ -26,7 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/SceneTransition.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnControllerSettings.cs" />
@@ -68,14 +67,15 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBombSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/BlockController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
     </changedPaths>
   </component>

@@ -11,11 +11,6 @@ namespace Project.Scripts.Blocks
         protected const float DESTRUCTION_OFFSET_UP = 2f;
         protected const float DESTRUCTION_OFFSET_DOWN = -1f;
 
-        [Header("Physics Components")]
-
-        [SerializeField]
-        private PhysicalMovement physicalMovement = null;
-        
         [Header("Animations")]
         [SerializeField]
         private RandomTransformAnimation scaleAnimation = null;
@@ -54,11 +49,6 @@ namespace Project.Scripts.Blocks
             OnBlockDestroyed?.RemoveAllListeners();
         }
 
-        public void SetMovement(Vector2 velocity)
-        {
-            physicalMovement.AddVelocity(velocity);
-        }
-        
         public virtual void Slice(Vector2 slicingDirection)
         {
             if (isSliced) return;
@@ -68,6 +58,7 @@ namespace Project.Scripts.Blocks
 
         protected virtual void DisableBlockComponent()
         {
+            isEnabledCollider = false;
             physicalMovement.enabled = false;
 
             scaleAnimation.PauseAnimation();
