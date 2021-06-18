@@ -1,4 +1,5 @@
 using System.Collections;
+using Project.Scripts.BlockFactory;
 using Project.Scripts.GameSettings.SpawnSettings;
 using UnityEngine;
 
@@ -37,7 +38,7 @@ namespace Project.Scripts.Spawn
             var direction = GetMovementDirection();
             
             var velocityCoef = spawnObjectsSettings.FromBaseVelocityCoefficient;
-            objectCreator.CreateFruit(spawnPosition, direction * velocityCoef);
+            objectCreator.CreateBlock(spawnPosition, direction * velocityCoef);
         }
         
         private Vector2 GetSpawnPosition()

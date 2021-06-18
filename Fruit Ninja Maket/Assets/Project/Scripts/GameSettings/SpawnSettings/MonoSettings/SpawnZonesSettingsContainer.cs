@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Project.Scripts.Extensions;
 using Project.Scripts.Spawn;
 using UnityEngine;
@@ -6,8 +7,6 @@ namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
 {
     public class SpawnZonesSettingsContainer : MonoBehaviour
     {
-        private const float ProbabilityOfAllZones = 1f;
-
         [SerializeField]
         private SpawnZonesSettings[] spawnZonesSettings = null;
 

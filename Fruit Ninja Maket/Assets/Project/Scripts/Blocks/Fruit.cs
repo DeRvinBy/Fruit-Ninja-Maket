@@ -1,4 +1,5 @@
 using Project.Scripts.GameSettings.BlockSettings;
+using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,7 +27,7 @@ namespace Project.Scripts.Blocks
         public UnityEvent<Vector2> OnFruitNotSliced { get; } = new UnityEvent<Vector2>();
         public UnityEvent<Vector2> OnFruitSliced { get; } = new UnityEvent<Vector2>();
 
-        public void InitializeFruitSettings(FruitSettings settings)
+        public void InitializeFruitSettings(AdditionalFruitSettings settings)
         {
             leftSpriteComp.sprite = settings.LeftHalfOfSprite;
             rightSpriteComp.sprite = settings.RightHalfOfSprite;

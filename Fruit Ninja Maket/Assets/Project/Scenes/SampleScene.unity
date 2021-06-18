@@ -981,7 +981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207414017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1344,6 +1344,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1335286066782097186, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
   m_PrefabInstance: {fileID: 720071190}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &516567223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516567224}
+  - component: {fileID: 516567225}
+  m_Layer: 0
+  m_Name: FruitSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516567224
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516567223}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &516567225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516567223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ca7d8529e2ae24ab5463e8dd0883df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityOfObjects: 20
+  fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
+  halfVelocityCoefficient: 0.4
+  fruitSettings:
+  - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
+    rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
+    fruitJuiceColor: {r: 0.31764707, g: 0.15686275, b: 0.5686275, a: 1}
+  - leftHalfOfSprite: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
+    rightHalfOfSprite: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
+    fruitJuiceColor: {r: 0.8000001, g: 1, b: 0, a: 1}
+  - leftHalfOfSprite: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
+    rightHalfOfSprite: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
+    fruitJuiceColor: {r: 1, g: 0.67058825, b: 0, a: 1}
+  - leftHalfOfSprite: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
+    rightHalfOfSprite: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
+    fruitJuiceColor: {r: 0.8941177, g: 0.06666667, b: 0.06666667, a: 1}
+  - leftHalfOfSprite: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
+    rightHalfOfSprite: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
+    fruitJuiceColor: {r: 0.9339623, g: 0.3304112, b: 0.3304112, a: 1}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2323,6 +2385,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 815970132}
   m_CullTransparentMesh: 1
+--- !u!1 &899489461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899489462}
+  - component: {fileID: 899489463}
+  m_Layer: 0
+  m_Name: FruitFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &899489462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899489461}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1349449992}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &899489463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899489461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84522821ed3414cb371f7d043239d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseFruitSettings: {fileID: 516567225}
 --- !u!1 &942328528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2957,9 +3063,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1325425214}
   - component: {fileID: 1325425216}
-  - component: {fileID: 1325425215}
   m_Layer: 0
-  m_Name: BlockSettings
+  m_Name: FactorySettings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2975,40 +3080,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 516567224}
   m_Father: {fileID: 20933064}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1325425215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1325425213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ca7d8529e2ae24ab5463e8dd0883df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fruitPrefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfVelocityCoefficient: 2
-  fruitSettings:
-  - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
-    fruitJuiceColor: {r: 0.32156864, g: 0.15294118, b: 0.5764706, a: 1}
-  - leftHalfOfSprite: {fileID: -8223222072347897769, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    rightHalfOfSprite: {fileID: 506065882719019262, guid: 3ee868fc669ca814191177aa94b40bb9, type: 3}
-    fruitJuiceColor: {r: 0.8078432, g: 0.9960785, b: 0.003921569, a: 1}
-  - leftHalfOfSprite: {fileID: -6410442598547967069, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    rightHalfOfSprite: {fileID: 4048211436333636307, guid: d09885b4e353f134881fa8b4e93be7ed, type: 3}
-    fruitJuiceColor: {r: 1, g: 0.67058825, b: 0, a: 1}
-  - leftHalfOfSprite: {fileID: 1669490993913548592, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    rightHalfOfSprite: {fileID: 5645405102435153569, guid: 9ceb087fab0e5094394f2f27f021816e, type: 3}
-    fruitJuiceColor: {r: 0.8941177, g: 0.06666667, b: 0.06666667, a: 1}
-  - leftHalfOfSprite: {fileID: 8532703672136922592, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    rightHalfOfSprite: {fileID: 4875705461218295869, guid: e23a86b5528df9a45b53bd4f98311150, type: 3}
-    fruitJuiceColor: {r: 1, g: 0.34117648, b: 0.34117648, a: 1}
 --- !u!114 &1325425216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3021,7 +3097,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a33883ac55848e0b455964a7c3ef452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityOfObjects: 20
+  factories:
+  - spawnProbability: 1
+    blockFactory: {fileID: 899489463}
 --- !u!1 &1349449990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3033,7 +3111,7 @@ GameObject:
   - component: {fileID: 1349449992}
   - component: {fileID: 1349449991}
   m_Layer: 0
-  m_Name: ObjectCreator
+  m_Name: OBJECT_CREATOR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3054,8 +3132,7 @@ MonoBehaviour:
   blockController: {fileID: 2132663860}
   scoreController: {fileID: 2115108505}
   lifeController: {fileID: 2002008482}
-  blockSettingsContainer: {fileID: 1325425216}
-  fruitSettingsContainer: {fileID: 1325425215}
+  factoriesContainer: {fileID: 1325425216}
 --- !u!4 &1349449992
 Transform:
   m_ObjectHideFlags: 0
@@ -3066,7 +3143,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 899489462}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Project.Scripts.GameSettings.BlockSettings
+namespace Project.Scripts.GameSettings.BlockSettings.AdditionalSettings
 {   
     [Serializable]
-    public class FruitSettings
+    public class AdditionalFruitSettings
     {
         [SerializeField]
         private Sprite leftHalfOfSprite = null;
@@ -22,9 +22,9 @@ namespace Project.Scripts.GameSettings.BlockSettings
         public Color SprayColor { get => fruitJuiceColor; }
         public float HalfVelocity { get => halfVelocity; }
 
-        public void SetOtherSettings(float halfsVelocityCoef)
+        public void SetOtherSettings(float halfVelocity)
         {
-            this.halfVelocity = halfsVelocityCoef;
+            this.halfVelocity = halfVelocity;
         }
     }
 }

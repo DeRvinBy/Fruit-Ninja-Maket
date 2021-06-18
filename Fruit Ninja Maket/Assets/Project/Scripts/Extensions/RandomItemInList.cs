@@ -7,6 +7,8 @@ namespace Project.Scripts.Extensions
 {
     public static class RandomItemInList
     {
+        private const int MinRandomIndex = 0;
+        
         public static T GetRandomItemByProbability<T>(this IEnumerable<T> list, Func<T, float> item)
         {
             var sum = list.Sum(item);
@@ -27,6 +29,12 @@ namespace Project.Scripts.Extensions
             }
 
             return list.Last();
+        }
+
+        public static T GetRandomItem<T>(this IEnumerable<T> list)
+        {
+            var randomIndex = Random.Range(MinRandomIndex, list.Count());
+            return list.ElementAt(randomIndex);
         }
     }
 }
