@@ -14,7 +14,13 @@ namespace Project.Scripts.Physics
             return distance < colliderRadius;
         }
 
-        private void OnDrawGizmos()
+        public bool IsInRadiusFromPoint(Vector2 point, float radius)
+        {
+            var distance = ((Vector2) transform.position - point).magnitude;
+            return distance - colliderRadius < radius;
+        }
+
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(transform.position, colliderRadius);
         }

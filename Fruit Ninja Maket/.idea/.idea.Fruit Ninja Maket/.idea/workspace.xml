@@ -36,7 +36,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnObjectsSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ICollide.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
@@ -72,10 +71,11 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBombSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
     </changedPaths>
   </component>

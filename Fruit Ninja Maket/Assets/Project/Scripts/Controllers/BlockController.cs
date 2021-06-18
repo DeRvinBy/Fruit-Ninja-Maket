@@ -37,6 +37,21 @@ namespace Project.Scripts.Controllers
                     result.Add(block);
                 }
             }
+            
+            return result;
+        }
+
+        public List<SliceBlock> GetBlocksInRadius(Vector2 center, float radius)
+        {
+            var result = new List<SliceBlock>();
+            foreach(var block in blocks)
+            {
+                if(block.IsInRadiusFromPoint(center, radius))
+                {
+                    result.Add(block);
+                }
+            }
+
             return result;
         }
     }

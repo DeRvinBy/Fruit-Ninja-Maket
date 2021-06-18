@@ -25,7 +25,7 @@ namespace Project.Scripts.Blocks
             var explosionShape = explosionParticles.shape;
             explosionShape.radius = bombSettings.ExplosionRadius;
             this.bombSettings = bombSettings;
-            this.blockController = blockController;
+            this.blockController = controller;
         }
         
         public override void Slice(Vector2 slicingDirection)
@@ -42,7 +42,15 @@ namespace Project.Scripts.Blocks
 
         private void PushBlocksFromBomb()
         {
-            
+            var blocks = blockController.GetBlocksInRadius(transform.position, bombSettings.ExplosionRadius);
+            print(blocks.Count);
+            foreach (var block in blocks)
+            {
+                var direction = block.transform.position - transform.position;
+                var distance = direction.magnitude;
+                var forceCoef = distance / bombSettings.ExplosionRadius;
+                block.SetMovement(direction.normalized * bombSettings.ExplosionForce * forceCoef);
+            }
         }
 
         protected override void OnDestroyBlock()
@@ -56,6 +64,12 @@ namespace Project.Scripts.Blocks
             var isOutOfBorder = transform.position.y < destructionBoundaryY || isSliced;
             var isParticlesCompleted = !explosionParticles.isPlaying;
             return isOutOfBorder && isParticlesCompleted;
+        }
+
+        protected override void OnDrawGizmos()
+        {
+            base.OnDrawGizmos();
+            Gizmos.DrawWireSphere(transform.position, bombSettings.ExplosionRadius);
         }
     }
 }
