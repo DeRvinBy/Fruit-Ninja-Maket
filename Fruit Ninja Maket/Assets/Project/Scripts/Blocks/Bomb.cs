@@ -48,7 +48,7 @@ namespace Project.Scripts.Blocks
                 var direction = block.transform.position - transform.position;
                 var distance = direction.magnitude;
                 var forceCoef = distance / bombSettings.ExplosionRadius;
-                block.SetMovement(direction.normalized * bombSettings.ExplosionForce * forceCoef);
+                block.SetMovement(direction.normalized * (bombSettings.ExplosionForce * forceCoef));
             }
         }
 
@@ -63,12 +63,6 @@ namespace Project.Scripts.Blocks
             var isOutOfBorder = transform.position.y < destructionBoundaryY || isSliced;
             var isParticlesCompleted = !explosionParticles.isPlaying;
             return isOutOfBorder && isParticlesCompleted;
-        }
-
-        protected override void OnDrawGizmos()
-        {
-            base.OnDrawGizmos();
-            Gizmos.DrawWireSphere(transform.position, bombSettings.ExplosionRadius);
         }
     }
 }

@@ -61,6 +61,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderRadius: 0.8
   physicalMovement: {fileID: 1286096222658675949}
+  isEnabledCollider: 1
   scaleAnimation: {fileID: 721090773530844943}
   rotateAnimation: {fileID: 8537104675320829625}
   explosionParticles: {fileID: 4495690835476656826}
@@ -1040,8 +1041,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 100
-        minScalar: 80
+        scalar: 80
+        minScalar: 60
         maxCurve:
           serializedVersion: 2
           m_Curve:

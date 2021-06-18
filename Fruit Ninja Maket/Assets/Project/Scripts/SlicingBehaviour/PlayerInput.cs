@@ -24,7 +24,7 @@ namespace Project.Scripts.SlicingBehaviour
         private bool isInputEnable;
         private bool isSwiping;
 
-        public bool IsSwiping => isSwiping;
+        public bool IsSwiping => isSwiping && isInputEnable;
 
         private void Start()
         {
