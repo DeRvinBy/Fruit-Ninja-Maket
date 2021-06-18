@@ -12,7 +12,13 @@ namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
 
         [SerializeField]
         private float delayTimeBetweenSpawnObjects = 0.5f;
+        
+        [SerializeField]
+        private int minSpawnObjectsCount = 1;
 
+        [SerializeField]
+        private int maxSpawnObjectsCount = 5;
+        
         [SerializeField]
         private float decreasingValueOfDelayTimeForDifficulty = 0.5f;
 
@@ -22,6 +28,7 @@ namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
         public float StartTimeOfSpawnZone => startTimeOfSpawnZone;
         public float DelayTimeSpawnNextZone => delayTimeSpawnNextZone;
         public float DelayTimeBetweenSpawnObjects => delayTimeBetweenSpawnObjects;
+        public int SpawnObjectsCount => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
         public float DecreasingValueOfDelayTimeForDifficulty => decreasingValueOfDelayTimeForDifficulty;
         public int IncreasingValueOfCountObjectsForDifficulty => increasingValueOfCountObjectsForDifficulty;
     }

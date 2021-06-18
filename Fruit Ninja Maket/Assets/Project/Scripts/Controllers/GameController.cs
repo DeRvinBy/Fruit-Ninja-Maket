@@ -17,7 +17,7 @@ namespace Project.Scripts.Controllers
         private PlayerInput playerInput = null;
 
         [SerializeField]
-        private ObjectCreator objectCreator = null;
+        private BlockController blockController = null;
 
         [SerializeField]
         private ScoreController scoreController = null;
@@ -52,7 +52,7 @@ namespace Project.Scripts.Controllers
             playerInput.SetEnableInput(false);
             spawnController.StopSpawnObjects();
             scoreController.SetBestScoreInSave();
-            StartCoroutine(WaitToDestroyObjects());
+            StartCoroutine(WaitToShowRestartPanel());
         }
         
         public void StartMenuScene()
@@ -65,9 +65,9 @@ namespace Project.Scripts.Controllers
             SceneManager.LoadScene(menuSceneIndex);
         }
 
-        private IEnumerator WaitToDestroyObjects()
+        private IEnumerator WaitToShowRestartPanel()
         {
-            yield return new WaitWhile(() => objectCreator.IsExistObjectsOnScene);
+            yield return new WaitWhile(() => blockController.IsExistObjectsOnScene);
             restartUI.ShowRestartPanel(scoreController.CurrentScore, scoreController.BestScore);
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Project.Scripts.Physics
 {
@@ -17,13 +15,9 @@ namespace Project.Scripts.Physics
             velocity += newVelocity;
         }
 
-        private void FixedUpdate()
-        {
-            velocity += gravityDirection * gravity;
-        }
-
         private void Update()
         {
+            velocity += gravityDirection * gravity * Time.deltaTime;
             transform.Translate(velocity * Time.deltaTime, Space.World);
         }
     }

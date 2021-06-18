@@ -1,4 +1,5 @@
 using System.Collections;
+using Project.Scripts.BlockFactory;
 using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
 using UnityEngine;
 
@@ -6,6 +7,9 @@ namespace Project.Scripts.Spawn
 {
     public class SpawnController : MonoBehaviour
     {
+        [SerializeField] 
+        private ObjectCreator objectCreator = null;
+        
         [SerializeField]
         private SpawnControllerSettings controllerSettings = null;
 
@@ -22,27 +26,39 @@ namespace Project.Scripts.Spawn
             currentDelayTimeSpawnNextZone = controllerSettings.DelayTimeSpawnNextZone;
             baseCountOfSpawningObjects = 0;
             isSpawnObjects = true;
-            StartCoroutine(SpawnObjectsByTime());
+            StartCoroutine(SpawnObjectsInZone());
         }
 
         public void StopSpawnObjects()
         {
             isSpawnObjects = false;
-            StopCoroutine(SpawnObjectsByTime());
+            StopCoroutine(SpawnObjectsInZone());
         }
 
-        private IEnumerator SpawnObjectsByTime()
+        private IEnumerator SpawnObjectsInZone()
         {
             yield return new WaitForSeconds(controllerSettings.StartTimeOfSpawnZone);
 
             while (isSpawnObjects)
             {
-                var zone = zonesContainer.GetRandomSpawnZoneByProbability();
-                zone.SpawnObjectsOnScene(baseCountOfSpawningObjects, controllerSettings.DelayTimeBetweenSpawnObjects);
+                var coroutine = SpawnObjectsWithDelay();
+                yield return StartCoroutine(coroutine); 
                 yield return new WaitForSeconds(currentDelayTimeSpawnNextZone);
             }
         }
-
+        
+        private IEnumerator SpawnObjectsWithDelay()
+        {
+            var count = baseCountOfSpawningObjects + controllerSettings.SpawnObjectsCount;
+            objectCreator.SetCountInBundle(count);
+            for (int i = 0; i < count && isSpawnObjects; i++)
+            {
+                var zone = zonesContainer.GetRandomSpawnZoneByProbability();
+                zone.SpawnObjectsOnScene();
+                yield return new WaitForSeconds(controllerSettings.DelayTimeBetweenSpawnObjects);
+            }
+        }
+        
         private void IncreaseDifficulty()
         {
             currentDelayTimeSpawnNextZone -= controllerSettings.DecreasingValueOfDelayTimeForDifficulty;

@@ -1,15 +1,13 @@
 using System;
-using Project.Scripts.GameSettings.SpawnSettings;
 using Project.Scripts.Spawn;
 using UnityEngine;
 
-namespace Scripts.GameSettings.SpawnSettings
+namespace Project.Scripts.GameSettings.SpawnSettings
 {
     [Serializable]
     public class SpawnZonesSettings
     {
         [SerializeField]
-        [Range(0f, 1f)]
         private float probability = 0.0f;
 
         [SerializeField]

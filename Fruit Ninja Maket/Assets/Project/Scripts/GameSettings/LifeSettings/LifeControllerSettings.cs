@@ -9,13 +9,9 @@ namespace Project.Scripts.GameSettings.LifeSettings
         private int maxLivesCount = 5;
 
         [SerializeField]
-        private int increasingLivesValue = 1;
-
-        [SerializeField]
         private SceneFailUI sceneFailPrefab = null;
 
         public int MaxLivesCount => maxLivesCount;
-        public int IncreasingLivesValue => increasingLivesValue;
         public SceneFailUI SceneFailPrefab => sceneFailPrefab;
     }
 }

@@ -1,47 +1,45 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Project.Scripts.Physics
 {
     public class ObjectCollider : MonoBehaviour
     {
-        private static List<ObjectCollider> colliders = new List<ObjectCollider>();
+        [Header("Physics settings")]
+
+        [SerializeField] 
+        private float colliderRadius = 1f;
+        
+        [SerializeField]
+        protected internal PhysicalMovement physicalMovement = null;
 
         [SerializeField]
-        private float radius = 1f;
-
-        private void Start()
+        protected internal bool isEnabledCollider = true;
+        
+        public void SetMovement(Vector2 velocity)
         {
-            colliders.Add(this);
+            physicalMovement.AddVelocity(velocity);
         }
-
-        private void OnDestroy()
+        
+        public bool IsIntersectWithPoint(Vector2 point)
         {
-            colliders.Remove(this);
-        }
-
-        public static List<GameObject> GetObjectsIntersectedWithPoint(Vector2 point)
-        {
-            var result = new List<GameObject>();
-            foreach(var collider in colliders)
-            {
-                if(collider.IsIntersectWithPoint(point))
-                {
-                    result.Add(collider.gameObject);
-                }
-            }
-            return result;
-        }
-
-        private bool IsIntersectWithPoint(Vector2 point)
-        {
+            if (!isEnabledCollider) return false;
+            
             var distance = ((Vector2)transform.position - point).magnitude;
-            return distance < radius;
+            return distance < colliderRadius;
         }
 
-        private void OnDrawGizmos()
+        public bool IsInRadiusFromPoint(Vector2 point, float radius)
         {
-            Gizmos.DrawWireSphere(transform.position, radius);
+            if (!isEnabledCollider) return false;
+            
+            var distance = ((Vector2) transform.position - point).magnitude;
+            return distance - colliderRadius < radius;
+        }
+
+        protected virtual void OnDrawGizmos()
+        {
+            if (!isEnabledCollider) return;
+            Gizmos.DrawWireSphere(transform.position, colliderRadius);
         }
     }
 }
