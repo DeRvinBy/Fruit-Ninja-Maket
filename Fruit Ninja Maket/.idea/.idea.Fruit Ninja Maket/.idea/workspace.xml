@@ -72,6 +72,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Extensions/RandomItemInList.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Extensions/TestRandom.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
