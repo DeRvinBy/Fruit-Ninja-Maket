@@ -3649,6 +3649,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1490899716}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1490899717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3701,12 +3713,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.4
   rectTransform: {fileID: 1490899715}
-  scaleEase: 1
+  scaleEase: 6
   startScale: 1
   targetScale: 0.9
   image: {fileID: 1490899717}
-  startColor: {r: 0, g: 0, b: 0, a: 1}
-  targetColor: {r: 1, g: 1, b: 1, a: 1}
+  startColor: {r: 0.3254902, g: 0.5176471, b: 0.62352943, a: 1}
+  targetColor: {r: 0.22000714, g: 0.3701167, b: 0.4528302, a: 1}
 --- !u!1 &1533303679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3844,6 +3856,8 @@ MonoBehaviour:
   moveAnimation: {fileID: 1808884161}
   headerCanvasAnimation: {fileID: 1577352359}
   backgroundCanvasAnimation: {fileID: 815970134}
+  restartButton: {fileID: 1490899716}
+  exitButton: {fileID: 1667694375}
   currentScoreText: {fileID: 1888938519}
   bestScoreText: {fileID: 570371023}
 --- !u!1 &1577352357
@@ -3923,6 +3937,7 @@ GameObject:
   - component: {fileID: 1667694374}
   - component: {fileID: 1667694377}
   - component: {fileID: 1667694376}
+  - component: {fileID: 1667694378}
   - component: {fileID: 1667694375}
   m_Layer: 5
   m_Name: ExitButton
@@ -3970,7 +3985,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -3999,6 +4014,31 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Project.Scripts.Controllers.GameController, Assembly-CSharp
         m_MethodName: StartMenuScene
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1667694378}
+        m_TargetAssemblyTypeName: Project.Scripts.Animations.UIAnimations.ButtonAnimation,
+          Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1667694375}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4045,6 +4085,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1667694373}
   m_CullTransparentMesh: 1
+--- !u!114 &1667694378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667694373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c44b7c4c214f7abd16ee2750f1e990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.4
+  rectTransform: {fileID: 1667694374}
+  scaleEase: 6
+  startScale: 1
+  targetScale: 0.9
+  image: {fileID: 1667694376}
+  startColor: {r: 0.3254902, g: 0.5176471, b: 0.62352943, a: 1}
+  targetColor: {r: 0.22000714, g: 0.3701167, b: 0.4528302, a: 1}
 --- !u!1 &1784330750
 GameObject:
   m_ObjectHideFlags: 0

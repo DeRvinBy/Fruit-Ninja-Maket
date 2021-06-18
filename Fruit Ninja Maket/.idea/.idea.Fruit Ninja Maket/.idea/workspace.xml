@@ -26,7 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameEntities/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ICollide.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
@@ -74,9 +73,10 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/ButtonAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIButtonAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIImageAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/CustomButton.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/RestartUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/ButtonAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
