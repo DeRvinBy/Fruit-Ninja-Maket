@@ -2,7 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Project.Scripts.Animations.UIAnimations
+namespace Project.Scripts.UI.Game
 {
     public class SceneTransition : MonoBehaviour
     {
