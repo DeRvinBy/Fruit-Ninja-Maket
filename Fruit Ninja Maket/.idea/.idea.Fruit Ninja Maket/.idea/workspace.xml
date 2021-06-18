@@ -34,7 +34,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnZonesSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnZoneTransformSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnZonesSettingsContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SaveController.cs" />
@@ -74,6 +73,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Extensions/RandomItemInList.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Extensions/TestRandom.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnZonesSettingsContainer.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
