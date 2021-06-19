@@ -1,4 +1,5 @@
-﻿using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
+﻿using Project.Scripts.Blocks;
+using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
@@ -8,7 +9,17 @@ namespace Project.Scripts.BlockFactory
         [SerializeField]
         private BaseFruitSettings fruitSettings = null;
 
-        public override void CreateBlock(Vector2 position, Vector2 direction)
+        protected override bool IsCanCreate()
+        {
+            return true;
+        }
+
+        protected override BaseBlockSettings GetBlockSettings()
+        {
+            return fruitSettings;
+        }
+
+        protected override SliceBlock CreateBlock(Vector2 position)
         {
             var prefab = fruitSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
@@ -17,9 +28,8 @@ namespace Project.Scripts.BlockFactory
             go.InitializeSettings(settings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
             go.OnFruitNotSliced.AddListener(lifeController.RemoveLivesWithSpawnFail);
-            
-            var velocity = direction * fruitSettings.VelocityOfBlock;
-            InitializeBlock(go, velocity);
+
+            return go;
         }
     }
 }

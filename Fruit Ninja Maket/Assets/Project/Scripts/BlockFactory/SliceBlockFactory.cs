@@ -1,5 +1,6 @@
 ﻿using Project.Scripts.Blocks;
 using Project.Scripts.Controllers;
+using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
@@ -24,7 +25,24 @@ namespace Project.Scripts.BlockFactory
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
         }
+
+        public bool SpawnBlock(Vector2 position, Vector2 direction)
+        {
+            var isCanCreate = IsCanCreate();
+            if (!isCanCreate) return false;
+            
+            var go = CreateBlock(position);
+            var settings = GetBlockSettings();
+            var velocity = direction * settings.VelocityOfBlock;
+            InitializeBlock(go, velocity);
+
+            return true;
+        }
+
+        protected abstract bool IsCanCreate();
         
-        public abstract void CreateBlock(Vector2 position, Vector2 direction);
+        protected abstract BaseBlockSettings GetBlockSettings();
+
+        protected abstract SliceBlock CreateBlock(Vector2 position);
     }
 }

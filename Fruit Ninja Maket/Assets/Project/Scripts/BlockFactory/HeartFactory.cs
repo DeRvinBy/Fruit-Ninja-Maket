@@ -1,4 +1,5 @@
-﻿using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
+﻿using Project.Scripts.Blocks;
+using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
@@ -8,7 +9,17 @@ namespace Project.Scripts.BlockFactory
         [SerializeField] 
         private BaseHeartSettings heartSettings = null;
 
-        public override void CreateBlock(Vector2 position, Vector2 direction)
+        protected override bool IsCanCreate()
+        {
+            return true;
+        }
+
+        protected override BaseBlockSettings GetBlockSettings()
+        {
+            return heartSettings;
+        }
+        
+        protected override SliceBlock CreateBlock(Vector2 position)
         {
             var prefab = heartSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
@@ -16,8 +27,7 @@ namespace Project.Scripts.BlockFactory
             go.InitializeSettings(heartSettings);
             go.OnHeartSliced.AddListener(lifeController.AddLives);
 
-            var velocity = direction * heartSettings.VelocityOfBlock;
-            InitializeBlock(go, velocity);
+            return go;
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Project.Scripts.BlockFactory
         private LifeController lifeController = null;
 
         [SerializeField]
-        private ObjectCreatorSettings objectCreatorSettings = null;
+        private ObjectCreatorContainer objectCreatorContainer = null;
 
         private void Start()
         {
-            var factories = objectCreatorSettings.GetAllFactories();
+            var factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
                 factory.InitializeControllers(blockController, scoreController, lifeController);
@@ -29,13 +29,18 @@ namespace Project.Scripts.BlockFactory
 
         public void SetCountInBundle(int maxCount)
         {
-            objectCreatorSettings.SetCountInBundleToFactories(maxCount);
+            objectCreatorContainer.SetCountInBundleToFactories(maxCount);
         }
 
         public void CreateBlock(Vector2 position, Vector2 direction)
         {
-            var factory = objectCreatorSettings.GetRandomFactory();
-            factory.CreateBlock(position, direction);
+            var isCreateSuccessful = false;
+            do
+            {
+                var factory = objectCreatorContainer.GetRandomFactory();
+                isCreateSuccessful = factory.SpawnBlock(position, direction);
+            } 
+            while (!isCreateSuccessful);
         }
     }
 }

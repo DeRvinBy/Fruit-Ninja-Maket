@@ -10,6 +10,8 @@ namespace Project.Scripts.GameSettings.BlockSettings.FactoriesSettings
         [SerializeField] 
         private float spawnProbability = 1f;
 
+        // выносить
+        
         [SerializeField] 
         [Range(0f, 1f)]
         private float percentBlocksInBundle = 0.5f;
