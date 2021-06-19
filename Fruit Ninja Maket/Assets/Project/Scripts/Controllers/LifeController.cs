@@ -39,6 +39,18 @@ namespace Project.Scripts.Controllers
             lifeUI.SetLivesCount(currentLives);
         }
 
+        public void AddLives(int count)
+        {
+            if (isEndGame) return;
+
+            currentLives += count;
+            if (currentLives > controllerSettings.MaxLivesCount)
+            {
+                currentLives = controllerSettings.MaxLivesCount;
+            }
+            lifeUI.SetLivesCount(currentLives);
+        }
+        
         public void RemoveLives(int count)
         {
             if (isEndGame) return;

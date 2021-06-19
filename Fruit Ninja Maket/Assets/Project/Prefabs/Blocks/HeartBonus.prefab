@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2113180650031125947}
   - component: {fileID: 2113180650031125945}
+  - component: {fileID: 5834651322078559573}
   m_Layer: 0
   m_Name: HeartBonus
   m_TagString: Untagged
@@ -45,7 +46,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a966232533514248a38ff6cb92a3cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 25
+  gravity: 35
+--- !u!114 &5834651322078559573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113180650031125944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb76068a5884962847ea2f2ed1f769d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderRadius: 1
+  physicalMovement: {fileID: 2113180650031125945}
+  isEnabledCollider: 1
+  scaleAnimation: {fileID: 471597121544474203}
+  rotateAnimation: {fileID: 8859500010057517037}
+  heartsParticles: {fileID: 3668535764507943918}
+  spriteObject: {fileID: 6789416482171044144}
 --- !u!1 &4971930224280944551
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +78,7 @@ GameObject:
   - component: {fileID: 3668535764507943918}
   - component: {fileID: 109278942279475917}
   m_Layer: 0
-  m_Name: DesrtoyParticles
+  m_Name: HeartParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
