@@ -54,9 +54,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
@@ -76,6 +74,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

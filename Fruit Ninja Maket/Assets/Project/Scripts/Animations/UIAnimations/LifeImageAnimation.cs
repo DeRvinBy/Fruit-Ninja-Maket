@@ -53,7 +53,7 @@ namespace Project.Scripts.Animations.UIAnimations
         {
             fadeTween.Pause();
             image.color = startColor;
-            rectTransform.localPosition = startPosition - startAnimationPosition;
+            rectTransform.position = startAnimationPosition;
             moveTween.Rewind();
             moveTween.Play();
         }
