@@ -28,7 +28,7 @@ namespace Project.Scripts.BlockFactory
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
             go.InitializeSettings(heartSettings);
-            go.OnHeartSliced.AddListener(lifeController.AddLives);
+            go.OnHeartSliced.AddListener(lifeController.AddLivesAnimate);
 
             return go;
         }

@@ -14,7 +14,7 @@ namespace Project.Scripts.Blocks
 
         private BaseHeartSettings heartSettings;
 
-        public UnityEvent<int> OnHeartSliced { get; } = new UnityEvent<int>();
+        public UnityEvent<Vector2, int> OnHeartSliced { get; } = new UnityEvent<Vector2, int>();
 
         public void InitializeSettings(BaseHeartSettings heartSettings)
         {
@@ -28,7 +28,7 @@ namespace Project.Scripts.Blocks
             base.Slice(slicingDirection);
             
             heartsParticles.Play();
-            OnHeartSliced?.Invoke(heartSettings.CountOfAddingLives);
+            OnHeartSliced?.Invoke(transform.position, heartSettings.CountOfAddingLives);
         }
         
         protected override void DisableBlockComponent()
