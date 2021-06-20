@@ -354,13 +354,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aab4bdb4f5aac6448ff2ced216058d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeOfSpawnZone: 20
+  startTimeOfSpawnZone: 3
   delayTimeSpawnNextZone: 3
   delayTimeBetweenSpawnObjects: 0.5
   minSpawnObjectsCount: 1
   maxSpawnObjectsCount: 5
-  decreasingValueOfDelayTimeForDifficulty: 0.5
-  increasingValueOfCountObjectsForDifficulty: 1
+  difficultySettings:
+    decreasingValueOfNextZoneSpawnTime: 0.25
+    minValueOfNextZoneSpawnTime: 0.5
+    increasingValueOfCountObjects: 1
+    maxValueOfCountObjects: 15
+    difficultyLevelsByScore: 64000000c800000090010000bc020000e8030000dc050000
 --- !u!1 &20933063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,6 +1164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectCreator: {fileID: 1349449991}
+  scoreController: {fileID: 2115108505}
   controllerSettings: {fileID: 19734838}
   zonesContainer: {fileID: 19734837}
 --- !u!4 &285971090
@@ -1829,51 +1834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869548df8ccec204b9463a80db000894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onStartSwiping:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1993902988}
-        m_TargetAssemblyTypeName: Project.Scripts.SlicingBehaviour.SliceTrace, Assembly-CSharp
-        m_MethodName: SetStartPoint
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onContinueSwiping:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1993902988}
-        m_TargetAssemblyTypeName: Project.Scripts.SlicingBehaviour.SliceTrace, Assembly-CSharp
-        m_MethodName: UpdateTrailPath
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onEndSwiping:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1993902988}
-        m_TargetAssemblyTypeName: Project.Scripts.SlicingBehaviour.SliceTrace, Assembly-CSharp
-        m_MethodName: EndTrail
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   minDistanceOfSlicing: 0.5
   minSpeedOfSlicing: 15
 --- !u!4 &613643903

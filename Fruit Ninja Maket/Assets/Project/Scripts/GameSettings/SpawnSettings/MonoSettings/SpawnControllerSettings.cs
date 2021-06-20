@@ -18,18 +18,15 @@ namespace Project.Scripts.GameSettings.SpawnSettings.MonoSettings
 
         [SerializeField]
         private int maxSpawnObjectsCount = 5;
+
+        [SerializeField] 
+        private SpawnDifficultySettings difficultySettings = null;
         
-        [SerializeField]
-        private float decreasingValueOfDelayTimeForDifficulty = 0.5f;
-
-        [SerializeField]
-        private int increasingValueOfCountObjectsForDifficulty = 1;
-
         public float StartTimeOfSpawnZone => startTimeOfSpawnZone;
         public float DelayTimeSpawnNextZone => delayTimeSpawnNextZone;
         public float DelayTimeBetweenSpawnObjects => delayTimeBetweenSpawnObjects;
         public int SpawnObjectsCount => Random.Range(minSpawnObjectsCount, maxSpawnObjectsCount);
-        public float DecreasingValueOfDelayTimeForDifficulty => decreasingValueOfDelayTimeForDifficulty;
-        public int IncreasingValueOfCountObjectsForDifficulty => increasingValueOfCountObjectsForDifficulty;
+
+        public SpawnDifficultySettings DifficultySettings => difficultySettings;
     }
 }
