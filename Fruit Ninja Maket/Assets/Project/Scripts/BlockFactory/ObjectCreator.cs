@@ -1,4 +1,6 @@
-﻿using Project.Scripts.Controllers;
+﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using UnityEngine;
 
@@ -16,11 +18,13 @@ namespace Project.Scripts.BlockFactory
         private LifeController lifeController = null;
 
         [SerializeField]
-        private ObjectCreatorSettings objectCreatorSettings = null;
+        private ObjectCreatorContainer objectCreatorContainer = null;
 
+        private Abstract.BlockFactory[] factories;
+        
         private void Start()
         {
-            var factories = objectCreatorSettings.GetAllFactories();
+            factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
                 factory.InitializeControllers(blockController, scoreController, lifeController);
@@ -29,13 +33,21 @@ namespace Project.Scripts.BlockFactory
 
         public void SetCountInBundle(int maxCount)
         {
-            objectCreatorSettings.SetCountInBundleToFactories(maxCount);
+            foreach (var factory in factories)
+            {
+                factory.SetCountInBundle(maxCount);
+            }
         }
 
         public void CreateBlock(Vector2 position, Vector2 direction)
         {
-            var factory = objectCreatorSettings.GetRandomFactory();
-            factory.CreateBlock(position, direction);
+            var isCreateSuccessful = false;
+            do
+            {
+                var factory = objectCreatorContainer.GetRandomFactory();
+                isCreateSuccessful = factory.SpawnBlock(position, direction);
+            } 
+            while (!isCreateSuccessful);
         }
     }
 }

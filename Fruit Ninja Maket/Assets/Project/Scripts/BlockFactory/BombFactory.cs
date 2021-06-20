@@ -1,15 +1,22 @@
-﻿using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
+﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Blocks;
+using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class BombFactory : SliceBlockFactory
+    public class BombFactory : PercentageBlockFactory
     {
         [SerializeField] 
         private BaseBombSettings bombSettings = null;
-        
-        public override void CreateBlock(Vector2 position, Vector2 direction)
+
+        protected override BaseBlockSettings GetBlockSettings()
+        {
+            return bombSettings;
+        }
+
+        protected override SliceBlock CreateBlock(Vector2 position)
         {
             var prefab = bombSettings.Prefab;
             var go = Instantiate(prefab, position, quaternion.identity, transform);
@@ -17,8 +24,7 @@ namespace Project.Scripts.BlockFactory
             go.InitializeSettings(bombSettings, blockController);
             go.OnBombSliced.AddListener(lifeController.RemoveLives);
 
-            var velocity = direction * bombSettings.VelocityOfBlock;
-            InitializeBlock(go, velocity);
+            return go;
         }
     }
 }

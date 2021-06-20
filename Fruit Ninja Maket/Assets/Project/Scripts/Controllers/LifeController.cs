@@ -25,6 +25,8 @@ namespace Project.Scripts.Controllers
         private int currentLives;
         private bool isEndGame;
 
+        public bool IsFullLives => currentLives == controllerSettings.MaxLivesCount;
+        
         private void Start()
         {
             mainCamera = Camera.main;
@@ -36,20 +38,6 @@ namespace Project.Scripts.Controllers
             isEndGame = false;
             currentLives = controllerSettings.MaxLivesCount;
             lifeUI.InitializeSettings(currentLives);
-            lifeUI.SetLivesCount(currentLives);
-        }
-
-        public void RemoveLives(int count)
-        {
-            if (isEndGame) return;
-            
-            currentLives -= count;
-            lifeUI.SetLivesCount(currentLives);
-            if (currentLives <= LoseLives)
-            {
-                gameController.EndGame();
-                isEndGame = true;
-            }
         }
 
         public void RemoveLivesWithSpawnFail(Vector2 position, int count)
@@ -59,6 +47,37 @@ namespace Project.Scripts.Controllers
             RemoveLives(count);
             Vector2 screenPosition = mainCamera.WorldToScreenPoint(position);
             Instantiate(controllerSettings.SceneFailPrefab, screenPosition, Quaternion.identity, uiTransform);
+        }
+        
+        public void RemoveLives(int count)
+        {
+            if (isEndGame) return;
+            
+            currentLives -= count;
+            lifeUI.RemoveLive();
+            if (currentLives <= LoseLives)
+            {
+                gameController.EndGame();
+                isEndGame = true;
+            }
+        }
+
+        public void AddLivesAnimate(Vector2 position, int count)
+        {
+            if (isEndGame) return;
+            
+            Vector2 screenPosition = mainCamera.WorldToScreenPoint(position);
+            AddLives(count);
+            lifeUI.AddLive(screenPosition);
+        }
+        
+        private void AddLives(int count)
+        {
+            currentLives += count;
+            if (currentLives > controllerSettings.MaxLivesCount)
+            {
+                currentLives = controllerSettings.MaxLivesCount;
+            }
         }
     }
 }

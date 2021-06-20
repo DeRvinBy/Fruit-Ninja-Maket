@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using Project.Scripts.Animations.Abstract;
 using UnityEngine;
 
@@ -7,10 +8,7 @@ namespace Project.Scripts.Animations.UIAnimations
     public class RectTransformMoveAnimation : UIRectTransformAnimation
     {
         [SerializeField]
-        private Vector2 offsetDirection = Vector2.zero;
-
-        [SerializeField]
-        private float offset = 100f;
+        private Vector2 targetPosition = Vector2.zero;
 
         private Vector2 startPosition;
 
@@ -21,8 +19,7 @@ namespace Project.Scripts.Animations.UIAnimations
 
         public override void PlayAnimation()
         {
-            var endValue = rectTransform.anchoredPosition + offsetDirection * offset;
-            rectTransform.DOAnchorPos(endValue, duration, SNAPPING).SetEase(easeMode);
+            rectTransform.DOAnchorPos(targetPosition, duration, SNAPPING).SetEase(easeMode);
         }
 
         public override void PlayReverseAnimation()

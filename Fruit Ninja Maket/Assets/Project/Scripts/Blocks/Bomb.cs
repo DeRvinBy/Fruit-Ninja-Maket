@@ -1,7 +1,6 @@
 ﻿using System;
 using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -34,10 +33,15 @@ namespace Project.Scripts.Blocks
             
             base.Slice(slicingDirection);
             
-            spriteObject.SetActive(false);
             explosionParticles.Play();
             PushBlocksFromBomb();
             OnBombSliced?.Invoke(bombSettings.CountOfReducingLives);
+        }
+
+        protected override void DisableBlockComponent()
+        {
+            base.DisableBlockComponent();
+            spriteObject.SetActive(false);;
         }
 
         private void PushBlocksFromBomb()

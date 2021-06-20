@@ -5,30 +5,30 @@ using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class FruitFactory : Abstract.BlockFactory
-    { 
-        [SerializeField]
-        private BaseFruitSettings fruitSettings = null;
+    public class HeartFactory : PercentageBlockFactory
+    {
+        [SerializeField] 
+        private BaseHeartSettings heartSettings = null;
 
         protected override bool IsCanCreate()
         {
-            return true;
+            var result = base.IsCanCreate();
+
+            return result && !lifeController.IsFullLives;
         }
 
         protected override BaseBlockSettings GetBlockSettings()
         {
-            return fruitSettings;
+            return heartSettings;
         }
-
+        
         protected override SliceBlock CreateBlock(Vector2 position)
         {
-            var prefab = fruitSettings.Prefab;
+            var prefab = heartSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            var settings = fruitSettings.GetRandomFruitSettings();
-            go.InitializeSettings(settings);
-            go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
-            go.OnFruitNotSliced.AddListener(lifeController.RemoveLivesWithSpawnFail);
+            go.InitializeSettings(heartSettings);
+            go.OnHeartSliced.AddListener(lifeController.AddLivesAnimate);
 
             return go;
         }
