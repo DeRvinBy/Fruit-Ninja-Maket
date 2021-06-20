@@ -29,7 +29,6 @@ namespace Project.Scripts.UI.Life
             }
 
             currentIndex = lifeContainers.Count - 1;
-            print(currentIndex);
         }
 
         public void AddLive(Vector2 animationPosition)
