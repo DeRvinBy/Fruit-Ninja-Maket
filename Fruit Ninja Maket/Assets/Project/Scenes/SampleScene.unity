@@ -1487,8 +1487,8 @@ MonoBehaviour:
   gravityOfBlock: 25
   countOfReducingLives: 1
   prefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfVelocity: 2
-  halfGravity: 15
+  halfVelocity: 4
+  halfGravity: 20
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
@@ -2967,7 +2967,7 @@ MonoBehaviour:
     blockFactory: {fileID: 899489463}
   - spawnProbability: 15
     blockFactory: {fileID: 324286087}
-  - spawnProbability: 100
+  - spawnProbability: 5
     blockFactory: {fileID: 1376498432}
 --- !u!1 &1342474011
 GameObject:

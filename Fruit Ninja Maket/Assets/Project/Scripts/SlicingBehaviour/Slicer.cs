@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using Project.Scripts.Blocks;
 using Project.Scripts.Controllers;
-using Project.Scripts.Physics;
 using UnityEngine;
 
 namespace Project.Scripts.SlicingBehaviour

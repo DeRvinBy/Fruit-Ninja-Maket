@@ -21,6 +21,9 @@ namespace Project.Scripts.SlicingBehaviour
         private Vector2 previousPointOfSlicingPath;
         private Vector2 currentPointOfSlicingPath;
 
+        private Vector2 slicingPathMediaPoint;
+        private Vector2 slicingPathDirection;
+            
         private bool isInputEnable;
         private bool isSwiping;
 
@@ -60,12 +63,12 @@ namespace Project.Scripts.SlicingBehaviour
 
         public Vector2 GetMediaPointOfSlicingPath()
         {
-            return Vector3.Lerp(previousPointOfSlicingPath, currentPointOfSlicingPath, MidpointRatio);
+            return slicingPathMediaPoint;
         }
 
         public Vector2 GetDirectionOfSlicingPath()
         {
-            return (currentPointOfSlicingPath - previousPointOfSlicingPath).normalized;
+            return slicingPathDirection;
         }
 
         public Vector2 GetCurrentPointOfSlicingPath()
@@ -99,10 +102,17 @@ namespace Project.Scripts.SlicingBehaviour
 
             if (isSwiping)
             {
+                UpdateSlicingPathVariables();
                 previousPointOfSlicingPath = currentPointOfSlicingPath;
             }
 
             previousPointOfInput = currentPointOfSlicingPath;
+        }
+
+        private void UpdateSlicingPathVariables()
+        {
+            slicingPathMediaPoint = Vector3.Lerp(previousPointOfSlicingPath, currentPointOfSlicingPath, MidpointRatio);
+            slicingPathDirection = (currentPointOfSlicingPath - previousPointOfSlicingPath).normalized;
         }
     }
 }

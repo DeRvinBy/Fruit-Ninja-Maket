@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -49,13 +50,20 @@ namespace Project.Scripts.Blocks
 
             sprayParticles.Play();
             blotsParticles.Play();
-            
-            PushHalfInDirection(leftSpriteComp, slicingDirection + Vector2.right);
-            PushHalfInDirection(rightSpriteComp, slicingDirection + Vector2.left);
 
+            SliceByDirection(slicingDirection);
+            
             OnFruitSliced?.Invoke(transform.position);
         }
 
+        private void SliceByDirection(Vector2 slicingDirection)
+        {
+            var leftDirection = Vector2.Perpendicular(slicingDirection);
+            var rightDirection = -Vector2.Perpendicular(slicingDirection);
+            PushHalfInDirection(leftSpriteComp, leftDirection);
+            PushHalfInDirection(rightSpriteComp, rightDirection);
+        }
+        
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
             var movement = halfComponent.GetComponent<ObjectCollider>();
