@@ -29,10 +29,8 @@ namespace Project.Scripts.Controllers
 
         public void StartGame()
         {
-            playerInput.SetEnableInput(true);
-            spawnController.Initialize();
-            lifeController.Initialize();
-            scoreController.Initialize();
+            ViewControllerInitialize();
+            GameControllerInitialize();
         }
         
         public void EndGame()
@@ -41,6 +39,18 @@ namespace Project.Scripts.Controllers
             spawnController.StopSpawnObjects();
             scoreController.SetBestScoreInSave();
             StartCoroutine(WaitToShowRestartPanel());
+        }
+
+        public void ViewControllerInitialize()
+        {
+            lifeController.Initialize();
+            scoreController.Initialize();
+        }
+
+        public void GameControllerInitialize()
+        {
+            playerInput.SetEnableInput(true);
+            spawnController.Initialize();
         }
 
         private IEnumerator WaitToShowRestartPanel()

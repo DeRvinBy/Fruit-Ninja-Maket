@@ -227,4 +227,5 @@ MonoBehaviour:
   rectTransform: {fileID: 1079491947442287557}
   ease: 1
   image: {fileID: 1079491947442287558}
-  targetAlpha: 0
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  disableColor: {r: 1, g: 1, b: 1, a: 0}

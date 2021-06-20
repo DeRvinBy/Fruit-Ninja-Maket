@@ -30,7 +30,6 @@ namespace Project.Scripts.Controllers.ModelToView
         private void Start()
         {
             mainCamera = Camera.main;
-            Initialize();
         }
 
         public void Initialize()

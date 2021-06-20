@@ -7,6 +7,8 @@ namespace Project.Scripts.Controllers
 {
     public class SceneController : MonoBehaviour
     {
+        public UnityEvent OnStartTransition = new UnityEvent();
+        
         public UnityEvent OnTransitionEnded = new UnityEvent();
         
         [SerializeField] 
@@ -18,10 +20,12 @@ namespace Project.Scripts.Controllers
         private void OnDestroy()
         {
             OnTransitionEnded?.RemoveAllListeners();
+            OnStartTransition?.RemoveAllListeners();
         }
 
         private void Start()
         {
+            OnStartTransition?.Invoke();
             sceneTransition.HideTransition(() => OnTransitionEnded?.Invoke());
         }
 

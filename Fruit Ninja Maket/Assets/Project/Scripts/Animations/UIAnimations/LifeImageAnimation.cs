@@ -19,12 +19,13 @@ namespace Project.Scripts.Animations.UIAnimations
         private Image image = null;
 
         [SerializeField] 
-        private float targetAlpha = 0f;
+        private Color activeColor = Color.white;
         
-        private Vector2 startPosition;
-        private Color startColor;
-        private Color targetColor;
+        [SerializeField] 
+        private Color disableColor = Color.white;
 
+        private Vector2 startPosition;
+        
         private Tween moveTween;
         private Tween fadeTween;
         private Tween reverseFadeTween;
@@ -32,19 +33,17 @@ namespace Project.Scripts.Animations.UIAnimations
         private void Start()
         {
             startPosition = rectTransform.anchoredPosition;
-            startColor = image.color;
-            targetColor = new Color(startColor.r, startColor.g, startColor.g, targetAlpha);
 
             var tweenParams = new TweenParams().SetAutoKill(false);
             
             moveTween = rectTransform.DOLocalMove(startPosition, duration).SetAs(tweenParams).SetEase(ease).Pause();
-            fadeTween = image.DOColor(targetColor, duration).SetAs(tweenParams).Pause();
-            reverseFadeTween = image.DOColor(startColor, duration).SetAs(tweenParams).Pause();
+            fadeTween = image.DOColor(disableColor, duration).SetAs(tweenParams).Pause();
+            reverseFadeTween = image.DOColor(activeColor, duration).SetAs(tweenParams).Pause();
         }
 
         public void PlayReverseFadeAnimation()
         {
-            image.color = startColor;
+            image.color = activeColor;
             reverseFadeTween.Rewind();
             reverseFadeTween.Play();
         }
@@ -52,7 +51,7 @@ namespace Project.Scripts.Animations.UIAnimations
         public void PlayMoveAnimation(Vector2 startAnimationPosition)
         {
             fadeTween.Pause();
-            image.color = startColor;
+            image.color = activeColor;
             rectTransform.position = startAnimationPosition;
             moveTween.Rewind();
             moveTween.Play();
@@ -60,6 +59,7 @@ namespace Project.Scripts.Animations.UIAnimations
         
         public void PlayFadeAnimation()
         {
+            image.color = activeColor;
             fadeTween.Rewind();
             fadeTween.Play();
         }
