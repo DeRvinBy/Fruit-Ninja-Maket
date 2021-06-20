@@ -1,15 +1,13 @@
 ﻿using System.Collections;
-using Project.Scripts.Animations.UIAnimations;
 using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.SlicingBehaviour;
 using Project.Scripts.Spawn;
 using Project.Scripts.UI.Game;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Project.Scripts.Controllers
 {
-    public class GameController : MonoBehaviour
+    public class GameSceneController : MonoBehaviour
     {
         [SerializeField]
         private SpawnController spawnController = null;
@@ -26,21 +24,10 @@ namespace Project.Scripts.Controllers
         [SerializeField]
         private LifeController lifeController = null;
 
-        [SerializeField] 
-        private SceneTransition sceneTransition = null;
-        
         [SerializeField]
         private RestartUI restartUI = null;
 
-        [SerializeField] 
-        private int menuSceneIndex = 0;
-        
-        private void Start()
-        {
-            sceneTransition.HideTransition(StartScene);
-        }
-
-        public void StartScene()
+        public void StartGame()
         {
             playerInput.SetEnableInput(true);
             spawnController.Initialize();
@@ -54,16 +41,6 @@ namespace Project.Scripts.Controllers
             spawnController.StopSpawnObjects();
             scoreController.SetBestScoreInSave();
             StartCoroutine(WaitToShowRestartPanel());
-        }
-        
-        public void StartMenuScene()
-        {
-            sceneTransition.ShowTransition(LoadMenuScene);
-        }
-
-        private void LoadMenuScene()
-        {
-            SceneManager.LoadScene(menuSceneIndex);
         }
 
         private IEnumerator WaitToShowRestartPanel()

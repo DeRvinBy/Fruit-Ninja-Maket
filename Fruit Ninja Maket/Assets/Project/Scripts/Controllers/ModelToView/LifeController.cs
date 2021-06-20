@@ -9,7 +9,7 @@ namespace Project.Scripts.Controllers.ModelToView
         private const int LoseLives = 0;
 
         [SerializeField]
-        private GameController gameController = null;
+        private GameSceneController gameSceneController = null;
 
         [SerializeField]
         private LifeControllerSettings controllerSettings = null;
@@ -57,7 +57,7 @@ namespace Project.Scripts.Controllers.ModelToView
             lifeUI.RemoveLive();
             if (currentLives <= LoseLives)
             {
-                gameController.EndGame();
+                gameSceneController.EndGame();
                 isEndGame = true;
             }
         }
