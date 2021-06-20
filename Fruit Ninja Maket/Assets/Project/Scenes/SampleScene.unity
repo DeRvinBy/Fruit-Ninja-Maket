@@ -357,7 +357,7 @@ MonoBehaviour:
   startTimeOfSpawnZone: 2
   delayTimeSpawnNextZone: 3
   delayTimeBetweenSpawnObjects: 0.5
-  minSpawnObjectsCount: 1
+  minSpawnObjectsCount: 5
   maxSpawnObjectsCount: 5
   decreasingValueOfDelayTimeForDifficulty: 0.5
   increasingValueOfCountObjectsForDifficulty: 1
@@ -392,6 +392,7 @@ Transform:
   - {fileID: 1366761135}
   - {fileID: 1953611276}
   - {fileID: 1325425214}
+  - {fileID: 268158233}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -641,11 +642,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90325940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1325425214}
+  m_Father: {fileID: 268158233}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &90325942
@@ -660,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08e2e4a2cc1485b96718ad590f12506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityOfBlock: 30
+  velocityOfBlock: 25
   countOfReducingLives: 1
   prefab: {fileID: 5834651322078559573, guid: 724fb15c24fdc014cafae44be7cc0e93, type: 3}
   countOfAddingLives: 1
@@ -1101,6 +1102,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &268158232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 268158233}
+  m_Layer: 0
+  m_Name: BlocksSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &268158233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 268158232}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 516567224}
+  - {fileID: 452197365}
+  - {fileID: 90325941}
+  m_Father: {fileID: 20933064}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285971088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombSettings: {fileID: 452197364}
+  percentageBlocksSettings: {fileID: 728768111}
 --- !u!4 &324286088
 Transform:
   m_ObjectHideFlags: 0
@@ -1338,11 +1373,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452197363}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1325425214}
+  m_Father: {fileID: 268158233}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &516407544
@@ -1508,11 +1543,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 516567223}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1325425214}
+  m_Father: {fileID: 268158233}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &516567225
@@ -2340,6 +2375,50 @@ PrefabInstance:
       objectReference: {fileID: 792806275497476819, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
+--- !u!1 &728768109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 728768110}
+  - component: {fileID: 728768111}
+  m_Layer: 0
+  m_Name: BombFactorySettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &728768110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728768109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &728768111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728768109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751d69572285478cbdea81b616a2c288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfBlocksInBundle: 0.2
 --- !u!4 &737121844 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
@@ -3222,9 +3301,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 516567224}
-  - {fileID: 452197365}
-  - {fileID: 90325941}
+  - {fileID: 728768110}
+  - {fileID: 1342474013}
   m_Father: {fileID: 20933064}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3241,15 +3319,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - spawnProbability: 0.8
-    percentBlocksInBundle: 1
+  - spawnProbability: 7
     blockFactory: {fileID: 899489463}
-  - spawnProbability: 0.2
-    percentBlocksInBundle: 0.4
+  - spawnProbability: 2
     blockFactory: {fileID: 324286087}
-  - spawnProbability: 0.2
-    percentBlocksInBundle: 0.1
+  - spawnProbability: 1
     blockFactory: {fileID: 1376498432}
+--- !u!1 &1342474011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342474013}
+  - component: {fileID: 1342474012}
+  m_Layer: 0
+  m_Name: HeartFactorySettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342474012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342474011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751d69572285478cbdea81b616a2c288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfBlocksInBundle: 0.2
+--- !u!4 &1342474013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342474011}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1349449990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3282,7 +3401,7 @@ MonoBehaviour:
   blockController: {fileID: 2132663860}
   scoreController: {fileID: 2115108505}
   lifeController: {fileID: 2002008482}
-  objectCreatorSettings: {fileID: 1325425216}
+  objectCreatorContainer: {fileID: 1325425216}
 --- !u!4 &1349449992
 Transform:
   m_ObjectHideFlags: 0
@@ -3450,6 +3569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartSettings: {fileID: 90325942}
+  percentageBlocksSettings: {fileID: 1342474012}
 --- !u!4 &1376498433
 Transform:
   m_ObjectHideFlags: 0

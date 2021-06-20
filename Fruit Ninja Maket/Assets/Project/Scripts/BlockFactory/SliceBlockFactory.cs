@@ -10,6 +10,15 @@ namespace Project.Scripts.BlockFactory
         protected BlockController blockController;
         protected ScoreController scoreController;
         protected LifeController lifeController;
+
+        protected int currentBlocksCountInBundle;
+        protected int maxBlocksCountInBundle;
+        
+        public void SetCountInBundle(int maxCountInBundle)
+        {
+            currentBlocksCountInBundle = 0;
+            maxBlocksCountInBundle = maxCountInBundle;
+        }
         
         public void InitializeControllers(BlockController blockController, ScoreController scoreController,
             LifeController lifeController)
@@ -35,6 +44,7 @@ namespace Project.Scripts.BlockFactory
             var settings = GetBlockSettings();
             var velocity = direction * settings.VelocityOfBlock;
             InitializeBlock(go, velocity);
+            currentBlocksCountInBundle++;
 
             return true;
         }

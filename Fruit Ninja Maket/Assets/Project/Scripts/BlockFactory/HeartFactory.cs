@@ -1,5 +1,6 @@
 ﻿using Project.Scripts.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
+using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
@@ -9,9 +10,15 @@ namespace Project.Scripts.BlockFactory
         [SerializeField] 
         private BaseHeartSettings heartSettings = null;
 
+        [SerializeField] 
+        private PercentageBlocksSettings percentageBlocksSettings = null;
+        
         protected override bool IsCanCreate()
         {
-            return true;
+            if (percentageBlocksSettings == null) return true;
+
+            var percent = (float)currentBlocksCountInBundle / maxBlocksCountInBundle;
+            return percent < percentageBlocksSettings.PercentOfBlocksInBundle;
         }
 
         protected override BaseBlockSettings GetBlockSettings()

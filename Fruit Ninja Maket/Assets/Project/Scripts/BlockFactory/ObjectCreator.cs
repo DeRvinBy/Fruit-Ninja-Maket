@@ -1,4 +1,5 @@
-﻿using Project.Scripts.Controllers;
+﻿using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using UnityEngine;
 
@@ -18,9 +19,11 @@ namespace Project.Scripts.BlockFactory
         [SerializeField]
         private ObjectCreatorContainer objectCreatorContainer = null;
 
+        private SliceBlockFactory[] factories;
+        
         private void Start()
         {
-            var factories = objectCreatorContainer.GetAllFactories();
+            factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
                 factory.InitializeControllers(blockController, scoreController, lifeController);
@@ -29,7 +32,10 @@ namespace Project.Scripts.BlockFactory
 
         public void SetCountInBundle(int maxCount)
         {
-            objectCreatorContainer.SetCountInBundleToFactories(maxCount);
+            foreach (var factory in factories)
+            {
+                factory.SetCountInBundle(maxCount);
+            }
         }
 
         public void CreateBlock(Vector2 position, Vector2 direction)
