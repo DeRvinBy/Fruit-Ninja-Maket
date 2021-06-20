@@ -25,7 +25,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBombSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/ButtonAnimation.cs" />
@@ -73,9 +72,10 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

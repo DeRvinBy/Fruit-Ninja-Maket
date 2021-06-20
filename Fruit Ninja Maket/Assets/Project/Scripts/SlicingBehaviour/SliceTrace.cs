@@ -10,6 +10,8 @@ namespace Project.Scripts.SlicingBehaviour
         [SerializeField]
         private TrailRenderer trail;
 
+        private Vector2 debugStartPoint;
+        
         private void LateUpdate()
         {
             if (input.IsSwiping)
@@ -28,12 +30,15 @@ namespace Project.Scripts.SlicingBehaviour
             if (trail.emitting)
             {
                 transform.position = trailPosition;
+                Debug.DrawLine(debugStartPoint, trailPosition, Color.cyan, 1f);
             }
             else
             {
                 trail.AddPosition(trailPosition);
                 trail.emitting = true;
             }
+
+            debugStartPoint = trailPosition;
         }
     }
 }
