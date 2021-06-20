@@ -1,11 +1,10 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Project.Scripts.Animations.Abstract;
 using UnityEngine;
 
 namespace Project.Scripts.Animations.UIAnimations
 {
-    public class RectTransformMoveAnimation : UIRectTransformAnimation
+    public class RectTransformMoveTargetAnimation : UIRectTransformAnimation
     {
         [SerializeField]
         private Vector2 targetPosition = Vector2.zero;

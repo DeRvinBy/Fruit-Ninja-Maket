@@ -146,8 +146,8 @@ GameObject:
   - component: {fileID: 6447850148964634629}
   - component: {fileID: 6411938820496463385}
   - component: {fileID: 6447850148964634628}
-  - component: {fileID: 6447850148964634627}
   - component: {fileID: 6447850148964634630}
+  - component: {fileID: 7800470874507847318}
   m_Layer: 5
   m_Name: SceneScorePanel
   m_TagString: Untagged
@@ -209,24 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyDelay: 2
   scoreText: {fileID: 6447850148478389266}
-  moveAnimation: {fileID: 6447850148964634627}
+  moveAnimation: {fileID: 7800470874507847318}
   canvasGroupAnimation: {fileID: 6447850148964634630}
---- !u!114 &6447850148964634627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6447850148964634625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e3af1a8cf16564fb5cc66c489539b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 0.5
-  easeMode: 18
-  offsetDirection: {x: 0, y: 1}
-  offset: 100
 --- !u!114 &6447850148964634630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +226,19 @@ MonoBehaviour:
   duration: 1
   uiElement: {fileID: 6411938820496463385}
   targetAlpha: 0
+--- !u!114 &7800470874507847318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447850148964634625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e68f4afdfdc49ddb227612f811d1b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  easeMode: 6
+  offsetDirection: {x: 0, y: 1}
+  offset: 100

@@ -17,15 +17,18 @@ namespace Project.Scripts.GameSettings.BlockSettings.AdditionalSettings
 
         private int countOfReducingLives;
         private float halfVelocity;
+        private float halfGravity;
 
         public Sprite LeftHalfOfSprite { get => leftHalfOfSprite; }
         public Sprite RightHalfOfSprite { get => rightHalfOfSprite; }
         public Color SprayColor { get => fruitJuiceColor; }
         public float HalfVelocity { get => halfVelocity; }
+        public float HalfGravity { get => halfGravity; }
         public int CountOfReducingLives => countOfReducingLives;
 
-        public void SetOtherSettings(float halfVelocity, int countOfReducingLives)
+        public void SetOtherSettings(float halfGravity, float halfVelocity, int countOfReducingLives)
         {
+            this.halfGravity = halfGravity;
             this.halfVelocity = halfVelocity;
             this.countOfReducingLives = countOfReducingLives;
         }

@@ -9,9 +9,6 @@ namespace Project.Scripts.Controllers
         [SerializeField] 
         private TMP_Text scoreText = null;
 
-        [SerializeField] 
-        private int gameSceneIndex = 0;
-        
         private void Start()
         {
             var score = SaveController.Instance.PlayerSave.BestScore; 

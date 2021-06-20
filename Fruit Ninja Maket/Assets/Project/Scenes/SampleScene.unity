@@ -703,7 +703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e08e2e4a2cc1485b96718ad590f12506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityOfBlock: 25
+  velocityOfBlock: 28
+  gravityOfBlock: 45
   countOfReducingLives: 1
   prefab: {fileID: 5834651322078559573, guid: 724fb15c24fdc014cafae44be7cc0e93, type: 3}
   countOfAddingLives: 1
@@ -1281,6 +1282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityOfBlock: 20
+  gravityOfBlock: 25
   countOfReducingLives: 1
   prefab: {fileID: -4951373324098148696, guid: fe8c561cc97d6f24dad2fc3f0bd2992e, type: 3}
   explosionRadius: 5
@@ -1482,9 +1484,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityOfBlock: 20
+  gravityOfBlock: 25
   countOfReducingLives: 1
   prefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfVelocityCoefficient: 1
+  halfVelocity: 2
+  halfGravity: 15
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
@@ -2959,11 +2963,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - spawnProbability: 7
+  - spawnProbability: 80
     blockFactory: {fileID: 899489463}
-  - spawnProbability: 2
+  - spawnProbability: 15
     blockFactory: {fileID: 324286087}
-  - spawnProbability: 1
+  - spawnProbability: 100
     blockFactory: {fileID: 1376498432}
 --- !u!1 &1342474011
 GameObject:
@@ -3595,8 +3599,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1298346910}
-        m_TargetAssemblyTypeName: Scripts.Controllers.GameController, Assembly-CSharp
-        m_MethodName: StartScene
+        m_TargetAssemblyTypeName: Project.Scripts.Controllers.GameSceneController,
+          Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3905,9 +3910,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1298346910}
-        m_TargetAssemblyTypeName: Project.Scripts.Controllers.GameController, Assembly-CSharp
-        m_MethodName: StartMenuScene
+      - m_Target: {fileID: 1482162175}
+        m_TargetAssemblyTypeName: Project.Scripts.Controllers.SceneController, Assembly-CSharp
+        m_MethodName: StartNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4886,7 +4891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993cb79571112d44dac04c3b1949e1a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSceneController: {fileID: 0}
+  gameSceneController: {fileID: 1298346910}
   controllerSettings: {fileID: 1366761134}
   uiTransform: {fileID: 942328532}
   lifeUI: {fileID: 24866573}

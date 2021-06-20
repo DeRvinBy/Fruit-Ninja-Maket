@@ -59,6 +59,7 @@ namespace Project.Scripts.Blocks
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
             var movement = halfComponent.GetComponent<ObjectCollider>();
+            movement.SetGravityVelocity(fruitSettings.HalfGravity);
             movement.SetMovement(direction * fruitSettings.HalfVelocity);
             movement.physicalMovement.enabled = true;
             movement.isEnabledCollider = true;
