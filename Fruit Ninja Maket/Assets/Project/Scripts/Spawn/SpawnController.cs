@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using Project.Scripts.BlockFactory;
+using Project.Scripts.Controllers.ModelToView;
+using Project.Scripts.GameSettings.SpawnSettings;
 using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
 using UnityEngine;
 
@@ -9,6 +12,9 @@ namespace Project.Scripts.Spawn
     {
         [SerializeField] 
         private ObjectCreator objectCreator = null;
+
+        [SerializeField] 
+        private ScoreController scoreController = null;
         
         [SerializeField]
         private SpawnControllerSettings controllerSettings = null;
@@ -16,9 +22,15 @@ namespace Project.Scripts.Spawn
         [SerializeField]
         private SpawnZonesSettingsContainer zonesContainer = null;
 
+        private SpawnDifficultySettings difficultySettings;
         private float currentDelayTimeSpawnNextZone;
         private int baseCountOfSpawningObjects;
         private bool isSpawnObjects;
+
+        private void Start()
+        {
+            difficultySettings = controllerSettings.DifficultySettings;
+        }
 
         public void Initialize()
         {
@@ -42,8 +54,9 @@ namespace Project.Scripts.Spawn
             while (isSpawnObjects)
             {
                 var coroutine = SpawnObjectsWithDelay();
-                yield return StartCoroutine(coroutine); 
+                yield return StartCoroutine(coroutine);
                 yield return new WaitForSeconds(currentDelayTimeSpawnNextZone);
+                IncreaseDifficulty();
             }
         }
         
@@ -61,8 +74,8 @@ namespace Project.Scripts.Spawn
         
         private void IncreaseDifficulty()
         {
-            currentDelayTimeSpawnNextZone -= controllerSettings.DecreasingValueOfDelayTimeForDifficulty;
-            baseCountOfSpawningObjects += controllerSettings.IncreasingValueOfCountObjectsForDifficulty;
+            var score = scoreController.CurrentScore;
+            difficultySettings.UpdateDifficulty(score, ref currentDelayTimeSpawnNextZone, ref baseCountOfSpawningObjects);
         }
     }
 }

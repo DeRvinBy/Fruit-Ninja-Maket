@@ -225,6 +225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   rectTransform: {fileID: 1079491947442287557}
-  ease: 21
+  ease: 1
   image: {fileID: 1079491947442287558}
   targetAlpha: 0

@@ -1,5 +1,6 @@
 ﻿using Project.Scripts.Blocks;
 using Project.Scripts.Controllers;
+using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -28,9 +29,12 @@ namespace Project.Scripts.BlockFactory.Abstract
             this.lifeController = lifeController;
         }
         
-        protected void InitializeBlock(SliceBlock block, Vector2 velocity)
+        protected void InitializeBlock(SliceBlock block, Vector2 direction)
         {
+            var settings = GetBlockSettings();
+            var velocity = direction * settings.VelocityOfBlock;
             block.SetMovement(velocity);
+            block.SetGravityVelocity(settings.GravityOfBlock);
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
         }
@@ -41,9 +45,7 @@ namespace Project.Scripts.BlockFactory.Abstract
             if (!isCanCreate) return false;
             
             var go = CreateBlock(position);
-            var settings = GetBlockSettings();
-            var velocity = direction * settings.VelocityOfBlock;
-            InitializeBlock(go, velocity);
+            InitializeBlock(go, direction);
             currentBlocksCountInBundle++;
 
             return true;

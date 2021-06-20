@@ -2,14 +2,14 @@
 using Project.Scripts.UI.Life;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.ModelToView
 {
     public class LifeController : MonoBehaviour
     {
         private const int LoseLives = 0;
 
         [SerializeField]
-        private GameController gameController = null;
+        private GameSceneController gameSceneController = null;
 
         [SerializeField]
         private LifeControllerSettings controllerSettings = null;
@@ -57,7 +57,7 @@ namespace Project.Scripts.Controllers
             lifeUI.RemoveLive();
             if (currentLives <= LoseLives)
             {
-                gameController.EndGame();
+                gameSceneController.EndGame();
                 isEndGame = true;
             }
         }
