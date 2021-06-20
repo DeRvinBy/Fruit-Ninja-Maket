@@ -1,26 +1,15 @@
-﻿using Project.Scripts.Blocks;
+﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
-using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class BombFactory : SliceBlockFactory
+    public class BombFactory : PercentageBlockFactory
     {
         [SerializeField] 
         private BaseBombSettings bombSettings = null;
-
-        [SerializeField] 
-        private PercentageBlocksSettings percentageBlocksSettings = null;
-        
-        protected override bool IsCanCreate()
-        {
-            if (percentageBlocksSettings == null) return true;
-            
-            var percent = (float)currentBlocksCountInBundle / maxBlocksCountInBundle;
-            return percent < percentageBlocksSettings.PercentOfBlocksInBundle;
-        }
 
         protected override BaseBlockSettings GetBlockSettings()
         {

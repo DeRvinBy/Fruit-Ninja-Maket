@@ -26,9 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Extensions/RandomItemInList.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/MonoSettings/FruitSettingsContainer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/MonoSettings/FruitBaseSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/MonoSettings/BlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/FruitBaseSettings.cs" />
@@ -65,7 +62,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseHeartSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
@@ -75,8 +71,12 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentageBlocksSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/BlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/PercentageBlockFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

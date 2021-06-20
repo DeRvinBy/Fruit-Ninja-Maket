@@ -1230,8 +1230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc56adfc0ff44745acc6b8cb262b8d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombSettings: {fileID: 452197364}
   percentageBlocksSettings: {fileID: 728768111}
+  bombSettings: {fileID: 452197364}
 --- !u!4 &324286088
 Transform:
   m_ObjectHideFlags: 0
@@ -3568,8 +3568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ef881a65a24375a9b08cc7a2f5d7ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heartSettings: {fileID: 90325942}
   percentageBlocksSettings: {fileID: 1342474012}
+  heartSettings: {fileID: 90325942}
 --- !u!4 &1376498433
 Transform:
   m_ObjectHideFlags: 0

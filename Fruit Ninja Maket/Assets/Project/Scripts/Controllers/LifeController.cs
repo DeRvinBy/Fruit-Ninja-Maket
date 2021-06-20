@@ -25,6 +25,8 @@ namespace Project.Scripts.Controllers
         private int currentLives;
         private bool isEndGame;
 
+        public bool IsFullLives => currentLives == controllerSettings.MaxLivesCount;
+        
         private void Start()
         {
             mainCamera = Camera.main;

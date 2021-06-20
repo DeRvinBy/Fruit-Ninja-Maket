@@ -3,9 +3,9 @@ using Project.Scripts.Controllers;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
-namespace Project.Scripts.BlockFactory
+namespace Project.Scripts.BlockFactory.Abstract
 {
-    public abstract class SliceBlockFactory : MonoBehaviour
+    public abstract class BlockFactory : MonoBehaviour
     {
         protected BlockController blockController;
         protected ScoreController scoreController;

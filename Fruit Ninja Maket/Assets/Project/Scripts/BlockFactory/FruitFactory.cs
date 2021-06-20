@@ -1,10 +1,11 @@
-﻿using Project.Scripts.Blocks;
+﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class FruitFactory : SliceBlockFactory
+    public class FruitFactory : Abstract.BlockFactory
     { 
         [SerializeField]
         private BaseFruitSettings fruitSettings = null;

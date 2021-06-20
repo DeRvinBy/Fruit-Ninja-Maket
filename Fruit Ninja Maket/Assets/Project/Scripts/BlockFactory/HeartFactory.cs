@@ -1,24 +1,20 @@
-﻿using Project.Scripts.Blocks;
+﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
-using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class HeartFactory : SliceBlockFactory
+    public class HeartFactory : PercentageBlockFactory
     {
         [SerializeField] 
         private BaseHeartSettings heartSettings = null;
 
-        [SerializeField] 
-        private PercentageBlocksSettings percentageBlocksSettings = null;
-        
         protected override bool IsCanCreate()
         {
-            if (percentageBlocksSettings == null) return true;
+            var result = base.IsCanCreate();
 
-            var percent = (float)currentBlocksCountInBundle / maxBlocksCountInBundle;
-            return percent < percentageBlocksSettings.PercentOfBlocksInBundle;
+            return result && !lifeController.IsFullLives;
         }
 
         protected override BaseBlockSettings GetBlockSettings()
