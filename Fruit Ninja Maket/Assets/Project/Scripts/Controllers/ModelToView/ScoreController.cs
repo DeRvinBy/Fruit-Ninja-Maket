@@ -16,9 +16,6 @@ namespace Project.Scripts.Controllers.ModelToView
         [SerializeField]
         private ScoreUI scoreUI = null;
 
-        [SerializeField] 
-        private SaveController saveController = null;
-        
         private Camera mainCamera;
         private int bestScore;
         private int currentScore;
@@ -36,11 +33,7 @@ namespace Project.Scripts.Controllers.ModelToView
         {
             currentScore = 0;
             scoreUI.SetCurrentScore(currentScore);
-            bestScore = 0;
-            if (saveController != null)
-            {
-                bestScore = saveController.PlayerSave.BestScore;
-            }
+            bestScore = SaveController.Instance.PlayerSave.BestScore;
             scoreUI.SetBestScore(bestScore);
         }
 
@@ -60,10 +53,7 @@ namespace Project.Scripts.Controllers.ModelToView
 
         public void SetBestScoreInSave()
         {
-            if (saveController != null)
-            {
-                saveController.PlayerSave.SetBestScore(bestScore);
-            }
+            SaveController.Instance.PlayerSave.SetBestScore(bestScore);
         }
 
         private void CreateSceneScore(Vector2 position)

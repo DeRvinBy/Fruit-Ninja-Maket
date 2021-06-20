@@ -14,9 +14,6 @@ namespace Project.Scripts.Controllers
 
         [SerializeField] 
         private SceneTransition sceneTransition = null;
-
-        [SerializeField] 
-        private SaveController saveController = null;
         
         [SerializeField] 
         private int gameSceneIndex = 0;
@@ -24,11 +21,7 @@ namespace Project.Scripts.Controllers
         private void Start()
         {
             sceneTransition.HideTransition(null);
-            int score = 0;
-            if (saveController != null)
-            {
-                score = saveController.PlayerSave.BestScore;
-            }
+            var score = SaveController.Instance.PlayerSave.BestScore; 
             scoreText.text = score.ToString();
         }
 
