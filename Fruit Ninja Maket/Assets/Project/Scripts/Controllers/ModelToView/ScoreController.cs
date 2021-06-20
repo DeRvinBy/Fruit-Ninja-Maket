@@ -1,8 +1,9 @@
-﻿using Project.Scripts.GameSettings.ScoreSettings;
+﻿using Project.Scripts.Controllers.Save;
+using Project.Scripts.GameSettings.ScoreSettings;
 using Project.Scripts.UI.Score;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.ModelToView
 {
     public class ScoreController : MonoBehaviour
     {
@@ -15,6 +16,9 @@ namespace Project.Scripts.Controllers
         [SerializeField]
         private ScoreUI scoreUI = null;
 
+        [SerializeField] 
+        private SaveController saveController = null;
+        
         private Camera mainCamera;
         private int bestScore;
         private int currentScore;
@@ -32,7 +36,11 @@ namespace Project.Scripts.Controllers
         {
             currentScore = 0;
             scoreUI.SetCurrentScore(currentScore);
-            bestScore = SaveController.Instance.GetBestScore();
+            bestScore = 0;
+            if (saveController != null)
+            {
+                bestScore = saveController.PlayerSave.BestScore;
+            }
             scoreUI.SetBestScore(bestScore);
         }
 
@@ -52,7 +60,10 @@ namespace Project.Scripts.Controllers
 
         public void SetBestScoreInSave()
         {
-            SaveController.Instance.SetBestScore(bestScore);
+            if (saveController != null)
+            {
+                saveController.PlayerSave.SetBestScore(bestScore);
+            }
         }
 
         private void CreateSceneScore(Vector2 position)

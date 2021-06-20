@@ -2,7 +2,7 @@
 using Project.Scripts.UI.Life;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.ModelToView
 {
     public class LifeController : MonoBehaviour
     {

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Save
 {
     public class SaveController : MonoBehaviour
     {
         private const string BestScoreKey = "BestScore";
         public static SaveController Instance {get; private set; }
 
-        private int bestGameScore;
+        public PlayerStats PlayerSave { get; private set; }
         
         private void Awake()
         {
@@ -16,7 +16,7 @@ namespace Project.Scripts.Controllers
                 Instance = this;
                 DontDestroyOnLoad(this);
 
-                bestGameScore = PlayerPrefs.GetInt(BestScoreKey);
+                LoadPlayerStats();
             }
             else
             {
@@ -24,19 +24,20 @@ namespace Project.Scripts.Controllers
             }
         }
 
-        public int GetBestScore()
-        {
-            return bestGameScore;
-        }
-
-        public void SetBestScore(int value)
-        {
-            bestGameScore = value;
-        }
-
         private void OnApplicationQuit()
         {
-            PlayerPrefs.SetInt(BestScoreKey, bestGameScore);
+            SavePlayerStats();
+        }
+        
+        private void LoadPlayerStats()
+        {
+            var score = PlayerPrefs.GetInt(BestScoreKey);
+            PlayerSave = new PlayerStats(score);
+        }
+        
+        private void SavePlayerStats()
+        {
+            PlayerPrefs.SetInt(BestScoreKey, PlayerSave.BestScore);
         }
     }
 }

@@ -1,4 +1,5 @@
 using Project.Scripts.Animations.UIAnimations;
+using Project.Scripts.Controllers.Save;
 using Project.Scripts.UI.Game;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,9 @@ namespace Project.Scripts.Controllers
 
         [SerializeField] 
         private SceneTransition sceneTransition = null;
+
+        [SerializeField] 
+        private SaveController saveController = null;
         
         [SerializeField] 
         private int gameSceneIndex = 0;
@@ -20,7 +24,11 @@ namespace Project.Scripts.Controllers
         private void Start()
         {
             sceneTransition.HideTransition(null);
-            var score = SaveController.Instance.GetBestScore(); 
+            int score = 0;
+            if (saveController != null)
+            {
+                score = saveController.PlayerSave.BestScore;
+            }
             scoreText.text = score.ToString();
         }
 
