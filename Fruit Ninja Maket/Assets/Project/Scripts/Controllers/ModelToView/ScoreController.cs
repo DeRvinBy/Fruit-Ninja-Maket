@@ -64,6 +64,7 @@ namespace Project.Scripts.Controllers.ModelToView
         public void SetBestScoreInSave()
         {
             saveController.PlayerSave.SetBestScore(bestScore);
+            saveController.SavePlayerStats();
         }
 
         private void CreateSceneScore(Vector2 position, int score)

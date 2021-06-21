@@ -48,7 +48,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
@@ -71,11 +70,12 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/ISaveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ResourceManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

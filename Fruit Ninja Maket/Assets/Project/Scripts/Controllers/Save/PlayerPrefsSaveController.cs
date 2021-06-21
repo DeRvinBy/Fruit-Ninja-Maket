@@ -24,10 +24,7 @@ namespace Project.Scripts.Controllers.Save
 
         private void OnApplicationQuit()
         {
-            if (PlayerSave.IsSaveChanged)
-            {
-                SavePlayerStats();
-            }
+            SavePlayerStats();
         }
         
         public void SavePlayerStats()
