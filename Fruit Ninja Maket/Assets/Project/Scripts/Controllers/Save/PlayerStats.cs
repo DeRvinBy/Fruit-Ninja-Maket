@@ -12,7 +12,7 @@
         public void SetBestScore(int value)
         {
             if (value < 0) return;
-
+            
             BestScore = value;
         }
     }

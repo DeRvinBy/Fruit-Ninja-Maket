@@ -25,30 +25,17 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/ButtonAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseHeartSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentBlockFactorySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentOfBlocksSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentageBlocksSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Initializer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/BlockFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
@@ -61,9 +48,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/PercentageBlockFactory.cs" />
@@ -71,11 +56,26 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Utils/DestructionBoundaries.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/SceneScoreUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/GeneralFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/HalfFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/ScoreFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/ISaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ResourceManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
