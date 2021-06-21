@@ -7,6 +7,9 @@ namespace Project.Scripts.Controllers.ModelToView
 {
     public class ScoreController : MonoBehaviour
     {
+        [SerializeField] 
+        private ResourceManager resourceManager = null;
+        
         [SerializeField]
         private ScoreControllerSettings controllerSettings = null;
 
@@ -16,6 +19,7 @@ namespace Project.Scripts.Controllers.ModelToView
         [SerializeField]
         private ScoreUI scoreUI = null;
 
+        private ISaveController saveController;
         private Camera mainCamera;
         private int bestScore;
         private int currentScore;
@@ -26,6 +30,7 @@ namespace Project.Scripts.Controllers.ModelToView
         private void Start()
         {
             mainCamera = Camera.main;
+            saveController = resourceManager.GetSaveController();
             Initialize();
         }
 
@@ -33,7 +38,12 @@ namespace Project.Scripts.Controllers.ModelToView
         {
             currentScore = 0;
             scoreUI.SetCurrentScore(currentScore);
-            bestScore = SaveController.Instance.PlayerSave.BestScore;
+            bestScore = 0;
+            if (saveController != null)
+            {
+                bestScore = saveController.PlayerSave.BestScore;
+            }
+
             scoreUI.SetBestScore(bestScore);
         }
 
@@ -53,7 +63,7 @@ namespace Project.Scripts.Controllers.ModelToView
 
         public void SetBestScoreInSave()
         {
-            SaveController.Instance.PlayerSave.SetBestScore(bestScore);
+            saveController.PlayerSave.SetBestScore(bestScore);
         }
 
         private void CreateSceneScore(Vector2 position, int score)

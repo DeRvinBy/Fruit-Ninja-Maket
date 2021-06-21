@@ -25,22 +25,16 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentBlockFactorySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentOfBlocksSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentageBlocksSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Initializer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/BlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
@@ -73,9 +67,15 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/ScoreFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/ISaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ResourceManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
