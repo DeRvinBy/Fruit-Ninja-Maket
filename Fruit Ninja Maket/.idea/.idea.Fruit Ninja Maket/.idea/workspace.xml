@@ -25,8 +25,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/CustomButton.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/RestartUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/ButtonAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/SceneTransition.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseHeartSettings.cs" />
@@ -76,6 +74,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/SceneScoreUI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
