@@ -1288,8 +1288,14 @@ MonoBehaviour:
   gravityOfBlock: 25
   countOfReducingLives: 1
   prefab: {fileID: 3675293215862686405, guid: 414d09903cccc8e49b009ce1823d49e4, type: 3}
-  halfVelocity: 4
-  halfGravity: 20
+  halfSettings:
+    halfVelocity: 4
+    halfGravity: 20
+  scoreSettings:
+    minScoreByTime: 5
+    maxScoreByTime: 15
+    minLifeTimeScore: 0.4
+    maxLifeTimeScore: 1.5
   fruitSettings:
   - leftHalfOfSprite: {fileID: 8301995738098799143, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
     rightHalfOfSprite: {fileID: -8403352764412563638, guid: 1ab1292d5f72c9f478ecf14efff91749, type: 3}
@@ -4679,7 +4685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadacfd8b90084747aac14faf1b1a889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValueByOneFruit: 10
   sceneScorePrefab: {fileID: 6447850148964634628, guid: 74c6086e050e9cd438b4aa24594652d5, type: 3}
 --- !u!4 &1968175883 stripped
 Transform:

@@ -14,22 +14,23 @@ namespace Project.Scripts.GameSettings.BlockSettings.AdditionalSettings
 
         [SerializeField]
         private Color fruitJuiceColor = Color.white;
-
+        
+        private HalfFruitSettings halfSettings;
+        private ScoreFruitSettings scoreSettings;
+        
         private int countOfReducingLives;
-        private float halfVelocity;
-        private float halfGravity;
 
-        public Sprite LeftHalfOfSprite { get => leftHalfOfSprite; }
-        public Sprite RightHalfOfSprite { get => rightHalfOfSprite; }
-        public Color SprayColor { get => fruitJuiceColor; }
-        public float HalfVelocity { get => halfVelocity; }
-        public float HalfGravity { get => halfGravity; }
+        public Sprite LeftHalfOfSprite => leftHalfOfSprite;
+        public Sprite RightHalfOfSprite => rightHalfOfSprite; 
+        public Color SprayColor => fruitJuiceColor; 
         public int CountOfReducingLives => countOfReducingLives;
+        public HalfFruitSettings HalfSettings => halfSettings;
+        public ScoreFruitSettings ScoreSettings => scoreSettings;
 
-        public void SetOtherSettings(float halfGravity, float halfVelocity, int countOfReducingLives)
+        public void SetOtherSettings(HalfFruitSettings halfSettings, ScoreFruitSettings scoreSettings, int countOfReducingLives)
         {
-            this.halfGravity = halfGravity;
-            this.halfVelocity = halfVelocity;
+            this.halfSettings = halfSettings;
+            this.scoreSettings = scoreSettings;
             this.countOfReducingLives = countOfReducingLives;
         }
     }

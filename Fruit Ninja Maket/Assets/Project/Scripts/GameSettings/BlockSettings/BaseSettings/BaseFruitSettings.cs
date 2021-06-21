@@ -13,12 +13,12 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
         [SerializeField]
         private Fruit prefab = null;
 
-        [SerializeField]
-        private float halfVelocity = 0.4f;
-        
-        [SerializeField]
-        private float halfGravity = 15f;
+        [SerializeField] 
+        private HalfFruitSettings halfSettings = null;
 
+        [SerializeField] 
+        private ScoreFruitSettings scoreSettings = null;
+        
         [SerializeField]
         private AdditionalFruitSettings[] fruitSettings = null;
 
@@ -27,7 +27,7 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
         public AdditionalFruitSettings GetRandomFruitSettings()
         {
             var settings = fruitSettings.GetRandomItem();
-            settings.SetOtherSettings(halfGravity, halfVelocity, countOfReducingLives);
+            settings.SetOtherSettings(halfSettings, scoreSettings, countOfReducingLives);
             return settings;
         }
     }

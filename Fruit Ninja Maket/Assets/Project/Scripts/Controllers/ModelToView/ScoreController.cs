@@ -37,9 +37,9 @@ namespace Project.Scripts.Controllers.ModelToView
             scoreUI.SetBestScore(bestScore);
         }
 
-        public void AddScoreByFruit(Vector2 slicingPosition)
+        public void AddScoreByFruit(Vector2 slicingPosition, int score)
         {
-            currentScore += controllerSettings.ScoreValueByOneFruit;
+            currentScore += score;
             scoreUI.SetCurrentScore(currentScore);
             if(currentScore > bestScore)
             {
@@ -48,7 +48,7 @@ namespace Project.Scripts.Controllers.ModelToView
             }
 
             Vector2 screenPosition = mainCamera.WorldToScreenPoint(slicingPosition);
-            CreateSceneScore(screenPosition);
+            CreateSceneScore(screenPosition, score);
         }
 
         public void SetBestScoreInSave()
@@ -56,10 +56,10 @@ namespace Project.Scripts.Controllers.ModelToView
             SaveController.Instance.PlayerSave.SetBestScore(bestScore);
         }
 
-        private void CreateSceneScore(Vector2 position)
+        private void CreateSceneScore(Vector2 position, int score)
         {
             var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
-            sceneScore.InitializeScore(controllerSettings.ScoreValueByOneFruit);
+            sceneScore.InitializeScore(score);
         }
     }
 }

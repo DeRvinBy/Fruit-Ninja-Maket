@@ -1,4 +1,3 @@
-using System;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -22,10 +21,16 @@ namespace Project.Scripts.Blocks
         [SerializeField]
         private ParticleSystem blotsParticles = null;
 
+        private float lifeTime = 0;
         private AdditionalFruitSettings fruitSettings;
         
         public UnityEvent<Vector2, int> OnFruitNotSliced { get; } = new UnityEvent<Vector2, int>();
-        public UnityEvent<Vector2> OnFruitSliced { get; } = new UnityEvent<Vector2>();
+        public UnityEvent<Vector2, int> OnFruitSliced { get; } = new UnityEvent<Vector2, int>();
+
+        private void Update()
+        {
+            lifeTime += Time.deltaTime;
+        }
 
         public void InitializeSettings(AdditionalFruitSettings settings)
         {
@@ -52,8 +57,15 @@ namespace Project.Scripts.Blocks
             blotsParticles.Play();
 
             SliceByDirection(slicingDirection);
-            
-            OnFruitSliced?.Invoke(transform.position);
+
+            SendScoreBySliceFruit();
+        }
+
+        private void SendScoreBySliceFruit()
+        {
+            var scoreSettings = fruitSettings.ScoreSettings;
+            var score = scoreSettings.GetScoreByTime(lifeTime);
+            OnFruitSliced?.Invoke(transform.position, score);
         }
 
         private void SliceByDirection(Vector2 slicingDirection)
@@ -67,8 +79,9 @@ namespace Project.Scripts.Blocks
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
             var movement = halfComponent.GetComponent<ObjectCollider>();
-            movement.SetGravityVelocity(fruitSettings.HalfGravity);
-            movement.SetMovement(direction * fruitSettings.HalfVelocity);
+            var halfSettings = fruitSettings.HalfSettings;
+            movement.SetGravityVelocity(halfSettings.HalfGravity);
+            movement.SetMovement(direction * halfSettings.HalfVelocity);
             movement.physicalMovement.enabled = true;
             movement.isEnabledCollider = true;
         }
