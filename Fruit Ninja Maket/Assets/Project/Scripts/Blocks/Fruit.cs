@@ -78,8 +78,7 @@ namespace Project.Scripts.Blocks
             base.OnDestroyBlock();
             if(!isSliced)
             {
-                Vector2 destroyPosition = transform.position;
-                destroyPosition.y += DESTRUCTION_OFFSET_UP;
+                Vector2 destroyPosition = destructionBoundaries.GetDestructionPosition(transform.position);
                 OnFruitNotSliced?.Invoke(destroyPosition, fruitSettings.CountOfReducingLives);
             }
             OnFruitNotSliced?.RemoveAllListeners();
@@ -88,9 +87,9 @@ namespace Project.Scripts.Blocks
 
         protected override bool IsCanDestroy()
         {
-            var isLeftHalfOutOfBorder = leftSpriteComp.transform.position.y < destructionBoundaryY;
-            var isRightHalfOutOfBorder = rightSpriteComp.transform.position.y < destructionBoundaryY;
-            var isParticlesCompleted = !blotsParticles.isPlaying || !sprayParticles.isPlaying;
+            var isLeftHalfOutOfBorder = destructionBoundaries.IsOutOfBorder(leftSpriteComp.transform.position);
+            var isRightHalfOutOfBorder = destructionBoundaries.IsOutOfBorder(rightSpriteComp.transform.position);
+            var isParticlesCompleted = !blotsParticles.isPlaying && !sprayParticles.isPlaying;
             return isLeftHalfOutOfBorder && isRightHalfOutOfBorder && isParticlesCompleted;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Project.Scripts.Animations.Abstract;
+using Project.Scripts.Blocks.Utils;
 using Project.Scripts.Physics;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,9 +9,6 @@ namespace Project.Scripts.Blocks
 {
     public abstract class SliceBlock : ObjectCollider
     {
-        protected const float DESTRUCTION_OFFSET_UP = 2f;
-        protected const float DESTRUCTION_OFFSET_DOWN = -1f;
-
         [Header("Animations")]
         [SerializeField]
         private RandomTransformAnimation scaleAnimation = null;
@@ -20,7 +18,7 @@ namespace Project.Scripts.Blocks
         
         public UnityEvent<SliceBlock> OnBlockDestroyed { get; } = new UnityEvent<SliceBlock>();
         
-        protected float destructionBoundaryY;
+        protected DestructionBoundaries destructionBoundaries;
         protected bool isSliced;
         
         private void Start()
@@ -38,8 +36,7 @@ namespace Project.Scripts.Blocks
             scaleAnimation?.PlayAnimation();
             rotateAnimation?.PlayAnimation();
             
-            destructionBoundaryY = Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y;
-            destructionBoundaryY += DESTRUCTION_OFFSET_DOWN;
+            destructionBoundaries = new DestructionBoundaries(Camera.main);
 
             StartCoroutine(DestroyBlock());
         }
@@ -71,7 +68,7 @@ namespace Project.Scripts.Blocks
             OnBlockDestroyed?.Invoke(this);
             Destroy(gameObject);
         }
-        
+
         protected abstract bool IsCanDestroy();
     }
 }

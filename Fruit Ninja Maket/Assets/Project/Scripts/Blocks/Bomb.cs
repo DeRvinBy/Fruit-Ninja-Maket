@@ -64,9 +64,9 @@ namespace Project.Scripts.Blocks
 
         protected override bool IsCanDestroy()
         {
-            var isOutOfBorder = transform.position.y < destructionBoundaryY || isSliced;
+            var isOutOfBorder = destructionBoundaries.IsOutOfBorder(transform.position);
             var isParticlesCompleted = !explosionParticles.isPlaying;
-            return isOutOfBorder && isParticlesCompleted;
+            return (isOutOfBorder || isSliced) && isParticlesCompleted;
         }
     }
 }

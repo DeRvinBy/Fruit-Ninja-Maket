@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnZonesSettings:
-  - probability: 0.35
+  - probability: 35
     transformSettings:
       relativePositionX: 0.3
       relativePositionY: 1
@@ -312,7 +312,7 @@ MonoBehaviour:
       maxDirectionAngle: 90
       fromBaseVelocityCoefficient: 1
     spawnZone: {fileID: 655110552}
-  - probability: 0.35
+  - probability: 35
     transformSettings:
       relativePositionX: 0.7
       relativePositionY: 1
@@ -322,7 +322,7 @@ MonoBehaviour:
       maxDirectionAngle: 110
       fromBaseVelocityCoefficient: 1
     spawnZone: {fileID: 377847968}
-  - probability: 0.15
+  - probability: 15
     transformSettings:
       relativePositionX: 0
       relativePositionY: 0.6
@@ -332,7 +332,7 @@ MonoBehaviour:
       maxDirectionAngle: 145
       fromBaseVelocityCoefficient: 0.8
     spawnZone: {fileID: 2124790058}
-  - probability: 0.14999998
+  - probability: 15
     transformSettings:
       relativePositionX: 1
       relativePositionY: 0.6

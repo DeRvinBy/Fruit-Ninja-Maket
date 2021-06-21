@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Project.Scripts.BlockFactory;
 using Project.Scripts.BlockFactory.Abstract;
 using Project.Scripts.Extensions;
 using UnityEngine;
@@ -11,12 +10,12 @@ namespace Project.Scripts.GameSettings.BlockSettings.FactoriesSettings
         [SerializeField] 
         private FactorySettings[] factories = null;
 
-        public BlockFactory.Abstract.BlockFactory GetRandomFactory()
+        public SliceBlockFactory GetRandomFactory()
         {
             return factories.GetRandomItemByProbability(x => x.SpawnProbability).BlockFactory;
         }
 
-        public BlockFactory.Abstract.BlockFactory[] GetAllFactories()
+        public SliceBlockFactory[] GetAllFactories()
         {
             return factories.Select(settings => settings.BlockFactory).ToArray();
         }

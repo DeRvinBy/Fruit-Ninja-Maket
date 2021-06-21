@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts.BlockFactory.Abstract
 {
-    public abstract class PercentageBlockFactory : BlockFactory
+    public abstract class PercentageBlockFactory : SliceBlockFactory
     {
         [SerializeField] 
         private PercentageBlocksSettings percentageBlocksSettings = null;

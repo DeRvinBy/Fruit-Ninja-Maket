@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Project.Scripts.BlockFactory.Abstract
 {
-    public abstract class BlockFactory : MonoBehaviour
+    public abstract class SliceBlockFactory : MonoBehaviour
     {
         protected BlockController blockController;
         protected ScoreController scoreController;

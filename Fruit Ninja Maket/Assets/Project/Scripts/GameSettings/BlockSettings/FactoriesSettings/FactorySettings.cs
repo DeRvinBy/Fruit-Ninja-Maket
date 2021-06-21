@@ -1,5 +1,4 @@
 ﻿using System;
-using Project.Scripts.BlockFactory;
 using Project.Scripts.BlockFactory.Abstract;
 using UnityEngine;
 
@@ -12,9 +11,9 @@ namespace Project.Scripts.GameSettings.BlockSettings.FactoriesSettings
         private float spawnProbability = 1f;
 
         [SerializeField] 
-        private BlockFactory.Abstract.BlockFactory blockFactory = null;
+        private SliceBlockFactory blockFactory = null;
 
         public float SpawnProbability => spawnProbability;
-        public BlockFactory.Abstract.BlockFactory BlockFactory => blockFactory;
+        public SliceBlockFactory BlockFactory => blockFactory;
     }
 }

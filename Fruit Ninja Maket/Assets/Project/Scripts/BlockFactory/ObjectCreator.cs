@@ -1,5 +1,4 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
-using Project.Scripts.Blocks;
 using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
@@ -21,7 +20,7 @@ namespace Project.Scripts.BlockFactory
         [SerializeField]
         private ObjectCreatorContainer objectCreatorContainer = null;
 
-        private Abstract.BlockFactory[] factories;
+        private SliceBlockFactory[] factories;
         
         private void Start()
         {
