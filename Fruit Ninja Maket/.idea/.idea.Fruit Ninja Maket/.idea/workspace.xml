@@ -22,6 +22,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/48/08084133/TweenCallback.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -42,7 +43,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnControllerSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnDifficultySettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
@@ -76,6 +76,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
