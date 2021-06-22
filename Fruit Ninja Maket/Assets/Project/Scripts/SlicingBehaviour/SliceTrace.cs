@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Project.Scripts.SlicingBehaviour
 {
@@ -10,35 +11,38 @@ namespace Project.Scripts.SlicingBehaviour
         [SerializeField]
         private TrailRenderer trail;
 
-        private Vector2 debugStartPoint;
+        private bool isStartShowTrail;
         
         private void LateUpdate()
         {
+            EnableEmitting();
+            UpdateSliceTrace();
+        }
+
+        private void EnableEmitting()
+        {
+            if (isStartShowTrail)
+            {
+                trail.emitting = true;
+                isStartShowTrail = false;
+            }
+        }
+        
+        private void UpdateSliceTrace()
+        {
             if (input.IsSwiping)
             {
-                UpdateSliceTrace();
+                var trailPosition = input.GetCurrentPointOfSlicingPath();
+                transform.position = trailPosition;
+                if (!trail.emitting)
+                {
+                    isStartShowTrail = true;
+                }
             }
             else
             {
                 trail.emitting = false;
             }
-        }
-
-        private void UpdateSliceTrace()
-        {
-            var trailPosition = input.GetCurrentPointOfSlicingPath();
-            if (trail.emitting)
-            {
-                transform.position = trailPosition;
-                Debug.DrawLine(debugStartPoint, trailPosition, Color.cyan, 1f);
-            }
-            else
-            {
-                trail.AddPosition(trailPosition);
-                trail.emitting = true;
-            }
-
-            debugStartPoint = trailPosition;
         }
     }
 }
