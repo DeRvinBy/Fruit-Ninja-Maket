@@ -45,6 +45,7 @@ namespace Project.Scripts.Spawn
         {
             isSpawnObjects = false;
             StopCoroutine(SpawnObjectsInZone());
+            StopCoroutine(SpawnObjectsWithDelay());
         }
 
         private IEnumerator SpawnObjectsInZone()

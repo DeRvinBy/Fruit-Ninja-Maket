@@ -26,10 +26,8 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Initializer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
@@ -38,13 +36,10 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/BlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/PlayerInput.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/MonoSettings/SpawnControllerSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnDifficultySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/SceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/LifeImageAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/ObjectCreator.cs" />
@@ -75,8 +70,13 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/ScoreUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/LifeSettings/LifeControllerSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

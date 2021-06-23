@@ -10,7 +10,7 @@ namespace Project.Scripts.UI.Life
 
         private bool isEmpty;
 
-        public void SetActiveContainer()
+        public void ActivateContainer()
         {
             lifeImage.PlayReverseFadeAnimation();
             isEmpty = false;

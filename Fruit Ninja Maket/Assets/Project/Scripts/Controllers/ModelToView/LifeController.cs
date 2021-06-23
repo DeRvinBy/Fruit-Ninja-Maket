@@ -1,4 +1,5 @@
-﻿using Project.Scripts.GameSettings.LifeSettings;
+﻿using System;
+using Project.Scripts.GameSettings.LifeSettings;
 using Project.Scripts.UI.Life;
 using UnityEngine;
 
@@ -26,7 +27,12 @@ namespace Project.Scripts.Controllers.ModelToView
         private bool isEndGame;
 
         public bool IsFullLives => currentLives == controllerSettings.MaxLivesCount;
-        
+
+        private void Awake()
+        {
+            lifeUI.CreateLifeContainers(controllerSettings.LifeContainerPrefab, controllerSettings.MaxLivesCount);
+        }
+
         private void Start()
         {
             mainCamera = Camera.main;
@@ -36,7 +42,7 @@ namespace Project.Scripts.Controllers.ModelToView
         {
             isEndGame = false;
             currentLives = controllerSettings.MaxLivesCount;
-            lifeUI.InitializeSettings(currentLives);
+            lifeUI.InitializeContainers();
         }
 
         public void RemoveLivesWithSpawnFail(Vector2 position, int count)
