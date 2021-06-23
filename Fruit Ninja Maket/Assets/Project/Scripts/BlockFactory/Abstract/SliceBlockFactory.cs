@@ -34,7 +34,7 @@ namespace Project.Scripts.BlockFactory.Abstract
             var settings = GetBlockSettings();
             var velocity = direction * settings.VelocityOfBlock;
             block.SetMovement(velocity);
-            block.SetGravityVelocity(settings.GravityOfBlock);
+            block.SetMassOfBlock(settings.MassOfBlock);
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
         }

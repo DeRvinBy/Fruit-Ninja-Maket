@@ -23,6 +23,14 @@ namespace Project.Scripts.GameSettings.SpawnSettings
 
         private int currentLevel = 0;
 
+        public void MultiplyScoreOfLevels(int scoreMultiply)
+        {
+            for (int i = 0; i < difficultyLevelsByScore.Length; i++)
+            {
+                difficultyLevelsByScore[i] *= scoreMultiply;
+            }
+        }
+        
         public void UpdateDifficulty(int score, ref float currentTime, ref int currentBaseCount)
         {
             while(!IsMaxLevel())

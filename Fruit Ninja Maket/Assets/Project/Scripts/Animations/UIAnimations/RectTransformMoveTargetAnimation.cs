@@ -10,20 +10,24 @@ namespace Project.Scripts.Animations.UIAnimations
         private Vector2 targetPosition = Vector2.zero;
 
         private Vector2 startPosition;
+        private TweenParams tweenParams;
 
         private void Start()
         {
             startPosition = rectTransform.anchoredPosition;
+            tweenParams = new TweenParams().SetEase(easeMode);
+            gameObject.SetActive(false);
         }
 
         public override void PlayAnimation()
         {
-            rectTransform.DOAnchorPos(targetPosition, duration, SNAPPING).SetEase(easeMode);
+            gameObject.SetActive(true);
+            rectTransform.DOAnchorPos(targetPosition, duration, SNAPPING).SetAs(tweenParams);
         }
 
         public override void PlayReverseAnimation()
         {
-            rectTransform.DOAnchorPos(startPosition, duration, SNAPPING).SetEase(easeMode);
+            rectTransform.DOAnchorPos(startPosition, duration, SNAPPING).SetAs(tweenParams).OnComplete(() => gameObject.SetActive(false));
         }
     }
 }

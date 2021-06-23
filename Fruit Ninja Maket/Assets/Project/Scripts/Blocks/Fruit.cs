@@ -80,7 +80,7 @@ namespace Project.Scripts.Blocks
         {
             var movement = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
-            movement.SetGravityVelocity(halfSettings.HalfGravity);
+            movement.SetMassOfBlock(halfSettings.HalfMass);
             movement.SetMovement(direction * halfSettings.HalfVelocity);
             movement.physicalMovement.enabled = true;
             movement.isEnabledCollider = true;

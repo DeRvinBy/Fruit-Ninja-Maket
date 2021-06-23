@@ -30,6 +30,7 @@ namespace Project.Scripts.Spawn
         private void Start()
         {
             difficultySettings = controllerSettings.DifficultySettings;
+            difficultySettings.MultiplyScoreOfLevels(scoreController.ScoreMultiplier);
         }
 
         public void Initialize()
@@ -45,6 +46,7 @@ namespace Project.Scripts.Spawn
         {
             isSpawnObjects = false;
             StopCoroutine(SpawnObjectsInZone());
+            StopCoroutine(SpawnObjectsWithDelay());
         }
 
         private IEnumerator SpawnObjectsInZone()

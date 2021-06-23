@@ -7,6 +7,8 @@ namespace Project.Scripts.Controllers.ModelToView
 {
     public class ScoreController : MonoBehaviour
     {
+        private const int StartComboMultiplier = 1;
+        
         [SerializeField] 
         private ResourceManager resourceManager = null;
         
@@ -21,11 +23,15 @@ namespace Project.Scripts.Controllers.ModelToView
 
         private ISaveController saveController;
         private Camera mainCamera;
+
+        private float comboTime;
+        private int comboMultiplier;
         private int bestScore;
         private int currentScore;
 
         public int BestScore => bestScore;
         public int CurrentScore => currentScore;
+        public int ScoreMultiplier => controllerSettings.ScoreMultiplyCoefficient;
 
         private void Start()
         {
@@ -34,8 +40,14 @@ namespace Project.Scripts.Controllers.ModelToView
             Initialize();
         }
 
+        private void Update()
+        {
+            comboTime += Time.deltaTime;
+        }
+
         public void Initialize()
         {
+            comboMultiplier = StartComboMultiplier;
             currentScore = 0;
             scoreUI.SetCurrentScore(currentScore);
             bestScore = 0;
@@ -49,28 +61,53 @@ namespace Project.Scripts.Controllers.ModelToView
 
         public void AddScoreByFruit(Vector2 slicingPosition, int score)
         {
-            currentScore += score;
-            scoreUI.SetCurrentScore(currentScore);
+            var multipliedScore = MultiplyScoreByCoefficients(score);
+            currentScore += multipliedScore;
+            scoreUI.SetCurrentScoreAnimate(currentScore);
             if(currentScore > bestScore)
             {
                 bestScore = currentScore;
-                scoreUI.SetBestScore(currentScore);
+                scoreUI.SetBestScoreAnimate(currentScore);
             }
 
             Vector2 screenPosition = mainCamera.WorldToScreenPoint(slicingPosition);
-            CreateSceneScore(screenPosition, score);
+            CreateSceneScore(screenPosition, multipliedScore);
+        }
+        
+        private int MultiplyScoreByCoefficients(int score)
+        {
+            UpdateComboMultiplier();
+            return score * comboMultiplier * ScoreMultiplier;
+        }
+        
+        private void UpdateComboMultiplier()
+        {
+            if (comboTime <= controllerSettings.MaxTimeToIncreaseCombo)
+            {
+                comboMultiplier++;
+                if (comboMultiplier > controllerSettings.MaxScoreCombo)
+                {
+                    comboMultiplier = controllerSettings.MaxScoreCombo;
+                }
+            }
+            else
+            {
+                comboMultiplier = StartComboMultiplier;
+            }
+            
+            comboTime = 0f;
+        }
+        
+        private void CreateSceneScore(Vector2 position, int score)
+        {
+            var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
+            sceneScore.InitializeScore(score, comboMultiplier);
         }
 
         public void SetBestScoreInSave()
         {
             saveController.PlayerSave.SetBestScore(bestScore);
             saveController.SavePlayerStats();
-        }
-
-        private void CreateSceneScore(Vector2 position, int score)
-        {
-            var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
-            sceneScore.InitializeScore(score);
         }
     }
 }

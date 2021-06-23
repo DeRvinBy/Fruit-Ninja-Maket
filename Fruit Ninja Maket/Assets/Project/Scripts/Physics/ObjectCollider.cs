@@ -15,9 +15,9 @@ namespace Project.Scripts.Physics
         [SerializeField]
         protected internal bool isEnabledCollider = true;
 
-        public void SetGravityVelocity(float gravity)
+        public void SetMassOfBlock(float mass)
         {
-            physicalMovement.SetGravity(gravity);
+            physicalMovement.SetGMass(mass);
         }
         
         public void SetMovement(Vector2 velocity)
