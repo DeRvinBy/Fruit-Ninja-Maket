@@ -38,7 +38,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/BlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
@@ -77,6 +76,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
