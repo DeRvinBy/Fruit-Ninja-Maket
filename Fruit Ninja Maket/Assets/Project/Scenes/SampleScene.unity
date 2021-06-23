@@ -4261,6 +4261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneScorePrefab: {fileID: 6447850148964634628, guid: 74c6086e050e9cd438b4aa24594652d5, type: 3}
   scoreMultiplyCoefficient: 1
+  maxTimeToIncreaseCombo: 0.5
+  maxScoreCombo: 5
 --- !u!4 &1968175883 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8012618275536358560, guid: a68a848130b2be244a522a496ccdde9b, type: 3}

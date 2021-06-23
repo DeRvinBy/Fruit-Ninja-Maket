@@ -30,7 +30,7 @@ namespace Project.Scripts.Spawn
         private void Start()
         {
             difficultySettings = controllerSettings.DifficultySettings;
-            difficultySettings.MultiplyScoreOfLevels(scoreController.ScoreMultiply);
+            difficultySettings.MultiplyScoreOfLevels(scoreController.ScoreMultiplier);
         }
 
         public void Initialize()
