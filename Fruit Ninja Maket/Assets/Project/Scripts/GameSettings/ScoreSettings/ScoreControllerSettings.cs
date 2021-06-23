@@ -7,7 +7,11 @@ namespace Project.Scripts.GameSettings.ScoreSettings
     {
         [SerializeField]
         private SceneScoreUI sceneScorePrefab = null;
-        
+
+        [SerializeField] 
+        private int scoreMultiplyCoefficient = 1; 
         public SceneScoreUI SceneScorePrefab => sceneScorePrefab;
+
+        public int ScoreMultiplyCoefficient => scoreMultiplyCoefficient;
     }
 }

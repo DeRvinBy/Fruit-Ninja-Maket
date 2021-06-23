@@ -21,11 +21,13 @@ namespace Project.Scripts.Controllers.ModelToView
 
         private ISaveController saveController;
         private Camera mainCamera;
+        
         private int bestScore;
         private int currentScore;
 
         public int BestScore => bestScore;
         public int CurrentScore => currentScore;
+        public int ScoreMultiply => controllerSettings.ScoreMultiplyCoefficient;
 
         private void Start()
         {
@@ -49,7 +51,7 @@ namespace Project.Scripts.Controllers.ModelToView
 
         public void AddScoreByFruit(Vector2 slicingPosition, int score)
         {
-            currentScore += score;
+            currentScore += score * ScoreMultiply;
             scoreUI.SetCurrentScoreAnimate(currentScore);
             if(currentScore > bestScore)
             {
@@ -70,7 +72,7 @@ namespace Project.Scripts.Controllers.ModelToView
         private void CreateSceneScore(Vector2 position, int score)
         {
             var sceneScore = Instantiate(controllerSettings.SceneScorePrefab, position, Quaternion.identity, uiTransform);
-            sceneScore.InitializeScore(score);
+            sceneScore.InitializeScore(score * ScoreMultiply);
         }
     }
 }
