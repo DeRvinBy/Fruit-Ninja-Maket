@@ -46,13 +46,11 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Utils/DestructionBoundaries.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/SceneScoreUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/GeneralFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/HalfFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
@@ -77,6 +75,8 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/HalfFruitSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

@@ -1097,7 +1097,7 @@ MonoBehaviour:
   countOfReducingLives: 1
   prefab: {fileID: -4951373324098148696, guid: fe8c561cc97d6f24dad2fc3f0bd2992e, type: 3}
   explosionRadius: 5
-  explosionForce: 10
+  explosionForce: 15
 --- !u!4 &452197365
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,7 +2823,7 @@ MonoBehaviour:
   factories:
   - spawnProbability: 80
     blockFactory: {fileID: 899489463}
-  - spawnProbability: 15
+  - spawnProbability: 50
     blockFactory: {fileID: 324286087}
   - spawnProbability: 5
     blockFactory: {fileID: 1376498432}

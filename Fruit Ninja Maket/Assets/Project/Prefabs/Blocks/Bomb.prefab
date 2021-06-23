@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a966232533514248a38ff6cb92a3cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gravity: 1
 --- !u!114 &-4951373324098148696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +117,7 @@ ParticleSystem:
   playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
-  useRigidbodyForVelocity: 1
+  useRigidbodyForVelocity: 0
   startDelay:
     serializedVersion: 2
     minMaxState: 0
@@ -665,7 +666,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 100
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -811,7 +812,7 @@ ParticleSystem:
     sphericalDirectionAmount: 1
     randomPositionAmount: 0
     radius:
-      value: 3
+      value: 1
       mode: 0
       spread: 0
       speed:
@@ -1040,8 +1041,8 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 80
-        minScalar: 60
+        scalar: 100
+        minScalar: 80
         maxCurve:
           serializedVersion: 2
           m_Curve:

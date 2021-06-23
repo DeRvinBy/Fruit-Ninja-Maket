@@ -21,10 +21,8 @@ namespace Project.Scripts.Blocks
 
         public void InitializeSettings(BaseBombSettings bombSettings, BlockController controller)
         {
-            var explosionShape = explosionParticles.shape;
-            explosionShape.radius = bombSettings.ExplosionRadius;
             this.bombSettings = bombSettings;
-            this.blockController = controller;
+            blockController = controller;
         }
         
         public override void Slice(Vector2 slicingDirection)
