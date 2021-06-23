@@ -50,11 +50,11 @@ namespace Project.Scripts.Controllers.ModelToView
         public void AddScoreByFruit(Vector2 slicingPosition, int score)
         {
             currentScore += score;
-            scoreUI.SetCurrentScore(currentScore);
+            scoreUI.SetCurrentScoreAnimate(currentScore);
             if(currentScore > bestScore)
             {
                 bestScore = currentScore;
-                scoreUI.SetBestScore(currentScore);
+                scoreUI.SetBestScoreAnimate(currentScore);
             }
 
             Vector2 screenPosition = mainCamera.WorldToScreenPoint(slicingPosition);

@@ -26,7 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/PercentageBlocksSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/LifeController.cs" />
@@ -73,10 +72,11 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/ScoreUI.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
