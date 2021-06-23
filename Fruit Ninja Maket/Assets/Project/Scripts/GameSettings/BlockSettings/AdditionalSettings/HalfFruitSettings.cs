@@ -10,11 +10,11 @@ namespace Project.Scripts.GameSettings.BlockSettings.AdditionalSettings
         private float halfVelocity = 4f;
         
         [SerializeField]
-        private float halfGravity = 20f;
+        private float halfMass = 20f;
 
 
         public float HalfVelocity => halfVelocity;
 
-        public float HalfGravity => halfGravity;
+        public float HalfMass => halfMass;
     }
 }
