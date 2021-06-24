@@ -17,7 +17,7 @@ namespace Project.Scripts.Physics
 
         public void SetMassOfBlock(float mass)
         {
-            physicalMovement.SetGMass(mass);
+            physicalMovement.SetMass(mass);
         }
         
         public void SetMovement(Vector2 velocity)
@@ -39,12 +39,6 @@ namespace Project.Scripts.Physics
             
             var distance = ((Vector2) transform.position - point).magnitude;
             return distance - colliderRadius < radius;
-        }
-
-        protected virtual void OnDrawGizmos()
-        {
-            if (!isEnabledCollider) return;
-            Gizmos.DrawWireSphere(transform.position, colliderRadius);
         }
     }
 }

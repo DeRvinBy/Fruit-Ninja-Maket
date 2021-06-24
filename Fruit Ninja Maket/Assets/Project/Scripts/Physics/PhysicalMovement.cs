@@ -11,7 +11,7 @@ namespace Project.Scripts.Physics
         private Vector2 velocity;
         private float mass;
 
-        public void SetGMass(float mass)
+        public void SetMass(float mass)
         {
             this.mass = mass;
         }

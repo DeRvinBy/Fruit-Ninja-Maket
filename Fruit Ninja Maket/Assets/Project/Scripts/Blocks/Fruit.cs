@@ -78,12 +78,12 @@ namespace Project.Scripts.Blocks
         
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
-            var movement = halfComponent.GetComponent<ObjectCollider>();
+            var colliderObject = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
-            movement.SetMassOfBlock(halfSettings.HalfMass);
-            movement.SetMovement(direction * halfSettings.HalfVelocity);
-            movement.physicalMovement.enabled = true;
-            movement.isEnabledCollider = true;
+            colliderObject.SetMassOfBlock(halfSettings.HalfMass);
+            colliderObject.SetMovement(direction * halfSettings.HalfVelocity);
+            colliderObject.physicalMovement.enabled = true;
+            colliderObject.isEnabledCollider = true;
         }
         
         protected override void OnDestroyBlock()

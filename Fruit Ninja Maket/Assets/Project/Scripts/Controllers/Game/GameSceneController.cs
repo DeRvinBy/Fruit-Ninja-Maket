@@ -1,11 +1,12 @@
 ﻿using System.Collections;
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.SlicingBehaviour;
 using Project.Scripts.Spawn;
 using Project.Scripts.UI.Game;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Game
 {
     public class GameSceneController : MonoBehaviour
     {

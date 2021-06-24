@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Project.Scripts.Blocks;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Blocks
 {
     public class BlockController : MonoBehaviour
     {

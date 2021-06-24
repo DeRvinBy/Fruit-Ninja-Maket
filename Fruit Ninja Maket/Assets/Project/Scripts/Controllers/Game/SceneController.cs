@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Game
 {
     public class SceneController : MonoBehaviour
     {
