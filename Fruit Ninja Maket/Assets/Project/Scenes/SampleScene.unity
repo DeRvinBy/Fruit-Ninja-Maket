@@ -1693,8 +1693,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 869548df8ccec204b9463a80db000894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistanceOfSlicing: 0.5
-  minSpeedOfSlicing: 15
+  minDistanceOfSlicing: 0.2
+  minSpeedOfSlicing: 10
 --- !u!4 &613643903
 Transform:
   m_ObjectHideFlags: 0
