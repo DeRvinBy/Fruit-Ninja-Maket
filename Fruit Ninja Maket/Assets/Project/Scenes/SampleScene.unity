@@ -2966,10 +2966,10 @@ MonoBehaviour:
     blockFactory: {fileID: 899489463}
   - spawnProbability: 15
     blockFactory: {fileID: 324286087}
+  - spawnProbability: 10
+    blockFactory: {fileID: 56103886}
   - spawnProbability: 5
     blockFactory: {fileID: 1376498432}
-  - spawnProbability: 100
-    blockFactory: {fileID: 56103886}
 --- !u!1 &1342474011
 GameObject:
   m_ObjectHideFlags: 0
