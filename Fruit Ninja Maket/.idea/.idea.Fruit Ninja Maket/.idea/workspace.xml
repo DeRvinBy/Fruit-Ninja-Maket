@@ -19,33 +19,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomRotateAnimation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Animations/GameAnimations/BlockAnimator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2348FB5E-CC9E-4E68-9F37-F7D7FADAEA9A/48/08084133/TweenCallback.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/HeartFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/PercentageBlockFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/FactorySettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Utils/DestructionBoundaries.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/GeneralFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/AdditionalFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/ScoreFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/ISaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/SaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ResourceManager.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerPrefsSaveController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Save/PlayerStats.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/ScoreUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/LifeSettings/LifeControllerSettings.cs" />
@@ -57,7 +38,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnDifficultySettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/SceneScoreUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/ScoreController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseSnowflakeSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/MenuSceneController.cs" />
@@ -77,6 +57,25 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/SnowflakeFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/PhysicalMovement.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UICanvasGroupAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/UIRectTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RandomTransformAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/RandomScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/TweenAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/Animator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/TransformAnimations/BlockAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/GameAnimations/RandomScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/FadeCanvasGroupAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveOffsetAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformScaleAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/SliceBlock.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/SceneScoreUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/RestartUI.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RectTransformAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/AdditionalSettings/RandomAnimationSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/GameAnimations/BlockAnimator.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

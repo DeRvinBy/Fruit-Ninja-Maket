@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Animations.UIAnimations
 {
-    public class RectTransformMoveOffsetAnimation : UIRectTransformAnimation
+    public class RectTransformMoveOffsetAnimation : RectTransformAnimator
     {
         [SerializeField]
         private Vector2 offsetDirection = Vector2.zero;
@@ -22,12 +22,12 @@ namespace Project.Scripts.Animations.UIAnimations
         public override void PlayAnimation()
         {
             var endValue = rectTransform.anchoredPosition + offsetDirection * offset;
-            rectTransform.DOAnchorPos(endValue, duration, SNAPPING).SetEase(easeMode);
+            rectTransform.DOAnchorPos(endValue, duration, Snapping).SetAs(tweenParams);
         }
-
+        
         public override void PlayReverseAnimation()
         {
-            rectTransform.DOAnchorPos(startPosition, duration, SNAPPING).SetEase(easeMode);
+            rectTransform.DOAnchorPos(startPosition, duration, Snapping).SetAs(tweenParams);
         }
     }
 }

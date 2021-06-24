@@ -89,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
-  uiElement: {fileID: 4753536589825342812}
   targetAlpha: 0
+  uiElement: {fileID: 4753536589825342812}
 --- !u!114 &4936155202704108735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
+  rectTransform: {fileID: 2569396719378621465}
   easeMode: 9
   targetScale: 1.2
 --- !u!1 &7073067261609985666

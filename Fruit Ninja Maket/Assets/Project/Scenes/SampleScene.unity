@@ -2355,8 +2355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 2
-  uiElement: {fileID: 815970135}
   targetAlpha: 1
+  uiElement: {fileID: 815970135}
 --- !u!225 &815970135
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3676,8 +3676,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
-  uiElement: {fileID: 1577352360}
   targetAlpha: 0
+  uiElement: {fileID: 1577352360}
 --- !u!225 &1577352360
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4123,6 +4123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 2
+  rectTransform: {fileID: 1808884157}
   easeMode: 30
   targetPosition: {x: 0, y: 0}
 --- !u!1 &1888938517

@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.Animations.Abstract;
+using Project.Scripts.Animations.UIAnimations;
 using UnityEngine;
 
 namespace Project.Scripts.UI.Life
@@ -9,10 +10,10 @@ namespace Project.Scripts.UI.Life
         private float destroyDelay = 2f;
 
         [SerializeField]
-        private UIRectTransformAnimation scaleAnimation = null;
+        private RectTransformScaleAnimation scaleAnimation = null;
 
         [SerializeField]
-        private UICanvasGroupAnimation canvasGroupAnimation = null;
+        private FadeCanvasGroupAnimation canvasGroupAnimation = null;
 
         private void Start()
         {
