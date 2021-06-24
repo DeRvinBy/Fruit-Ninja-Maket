@@ -26,7 +26,7 @@ namespace Project.Scripts.BlockFactory
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
             var settings = fruitSettings.GetRandomFruitSettings();
-            go.InitializeSettings(settings);
+            go.InitializeSettings(settings, physicalSettings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
             go.OnFruitNotSliced.AddListener(lifeController.RemoveLivesWithSpawnFail);
 

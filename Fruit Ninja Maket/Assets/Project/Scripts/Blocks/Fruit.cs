@@ -1,3 +1,4 @@
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Project.Scripts.Blocks
 
         private float lifeTime = 0;
         private AdditionalFruitSettings fruitSettings;
+        private PhysicalSettings physicalSettings;
         
         public UnityEvent<Vector2, int> OnFruitNotSliced { get; } = new UnityEvent<Vector2, int>();
         public UnityEvent<Vector2, int> OnFruitSliced { get; } = new UnityEvent<Vector2, int>();
@@ -32,13 +34,14 @@ namespace Project.Scripts.Blocks
             lifeTime += Time.deltaTime;
         }
 
-        public void InitializeSettings(AdditionalFruitSettings settings)
+        public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalSettings physicalSettings)
         {
-            leftSpriteComp.sprite = settings.LeftHalfOfSprite;
-            rightSpriteComp.sprite = settings.RightHalfOfSprite;
-            SetParticlesColor(sprayParticles, settings.SprayColor);
-            SetParticlesColor(blotsParticles, settings.SprayColor);
-            fruitSettings = settings;
+            leftSpriteComp.sprite = fruitSettings.LeftHalfOfSprite;
+            rightSpriteComp.sprite = fruitSettings.RightHalfOfSprite;
+            SetParticlesColor(sprayParticles, fruitSettings.SprayColor);
+            SetParticlesColor(blotsParticles, fruitSettings.SprayColor);
+            this.fruitSettings = fruitSettings;
+            this.physicalSettings = physicalSettings;
         }
 
         private void SetParticlesColor(ParticleSystem particles, Color color)
@@ -80,7 +83,8 @@ namespace Project.Scripts.Blocks
         {
             var colliderObject = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
-            colliderObject.SetMassOfBlock(halfSettings.HalfMass);
+            colliderObject.SetMass(halfSettings.HalfMass);
+            colliderObject.SetPhysicalSettings(physicalSettings);
             colliderObject.SetMovement(direction * halfSettings.HalfVelocity);
             colliderObject.physicalMovement.enabled = true;
             colliderObject.isEnabledCollider = true;

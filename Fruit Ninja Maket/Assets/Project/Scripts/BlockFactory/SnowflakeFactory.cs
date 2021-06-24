@@ -10,7 +10,14 @@ namespace Project.Scripts.BlockFactory
     {
         [SerializeField] 
         private BaseSnowflakeSettings snowflakeSettings = null;
-        
+
+        protected override bool IsCanCreate()
+        {
+            var result = base.IsCanCreate();
+
+            return result && !physicalSettings.IsSlowdownEffectActive;
+        }
+
         protected override BaseBlockSettings GetBlockSettings()
         {
             return snowflakeSettings;
@@ -21,7 +28,7 @@ namespace Project.Scripts.BlockFactory
             var prefab = snowflakeSettings.Prefab;
             var go = Instantiate(prefab, position, quaternion.identity, transform);
             
-            go.InitializeSettings(snowflakeSettings, blockController);
+            go.InitializeSettings(snowflakeSettings, physicalSettings);
 
             return go;
         }

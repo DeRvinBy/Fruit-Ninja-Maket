@@ -1,19 +1,23 @@
-﻿using UnityEngine;
+﻿using Project.Scripts.GameSettings.BlockSettings;
+using UnityEngine;
 
 namespace Project.Scripts.Physics
 {
     public class PhysicalMovement : MonoBehaviour
     {
-        [SerializeField] 
-        private float gravity = 1f;
-        
         private readonly Vector2 gravityDirection = Vector2.down;
+        private PhysicalSettings physicalSettings;
         private Vector2 velocity;
         private float mass;
 
         public void SetMass(float mass)
         {
             this.mass = mass;
+        }
+        
+        public void SetPhysicalSettings(PhysicalSettings physicalSettings)
+        {
+            this.physicalSettings = physicalSettings;
         }
         
         public void AddVelocity(Vector2 newVelocity)
@@ -23,8 +27,9 @@ namespace Project.Scripts.Physics
 
         private void Update()
         {
-            velocity += gravityDirection * (gravity * mass * Time.deltaTime);
-            transform.Translate(velocity * Time.deltaTime, Space.World);
+            var physicalMultiplier = physicalSettings.GlobalGravity * physicalSettings.SlowdownCoefficient;
+            velocity += gravityDirection * (physicalMultiplier * mass * Time.deltaTime);
+            transform.Translate(velocity * Time.deltaTime * physicalSettings.SlowdownCoefficient, Space.World);
         }
     }
 }

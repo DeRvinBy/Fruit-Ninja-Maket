@@ -1,5 +1,7 @@
-﻿using Project.Scripts.Controllers;
+﻿using System.Collections;
+using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.Blocks;
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -14,12 +16,13 @@ namespace Project.Scripts.Blocks
         private GameObject spriteObject = null;
         
         private BaseSnowflakeSettings snowflakeSettings;
-        private BlockController blockController;
+        private PhysicalSettings physicalSettings;
+        private bool isSlowEffectActive;
         
-        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings, BlockController controller)
+        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings, PhysicalSettings physicalSettings)
         {
             this.snowflakeSettings = snowflakeSettings;
-            blockController = controller;
+            this.physicalSettings = physicalSettings;
         }
         
         public override void Slice(Vector2 slicingDirection)
@@ -29,12 +32,16 @@ namespace Project.Scripts.Blocks
             base.Slice(slicingDirection);
             
             snowflakeParticles.Play();
-            SlowdownBlocks();
+            StartCoroutine(SlowdownBlocksOnTime());
         }
         
-        protected void SlowdownBlocks()
+        private IEnumerator SlowdownBlocksOnTime()
         {
-            
+            isSlowEffectActive = true;
+            physicalSettings.SetResetSlowdownCoefficient(snowflakeSettings.SlowdownVelocityCoefficient);
+            yield return new WaitForSeconds(snowflakeSettings.FreezeTime);
+            physicalSettings.ResetSlowdownCoefficient();
+            isSlowEffectActive = false;
         }
         
         protected override void DisableBlockComponent()
@@ -47,7 +54,7 @@ namespace Project.Scripts.Blocks
         {
             var isOutOfBorder = destructionBoundaries.IsOutOfBorder(transform.position);
             var isParticlesCompleted = !snowflakeParticles.isPlaying;
-            return (isOutOfBorder || isSliced) && isParticlesCompleted;
+            return (isOutOfBorder || isSliced) && !isSlowEffectActive && isParticlesCompleted;
         }
     }
 }
