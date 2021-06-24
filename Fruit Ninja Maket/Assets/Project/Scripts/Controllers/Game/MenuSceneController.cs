@@ -2,9 +2,9 @@ using Project.Scripts.Controllers.Save;
 using TMPro;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Game
 {
-    public class MenuController : MonoBehaviour
+    public class MenuSceneController : MonoBehaviour
     {
         [SerializeField] 
         private ResourceManager resourceManager = null;

@@ -1,7 +1,7 @@
 ﻿using Project.Scripts.Controllers.Save;
 using UnityEngine;
 
-namespace Project.Scripts.Controllers
+namespace Project.Scripts.Controllers.Game
 {
     public class ResourceManager : MonoBehaviour
     {

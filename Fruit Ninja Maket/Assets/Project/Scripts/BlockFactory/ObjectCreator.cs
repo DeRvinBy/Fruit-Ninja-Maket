@@ -1,6 +1,7 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
-using Project.Scripts.Controllers;
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.Controllers.ModelToView;
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.FactoriesSettings;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ namespace Project.Scripts.BlockFactory
         [SerializeField]
         private LifeController lifeController = null;
 
+        [SerializeField] 
+        private PhysicalSettings physicalSettings = null;
+        
         [SerializeField]
         private ObjectCreatorContainer objectCreatorContainer = null;
 
@@ -27,6 +31,7 @@ namespace Project.Scripts.BlockFactory
             factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
+                factory.InitializePhysicalSettings(physicalSettings);
                 factory.InitializeControllers(blockController, scoreController, lifeController);
             }
         }

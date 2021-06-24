@@ -1,6 +1,8 @@
 ﻿using Project.Scripts.Blocks;
 using Project.Scripts.Controllers;
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.Controllers.ModelToView;
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -11,6 +13,8 @@ namespace Project.Scripts.BlockFactory.Abstract
         protected BlockController blockController;
         protected ScoreController scoreController;
         protected LifeController lifeController;
+        
+        protected PhysicalSettings physicalSettings;
 
         protected int currentBlocksCountInBundle;
         protected int maxBlocksCountInBundle;
@@ -19,6 +23,11 @@ namespace Project.Scripts.BlockFactory.Abstract
         {
             currentBlocksCountInBundle = 0;
             maxBlocksCountInBundle = maxCountInBundle;
+        }
+
+        public void InitializePhysicalSettings(PhysicalSettings physicalSettings)
+        {
+            this.physicalSettings = physicalSettings;
         }
         
         public void InitializeControllers(BlockController blockController, ScoreController scoreController,
@@ -34,7 +43,8 @@ namespace Project.Scripts.BlockFactory.Abstract
             var settings = GetBlockSettings();
             var velocity = direction * settings.VelocityOfBlock;
             block.SetMovement(velocity);
-            block.SetMassOfBlock(settings.MassOfBlock);
+            block.SetPhysicalSettings(physicalSettings);
+            block.SetMass(settings.MassOfBlock);
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
         }

@@ -1,3 +1,4 @@
+using Project.Scripts.GameSettings.BlockSettings;
 using UnityEngine;
 
 namespace Project.Scripts.Physics
@@ -15,9 +16,14 @@ namespace Project.Scripts.Physics
         [SerializeField]
         protected internal bool isEnabledCollider = true;
 
-        public void SetMassOfBlock(float mass)
+        public void SetMass(float mass)
         {
-            physicalMovement.SetGMass(mass);
+            physicalMovement.SetMass(mass);
+        }
+        
+        public void SetPhysicalSettings(PhysicalSettings physicalSettings)
+        {
+            physicalMovement.SetPhysicalSettings(physicalSettings);
         }
         
         public void SetMovement(Vector2 velocity)
@@ -39,12 +45,6 @@ namespace Project.Scripts.Physics
             
             var distance = ((Vector2) transform.position - point).magnitude;
             return distance - colliderRadius < radius;
-        }
-
-        protected virtual void OnDrawGizmos()
-        {
-            if (!isEnabledCollider) return;
-            Gizmos.DrawWireSphere(transform.position, colliderRadius);
         }
     }
 }

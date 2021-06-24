@@ -1,3 +1,4 @@
+using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -23,22 +24,24 @@ namespace Project.Scripts.Blocks
 
         private float lifeTime = 0;
         private AdditionalFruitSettings fruitSettings;
+        private PhysicalSettings physicalSettings;
         
         public UnityEvent<Vector2, int> OnFruitNotSliced { get; } = new UnityEvent<Vector2, int>();
         public UnityEvent<Vector2, int> OnFruitSliced { get; } = new UnityEvent<Vector2, int>();
 
         private void Update()
         {
-            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime * physicalSettings.SlowdownCoefficient;
         }
 
-        public void InitializeSettings(AdditionalFruitSettings settings)
+        public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalSettings physicalSettings)
         {
-            leftSpriteComp.sprite = settings.LeftHalfOfSprite;
-            rightSpriteComp.sprite = settings.RightHalfOfSprite;
-            SetParticlesColor(sprayParticles, settings.SprayColor);
-            SetParticlesColor(blotsParticles, settings.SprayColor);
-            fruitSettings = settings;
+            leftSpriteComp.sprite = fruitSettings.LeftHalfOfSprite;
+            rightSpriteComp.sprite = fruitSettings.RightHalfOfSprite;
+            SetParticlesColor(sprayParticles, fruitSettings.SprayColor);
+            SetParticlesColor(blotsParticles, fruitSettings.SprayColor);
+            this.fruitSettings = fruitSettings;
+            this.physicalSettings = physicalSettings;
         }
 
         private void SetParticlesColor(ParticleSystem particles, Color color)
@@ -78,12 +81,13 @@ namespace Project.Scripts.Blocks
         
         private void PushHalfInDirection(Component halfComponent, Vector2 direction)
         {
-            var movement = halfComponent.GetComponent<ObjectCollider>();
+            var colliderObject = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
-            movement.SetMassOfBlock(halfSettings.HalfMass);
-            movement.SetMovement(direction * halfSettings.HalfVelocity);
-            movement.physicalMovement.enabled = true;
-            movement.isEnabledCollider = true;
+            colliderObject.SetMass(halfSettings.HalfMass);
+            colliderObject.SetPhysicalSettings(physicalSettings);
+            colliderObject.SetMovement(direction * halfSettings.HalfVelocity);
+            colliderObject.physicalMovement.enabled = true;
+            colliderObject.isEnabledCollider = true;
         }
         
         protected override void OnDestroyBlock()
