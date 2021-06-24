@@ -27,9 +27,11 @@ namespace Project.Scripts.Physics
 
         private void Update()
         {
-            var physicalMultiplier = physicalSettings.GlobalGravity * physicalSettings.SlowdownCoefficient;
-            velocity += gravityDirection * (physicalMultiplier * mass * Time.deltaTime);
-            transform.Translate(velocity * Time.deltaTime * physicalSettings.SlowdownCoefficient, Space.World);
+            var deltaTimeWithSlowdown = Time.deltaTime * physicalSettings.SlowdownCoefficient;
+            var gravityMultiplier = physicalSettings.GlobalGravity * mass * deltaTimeWithSlowdown;
+            velocity += gravityDirection * gravityMultiplier;
+            var translation = velocity * deltaTimeWithSlowdown;
+            transform.Translate(translation, Space.World);
         }
     }
 }

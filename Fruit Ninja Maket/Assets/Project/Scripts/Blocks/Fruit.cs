@@ -31,7 +31,7 @@ namespace Project.Scripts.Blocks
 
         private void Update()
         {
-            lifeTime += Time.deltaTime;
+            lifeTime += Time.deltaTime * physicalSettings.SlowdownCoefficient;
         }
 
         public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalSettings physicalSettings)
