@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using Project.Scripts.Animations.GameAnimations;
+using Project.Scripts.Blocks.BlockParticles;
 using Project.Scripts.Blocks.Utils;
 using Project.Scripts.Physics;
 using UnityEngine;
@@ -12,6 +13,9 @@ namespace Project.Scripts.Blocks
         [Header("Animations")]
         [SerializeField]
         private BlockAnimator blockAnimator = null;
+
+        [SerializeField] 
+        protected ParticlesAnimator particlesAnimator = null;
 
         public UnityEvent<SliceBlock> OnBlockDestroyed { get; } = new UnityEvent<SliceBlock>();
         
