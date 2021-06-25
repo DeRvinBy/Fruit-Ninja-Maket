@@ -25,7 +25,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/SliceTrace.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Score/ScoreUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/LifeContainerUI.cs" />
@@ -34,7 +33,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/ModelToView/LifeController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseBlockSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/AdditionalSettings/HalfFruitSettings.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Spawn/SpawnController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/SpawnSettings/SpawnDifficultySettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/ScoreSettings/ScoreControllerSettings.cs" />
@@ -44,7 +42,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/MenuSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/SceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Blocks/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/ResourceManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
@@ -73,9 +70,12 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Life/SceneFailUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/UI/Game/RestartUI.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/UIAnimations/RectTransformMoveTargetAnimation.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RectTransformAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/AdditionalSettings/RandomAnimationSettings.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/GameAnimations/BlockAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RectTransformAnimator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Blocks/BlockController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

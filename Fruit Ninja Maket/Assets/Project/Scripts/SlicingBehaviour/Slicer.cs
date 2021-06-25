@@ -19,12 +19,7 @@ namespace Project.Scripts.SlicingBehaviour
             var slicingPoint = input.GetMediaPointOfSlicingPath();
             var slicingDirection = input.GetDirectionOfSlicingPath();
 
-            var intersectedObjects = blockController.GetBlocksIntersectedWithPoint(slicingPoint);
-
-            foreach(var sliceBlock in intersectedObjects)
-            {
-                sliceBlock.Slice(slicingDirection);
-            }
+            blockController.SliceBlocksIntersectedWithPoint(slicingPoint, slicingDirection);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Project.Scripts.Blocks;
+using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
 namespace Project.Scripts.Controllers.Blocks
@@ -26,32 +27,29 @@ namespace Project.Scripts.Controllers.Blocks
             createdObjects--;
         }
 
-        public List<SliceBlock> GetBlocksIntersectedWithPoint(Vector2 point)
+        public void SliceBlocksIntersectedWithPoint(Vector2 point, Vector2 slicingDirection)
         {
-            var result = new List<SliceBlock>();
             foreach(var block in blocks)
             {
                 if(block.IsIntersectWithPoint(point))
                 {
-                    result.Add(block);
+                    block.Slice(slicingDirection);
                 }
             }
-            
-            return result;
         }
 
-        public List<SliceBlock> GetBlocksInRadius(Vector2 center, float radius)
+        public void PushBlocksFromBomb(Vector2 center, BaseBombSettings bombSettings)
         {
-            var result = new List<SliceBlock>();
             foreach(var block in blocks)
             {
-                if(block.IsInRadiusFromPoint(center, radius))
+                if(block.IsInRadiusFromPoint(center, bombSettings.ExplosionRadius))
                 {
-                    result.Add(block);
+                    var direction = block.transform.position - transform.position;
+                    var distance = direction.magnitude;
+                    var forceCoef = distance / bombSettings.ExplosionRadius;
+                    block.SetMovement(direction.normalized * (bombSettings.ExplosionForce * forceCoef));
                 }
             }
-
-            return result;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Project.Scripts.Blocks
             base.Slice(slicingDirection);
             
             explosionParticles.Play();
-            PushBlocksFromBomb();
+            blockController.PushBlocksFromBomb(transform.position, bombSettings);
             OnBombSliced?.Invoke(bombSettings.CountOfReducingLives);
         }
 
@@ -41,18 +41,6 @@ namespace Project.Scripts.Blocks
         {
             base.DisableBlockComponent();
             spriteObject.SetActive(false);;
-        }
-
-        private void PushBlocksFromBomb()
-        {
-            var blocks = blockController.GetBlocksInRadius(transform.position, bombSettings.ExplosionRadius);
-            foreach (var block in blocks)
-            {
-                var direction = block.transform.position - transform.position;
-                var distance = direction.magnitude;
-                var forceCoef = distance / bombSettings.ExplosionRadius;
-                block.SetMovement(direction.normalized * (bombSettings.ExplosionForce * forceCoef));
-            }
         }
 
         protected override void OnDestroyBlock()
