@@ -43,7 +43,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/GameSceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/SceneController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/ResourceManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
@@ -76,6 +75,7 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Blocks/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Bomb.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/ResourceManager.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />
