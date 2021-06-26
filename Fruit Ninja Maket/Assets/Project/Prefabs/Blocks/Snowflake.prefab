@@ -62,7 +62,7 @@ MonoBehaviour:
   physicalMovement: {fileID: 3705726267601556311}
   isEnabledCollider: 1
   blockAnimator: {fileID: 6110716892347908355}
-  snowflakeParticles: {fileID: 2078311334090630400}
+  particlesAnimator: {fileID: 197772392909568988}
   spriteObject: {fileID: 8072208253579216862}
 --- !u!1 &7692496436577384777
 GameObject:
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 2049167834780300076}
   - component: {fileID: 2078311334090630400}
   - component: {fileID: 3439299226093462563}
+  - component: {fileID: 197772392909568988}
   m_Layer: 0
   m_Name: SnowflakeParticles
   m_TagString: Untagged
@@ -4944,6 +4945,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &197772392909568988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692496436577384777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989c78e247f240d59225a1f6226cdd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 2078311334090630400}
 --- !u!1 &8072208253579216862
 GameObject:
   m_ObjectHideFlags: 0

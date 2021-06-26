@@ -62,7 +62,7 @@ MonoBehaviour:
   physicalMovement: {fileID: 2113180650031125945}
   isEnabledCollider: 1
   blockAnimator: {fileID: 8859500010057517037}
-  heartsParticles: {fileID: 3668535764507943918}
+  particlesAnimator: {fileID: 3682980464504674632}
   spriteObject: {fileID: 6789416482171044144}
 --- !u!1 &4971930224280944551
 GameObject:
@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 3625115929195607490}
   - component: {fileID: 3668535764507943918}
   - component: {fileID: 109278942279475917}
+  - component: {fileID: 3682980464504674632}
   m_Layer: 0
   m_Name: HeartParticles
   m_TagString: Untagged
@@ -4926,6 +4927,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3682980464504674632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971930224280944551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989c78e247f240d59225a1f6226cdd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3668535764507943918}
 --- !u!1 &5815566611533586314
 GameObject:
   m_ObjectHideFlags: 0
