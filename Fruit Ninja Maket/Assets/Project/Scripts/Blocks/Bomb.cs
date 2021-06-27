@@ -15,10 +15,15 @@ namespace Project.Scripts.Blocks
         
         public UnityEvent<int> OnBombSliced { get; } = new UnityEvent<int>();
 
-        public void InitializeSettings(BaseBombSettings bombSettings, BlockController controller)
+        protected override void OnStartBlock()
+        {
+            base.OnStartBlock();
+            blockController = controllersManager.GetBlockController();
+        }
+
+        public void InitializeSettings(BaseBombSettings bombSettings)
         {
             this.bombSettings = bombSettings;
-            blockController = controller;
         }
         
         public override void Slice(Vector2 slicingDirection)

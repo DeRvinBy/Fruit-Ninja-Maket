@@ -1,5 +1,7 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
 using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
+using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -10,6 +12,16 @@ namespace Project.Scripts.BlockFactory
         [SerializeField]
         private BaseFruitSettings fruitSettings = null;
 
+        private LifeController lifeController;
+        private ScoreController scoreController;
+        
+        public override void Initialize(ControllersManager manager)
+        {
+            base.Initialize(manager);
+            lifeController = manager.GetLifeController();
+            scoreController = manager.GetScoreController();
+        }
+        
         protected override bool IsCanCreate()
         {
             return true;
@@ -26,7 +38,7 @@ namespace Project.Scripts.BlockFactory
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
             var settings = fruitSettings.GetRandomFruitSettings();
-            go.InitializeSettings(settings, physicalController);
+            go.InitializeSettings(settings);
             go.OnFruitSliced.AddListener(scoreController.AddScoreByFruit);
             go.OnFruitNotSliced.AddListener(lifeController.RemoveLivesWithSpawnFail);
 

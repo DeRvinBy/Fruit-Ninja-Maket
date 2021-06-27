@@ -1108,8 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c273a3a07b3e54a47b4b31aa214037a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectCreator: {fileID: 1349449991}
-  scoreController: {fileID: 2115108505}
+  controllersManager: {fileID: 1205373108}
   controllerSettings: {fileID: 19734838}
   zonesContainer: {fileID: 19734837}
 --- !u!4 &285971090
@@ -2447,7 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 613643902}
-  blockController: {fileID: 2132663860}
+  controllersManager: {fileID: 1205373108}
 --- !u!1 &815970132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2613,7 +2612,7 @@ MonoBehaviour:
   massOfBlock: 65
   countOfReducingLives: 1
   prefab: {fileID: 256540864263395530, guid: 0bbf2156e26c97e49981f0ccd765e6e4, type: 3}
-  slowdownEffectTime: 2
+  slowdownEffectTime: 3
 --- !u!1 &942328528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2812,6 +2811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205373107}
+  - component: {fileID: 1205373108}
   m_Layer: 0
   m_Name: _CONTROLLERS
   m_TagString: Untagged
@@ -2836,6 +2836,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205373108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205373106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b4dcb2884e4ed9a14928c2cf75a098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockController: {fileID: 2132663860}
+  physicalController: {fileID: 121868684}
+  objectCreator: {fileID: 1349449991}
+  lifeController: {fileID: 2002008482}
+  scoreController: {fileID: 2115108505}
 --- !u!1 &1213062685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,7 +3170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - spawnProbability: 65
+  - spawnProbability: 60
     blockFactory: {fileID: 899489463}
   - spawnProbability: 15
     blockFactory: {fileID: 324286087}
@@ -3163,7 +3180,7 @@ MonoBehaviour:
     blockFactory: {fileID: 1376498432}
   - spawnProbability: 5
     blockFactory: {fileID: 78244073}
-  - spawnProbability: 100
+  - spawnProbability: 5
     blockFactory: {fileID: 1602133192}
 --- !u!1 &1342474011
 GameObject:
@@ -3238,10 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7151b2e6fed65b4eb76d1473a97ce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockController: {fileID: 2132663860}
-  scoreController: {fileID: 2115108505}
-  lifeController: {fileID: 2002008482}
-  physicalController: {fileID: 121868684}
+  controllersManager: {fileID: 1205373108}
   objectCreatorContainer: {fileID: 1325425216}
 --- !u!4 &1349449992
 Transform:
@@ -4592,7 +4606,7 @@ MonoBehaviour:
   globalGravity: 1
   slowdownVelocityCoefficient: 0.2
   magnetRadius: 20
-  magnetVelocity: 15
+  magnetVelocity: 12
 --- !u!1001 &1901517682
 PrefabInstance:
   m_ObjectHideFlags: 0

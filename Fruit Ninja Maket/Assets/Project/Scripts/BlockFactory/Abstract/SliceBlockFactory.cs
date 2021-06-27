@@ -1,7 +1,6 @@
 ﻿using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.Blocks;
-using Project.Scripts.Controllers.ModelToView;
-using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -9,11 +8,8 @@ namespace Project.Scripts.BlockFactory.Abstract
 {
     public abstract class SliceBlockFactory : MonoBehaviour
     {
-        protected BlockController blockController;
-        protected ScoreController scoreController;
-        protected LifeController lifeController;
-        
-        protected PhysicalController physicalController;
+        protected ControllersManager controllersManager;
+        private BlockController blockController;
 
         protected int currentBlocksCountInBundle;
         protected int maxBlocksCountInBundle;
@@ -24,17 +20,10 @@ namespace Project.Scripts.BlockFactory.Abstract
             maxBlocksCountInBundle = maxCountInBundle;
         }
 
-        public void InitializePhysicalSettings(PhysicalController physicalController)
+        public virtual void Initialize(ControllersManager manager)
         {
-            this.physicalController = physicalController;
-        }
-        
-        public void InitializeControllers(BlockController blockController, ScoreController scoreController,
-            LifeController lifeController)
-        {
-            this.blockController = blockController;
-            this.scoreController = scoreController;
-            this.lifeController = lifeController;
+            controllersManager = manager;
+            blockController = controllersManager.GetBlockController();
         }
         
         protected void InitializeBlock(SliceBlock block, Vector2 direction)
@@ -42,7 +31,7 @@ namespace Project.Scripts.BlockFactory.Abstract
             var settings = GetBlockSettings();
             var velocity = direction * settings.VelocityOfBlock;
             block.SetMovement(velocity);
-            block.SetPhysicalSettings(physicalController);
+            block.Initialize(controllersManager);
             block.SetMass(settings.MassOfBlock);
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);

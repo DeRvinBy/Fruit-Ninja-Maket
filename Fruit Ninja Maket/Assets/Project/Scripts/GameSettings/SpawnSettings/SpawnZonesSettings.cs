@@ -1,4 +1,5 @@
 using System;
+using Project.Scripts.BlockFactory;
 using Project.Scripts.Spawn;
 using UnityEngine;
 
@@ -19,19 +20,13 @@ namespace Project.Scripts.GameSettings.SpawnSettings
         [SerializeField]
         private SpawnZone spawnZone = null;
 
-        public float Probability { get => probability; set => probability = value; }
-
         public SpawnZone SpawnZone => spawnZone;
+        public float Probability { get => probability; set => probability = value; }
 
         public void InitializeSpawnZone()
         {
-            spawnZone.InitializeSpawnObjectsSettings(spawnObjectsSettings);
-            UpdateSpawnZoneTransform();
-        }
-
-        public void UpdateSpawnZoneTransform()
-        {
-            spawnZone.InitializeTransformSettings(transformSettings);
+            spawnZone.Initialize(spawnObjectsSettings);
+            spawnZone.SetZonePosition(transformSettings);
         }
     }
 }

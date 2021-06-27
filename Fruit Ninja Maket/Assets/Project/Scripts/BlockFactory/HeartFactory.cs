@@ -1,5 +1,7 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
 using Project.Scripts.Blocks;
+using Project.Scripts.Controllers;
+using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 
@@ -9,6 +11,14 @@ namespace Project.Scripts.BlockFactory
     {
         [SerializeField] 
         private BaseHeartSettings heartSettings = null;
+
+        private LifeController lifeController;
+
+        public override void Initialize(ControllersManager manager)
+        {
+            base.Initialize(manager);
+            lifeController = manager.GetLifeController();
+        }
 
         protected override bool IsCanCreate()
         {

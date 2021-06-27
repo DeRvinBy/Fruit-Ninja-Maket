@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
+using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.BlockSettings;
@@ -10,16 +11,7 @@ namespace Project.Scripts.BlockFactory
     public class ObjectCreator : MonoBehaviour
     {
         [SerializeField] 
-        private BlockController blockController = null;
-        
-        [SerializeField]
-        private ScoreController scoreController = null;
-
-        [SerializeField]
-        private LifeController lifeController = null;
-
-        [SerializeField] 
-        private PhysicalController physicalController = null;
+        private ControllersManager controllersManager;
         
         [SerializeField]
         private ObjectCreatorContainer objectCreatorContainer = null;
@@ -31,8 +23,7 @@ namespace Project.Scripts.BlockFactory
             factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
-                factory.InitializePhysicalSettings(physicalController);
-                factory.InitializeControllers(blockController, scoreController, lifeController);
+                factory.Initialize(controllersManager);
             }
         }
 

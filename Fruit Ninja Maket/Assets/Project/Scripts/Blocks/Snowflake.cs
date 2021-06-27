@@ -14,11 +14,16 @@ namespace Project.Scripts.Blocks
         private BaseSnowflakeSettings snowflakeSettings;
         private PhysicalController physicalController;
         private bool isSlowEffectActive;
-        
-        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings, PhysicalController physicalController)
+
+        protected override void OnStartBlock()
+        {
+            base.OnStartBlock();
+            physicalController = controllersManager.GetPhysicalController();
+        }
+
+        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings)
         {
             this.snowflakeSettings = snowflakeSettings;
-            this.physicalController = physicalController;
         }
         
         public override void Slice(Vector2 slicingDirection)

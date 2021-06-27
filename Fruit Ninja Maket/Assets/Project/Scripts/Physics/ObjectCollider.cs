@@ -1,3 +1,4 @@
+using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings;
 using UnityEngine;
@@ -17,14 +18,18 @@ namespace Project.Scripts.Physics
         [SerializeField]
         protected internal bool isEnabledCollider = true;
 
+        protected ControllersManager controllersManager;
+
+        public void Initialize(ControllersManager manager)
+        {
+            controllersManager = manager;
+            var physicalController = manager.GetPhysicalController();
+            physicalMovement.Initialize(physicalController);
+        }
+        
         public void SetMass(float mass)
         {
             physicalMovement.SetMass(mass);
-        }
-        
-        public void SetPhysicalSettings(PhysicalController physicalController)
-        {
-            physicalMovement.SetPhysicalSettings(physicalController);
         }
         
         public void SetMovement(Vector2 velocity)

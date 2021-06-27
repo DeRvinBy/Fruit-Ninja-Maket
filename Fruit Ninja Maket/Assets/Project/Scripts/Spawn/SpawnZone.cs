@@ -1,4 +1,3 @@
-using System.Collections;
 using Project.Scripts.BlockFactory;
 using Project.Scripts.GameSettings.SpawnSettings;
 using UnityEngine;
@@ -18,12 +17,12 @@ namespace Project.Scripts.Spawn
 
         private SpawnObjectsSettings spawnObjectsSettings;
 
-        public void InitializeSpawnObjectsSettings(SpawnObjectsSettings spawnObjectsSettings)
+        public void Initialize(SpawnObjectsSettings spawnObjectsSettings)
         {
             this.spawnObjectsSettings = spawnObjectsSettings;
         }
 
-        public void InitializeTransformSettings(SpawnZoneTransformSettings transformSettings)
+        public void SetZonePosition(SpawnZoneTransformSettings transformSettings)
         {
             var camera = Camera.main;
             var topLeftCorner = camera.ScreenToWorldPoint(new Vector2(0, camera.pixelHeight));

@@ -12,10 +12,15 @@ namespace Project.Scripts.Blocks
         private PhysicalController physicalController;
         private bool isMagnetEffectActive;
 
-        public void InitializeSettings(BaseMagnetSettings magnetSettings, PhysicalController physicalController)
+        protected override void OnStartBlock()
+        {
+            base.OnStartBlock();
+            physicalController = controllersManager.GetPhysicalController();
+        }
+
+        public void InitializeSettings(BaseMagnetSettings magnetSettings)
         {
             this.magnetSettings = magnetSettings;
-            this.physicalController = physicalController;
         }
         
         public override void Slice(Vector2 slicingDirection)

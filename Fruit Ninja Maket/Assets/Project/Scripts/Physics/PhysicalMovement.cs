@@ -7,21 +7,20 @@ namespace Project.Scripts.Physics
     public class PhysicalMovement : MonoBehaviour
     {
         private PhysicalController physicalController;
-        
         private Vector2 velocity;
         private float mass;
         private bool isMagnet;
+        
+        public void Initialize(PhysicalController physicalController)
+        {
+            this.physicalController = physicalController;
+        }
         
         public void SetMass(float mass)
         {
             this.mass = mass;
         }
-        
-        public void SetPhysicalSettings(PhysicalController physicalController)
-        {
-            this.physicalController = physicalController;
-        }
-        
+
         public void AddVelocity(Vector2 newVelocity)
         {
             velocity += newVelocity;

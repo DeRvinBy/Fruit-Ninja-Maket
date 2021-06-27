@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Project.Scripts.BlockFactory;
+using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.ModelToView;
 using Project.Scripts.GameSettings.SpawnSettings;
 using Project.Scripts.GameSettings.SpawnSettings.MonoSettings;
@@ -11,10 +12,7 @@ namespace Project.Scripts.Spawn
     public class SpawnController : MonoBehaviour
     {
         [SerializeField] 
-        private ObjectCreator objectCreator = null;
-
-        [SerializeField] 
-        private ScoreController scoreController = null;
+        private ControllersManager controllersManager = null;
         
         [SerializeField]
         private SpawnControllerSettings controllerSettings = null;
@@ -22,6 +20,8 @@ namespace Project.Scripts.Spawn
         [SerializeField]
         private SpawnZonesSettingsContainer zonesContainer = null;
 
+        private ObjectCreator objectCreator;
+        private ScoreController scoreController;
         private SpawnDifficultySettings difficultySettings;
         private float currentDelayTimeSpawnNextZone;
         private int baseCountOfSpawningObjects;
@@ -29,6 +29,8 @@ namespace Project.Scripts.Spawn
 
         private void Start()
         {
+            objectCreator = controllersManager.GetObjectCreator();
+            scoreController = controllersManager.GetScoreController();
             difficultySettings = controllerSettings.DifficultySettings;
             difficultySettings.MultiplyScoreOfLevels(scoreController.ScoreMultiplier);
         }

@@ -30,13 +30,18 @@ namespace Project.Scripts.Blocks
             lifeTime += Time.deltaTime * physicalController.GetDeltaTime();
         }
 
-        public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalController physicalController)
+        protected override void OnStartBlock()
+        {
+            base.OnStartBlock();
+            physicalController = controllersManager.GetPhysicalController();
+        }
+
+        public void InitializeSettings(AdditionalFruitSettings fruitSettings)
         {
             leftSpriteComp.sprite = fruitSettings.LeftHalfOfSprite;
             rightSpriteComp.sprite = fruitSettings.RightHalfOfSprite;
             particlesAnimator.ChangeParticlesColor(fruitSettings.SprayColor);
             this.fruitSettings = fruitSettings;
-            this.physicalController = physicalController;
         }
 
         public override void Slice(Vector2 slicingDirection)
@@ -71,8 +76,8 @@ namespace Project.Scripts.Blocks
         {
             var colliderObject = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
+            colliderObject.Initialize(controllersManager);
             colliderObject.SetMass(halfSettings.HalfMass);
-            colliderObject.SetPhysicalSettings(physicalController);
             colliderObject.SetMovement(direction * halfSettings.HalfVelocity);
             colliderObject.physicalMovement.enabled = true;
             colliderObject.isEnabledCollider = true;
