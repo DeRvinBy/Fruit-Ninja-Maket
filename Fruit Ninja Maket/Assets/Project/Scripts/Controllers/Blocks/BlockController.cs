@@ -29,9 +29,10 @@ namespace Project.Scripts.Controllers.Blocks
 
         public void SliceBlocksIntersectedWithPoint(Vector2 point, Vector2 slicingDirection)
         {
-            foreach(var block in blocks)
+            for (var i = 0; i < blocks.Count; i++)
             {
-                if(block.IsIntersectWithPoint(point))
+                var block = blocks[i];
+                if (block.IsIntersectWithPoint(point))
                 {
                     block.Slice(slicingDirection);
                 }
@@ -40,9 +41,10 @@ namespace Project.Scripts.Controllers.Blocks
 
         public void PushBlocksFromBomb(Vector2 center, BaseBombSettings bombSettings)
         {
-            foreach(var block in blocks)
+            for (var i = 0; i < blocks.Count; i++)
             {
-                if(block.IsInRadiusFromPoint(center, bombSettings.ExplosionRadius))
+                var block = blocks[i];
+                if (block.IsInRadiusFromPoint(center, bombSettings.ExplosionRadius))
                 {
                     var direction = block.transform.position - transform.position;
                     var distance = direction.magnitude;

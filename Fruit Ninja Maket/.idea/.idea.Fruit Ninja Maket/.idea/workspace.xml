@@ -25,13 +25,8 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/MenuSceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/GameSceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/SceneController.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/BombFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/FactoriesSettings/ObjectCreatorContainer.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Physics/ObjectCollider.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/ObjectCreator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitFactory.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/PhysicalSettings.cs" />
@@ -56,7 +51,6 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/GameAnimations/BlockAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Animations/Abstract/RectTransformAnimator.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/SlicingBehaviour/Slicer.cs" />
-      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Blocks/BlockController.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Game/ResourceManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Components.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Components/BlockComponent.cs" />
@@ -76,6 +70,12 @@
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Fruit.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Heart.cs" />
       <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/Snowflake.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/Abstract/SliceBlockFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/GameSettings/BlockSettings/BaseSettings/BaseFruitsBagSettings.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitBagFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/BlockFactory/FruitsBagFactory.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Controllers/Blocks/BlockController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Project/Scripts/Blocks/FruitsBag.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1u1VnLA9VBHfHztfv6dwRVugyGe" />

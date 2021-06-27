@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 56103887}
   - component: {fileID: 56103886}
   m_Layer: 0
-  m_Name: SnowflakeSettings
+  m_Name: SnowflakeFactory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -602,6 +602,52 @@ Transform:
   m_Father: {fileID: 1349449992}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &78244071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78244072}
+  - component: {fileID: 78244073}
+  m_Layer: 0
+  m_Name: FruitsBagFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78244072
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78244071}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1349449992}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78244073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78244071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6607d3f2e17427392b6d160e3977d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageBlocksSettings: {fileID: 1220533757}
+  fruitsBagSettings: {fileID: 570239977}
+  fruitFactory: {fileID: 899489463}
 --- !u!1 &90325940
 GameObject:
   m_ObjectHideFlags: 0
@@ -984,6 +1030,7 @@ Transform:
   - {fileID: 90325941}
   - {fileID: 919826063}
   - {fileID: 1888953019}
+  - {fileID: 570239976}
   m_Father: {fileID: 20933064}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1452,6 +1499,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &570239975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 570239976}
+  - component: {fileID: 570239977}
+  m_Layer: 0
+  m_Name: FruitBagSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &570239976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570239975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 268158233}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570239977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 570239975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 904a1ca22ee7481099cea57a32f219f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityOfBlock: 20
+  massOfBlock: 35
+  countOfReducingLives: 1
+  prefab: {fileID: 2945966131946343443, guid: 0fffb8163f0fab7489acd162daba046a, type: 3}
+  minCountOfFruits: 3
+  maxCountOfFruits: 5
+  minVelocityCoefficient: 0.4
+  maxVelocityCoefficient: 0.6
+  minDirectionAngle: 80
+  maxDirectionAngle: 100
 --- !u!1 &570371021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2727,6 +2827,50 @@ Transform:
   m_Father: {fileID: 1205373107}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1220533755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1220533756}
+  - component: {fileID: 1220533757}
+  m_Layer: 0
+  m_Name: FruitBagSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1220533756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220533755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1220533757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1220533755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751d69572285478cbdea81b616a2c288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfBlocksInBundle: 0.5
 --- !u!4 &1257909860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2494047019820350516, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
@@ -2946,6 +3090,7 @@ Transform:
   - {fileID: 728768110}
   - {fileID: 1342474013}
   - {fileID: 1182206127}
+  - {fileID: 1220533756}
   m_Father: {fileID: 20933064}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2962,7 +3107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - spawnProbability: 70
+  - spawnProbability: 65
     blockFactory: {fileID: 899489463}
   - spawnProbability: 15
     blockFactory: {fileID: 324286087}
@@ -2970,6 +3115,8 @@ MonoBehaviour:
     blockFactory: {fileID: 56103886}
   - spawnProbability: 5
     blockFactory: {fileID: 1376498432}
+  - spawnProbability: 5
+    blockFactory: {fileID: 78244073}
 --- !u!1 &1342474011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3210,7 @@ Transform:
   - {fileID: 324286088}
   - {fileID: 1376498433}
   - {fileID: 56103887}
+  - {fileID: 78244072}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
