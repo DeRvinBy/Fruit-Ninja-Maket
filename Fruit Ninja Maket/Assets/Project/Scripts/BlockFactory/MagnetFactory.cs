@@ -14,7 +14,7 @@ namespace Project.Scripts.BlockFactory
         {
             var result = base.IsCanCreate();
 
-            return result && !physicalSettings.IsMagnetEffectActive;
+            return result && !physicalController.IsMagnetEffectActive;
         }
         
         protected override BaseBlockSettings GetBlockSettings()
@@ -27,7 +27,7 @@ namespace Project.Scripts.BlockFactory
             var prefab = magnetSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            go.InitializeSettings(magnetSettings, physicalSettings);
+            go.InitializeSettings(magnetSettings, physicalController);
 
             return go;
         }

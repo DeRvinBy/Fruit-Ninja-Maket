@@ -1,12 +1,13 @@
-﻿using Project.Scripts.GameSettings.BlockSettings;
+﻿using Project.Scripts.Controllers.Blocks;
+using Project.Scripts.GameSettings.BlockSettings;
 using UnityEngine;
 
 namespace Project.Scripts.Physics
 {
     public class PhysicalMovement : MonoBehaviour
     {
-        private readonly Vector2 gravityDirection = Vector2.down;
-        private PhysicalSettings physicalSettings;
+        private PhysicalController physicalController;
+        
         private Vector2 velocity;
         private float mass;
         private bool isMagnet;
@@ -16,9 +17,9 @@ namespace Project.Scripts.Physics
             this.mass = mass;
         }
         
-        public void SetPhysicalSettings(PhysicalSettings physicalSettings)
+        public void SetPhysicalSettings(PhysicalController physicalController)
         {
-            this.physicalSettings = physicalSettings;
+            this.physicalController = physicalController;
         }
         
         public void AddVelocity(Vector2 newVelocity)
@@ -28,28 +29,10 @@ namespace Project.Scripts.Physics
 
         private void Update()
         {
-            var deltaTimeWithSlowdown = Time.deltaTime * physicalSettings.SlowdownCoefficient;
-            var attractionVelocity = GetAttractionVelocity(deltaTimeWithSlowdown);
+            var attractionVelocity = physicalController.GetAttractionVelocity(transform.position, velocity, mass);
             velocity += attractionVelocity;
-            var translation = velocity * deltaTimeWithSlowdown;
+            var translation = velocity * physicalController.GetDeltaTime();
             transform.Translate(translation, Space.World);
-        }
-
-        private Vector2 GetAttractionVelocity(float deltaTime)
-        {
-            var gravityMultiplier = physicalSettings.GlobalGravity * mass * deltaTime;
-            
-            if (physicalSettings.IsMagnetEffectActive)
-            {
-                var distance = physicalSettings.MagnetPosition - (Vector2) transform.position;
-                if (distance.magnitude < physicalSettings.MagnetRadius)
-                {
-                    var coef = distance.magnitude / physicalSettings.MagnetRadius;
-                    return distance.normalized * (gravityMultiplier) - velocity * 5f * coef * deltaTime;
-                }
-            }
-            
-            return gravityDirection * gravityMultiplier;
         }
     }
 }

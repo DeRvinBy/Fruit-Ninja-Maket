@@ -1,3 +1,4 @@
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings;
 using UnityEngine;
 
@@ -21,9 +22,9 @@ namespace Project.Scripts.Physics
             physicalMovement.SetMass(mass);
         }
         
-        public void SetPhysicalSettings(PhysicalSettings physicalSettings)
+        public void SetPhysicalSettings(PhysicalController physicalController)
         {
-            physicalMovement.SetPhysicalSettings(physicalSettings);
+            physicalMovement.SetPhysicalSettings(physicalController);
         }
         
         public void SetMovement(Vector2 velocity)

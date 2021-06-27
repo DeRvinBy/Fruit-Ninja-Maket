@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
@@ -8,13 +9,13 @@ namespace Project.Scripts.Blocks
     public class Magnet : SliceBlock
     {
         private BaseMagnetSettings magnetSettings;
-        private PhysicalSettings physicalSettings;
+        private PhysicalController physicalController;
         private bool isMagnetEffectActive;
 
-        public void InitializeSettings(BaseMagnetSettings magnetSettings, PhysicalSettings physicalSettings)
+        public void InitializeSettings(BaseMagnetSettings magnetSettings, PhysicalController physicalController)
         {
             this.magnetSettings = magnetSettings;
-            this.physicalSettings = physicalSettings;
+            this.physicalController = physicalController;
         }
         
         public override void Slice(Vector2 slicingDirection)
@@ -30,9 +31,9 @@ namespace Project.Scripts.Blocks
         private IEnumerator ActivateMagnetOnTime()
         {
             isMagnetEffectActive = true;
-            physicalSettings.ActivateMagnetAtPosition(transform.position);
+            physicalController.ActivateMagnetAtPosition(transform.position);
             yield return new WaitForSeconds(magnetSettings.MagnetEffectTime);
-            physicalSettings.DeactivateMagnet();
+            physicalController.DeactivateMagnet();
             isMagnetEffectActive = false;
         }
         

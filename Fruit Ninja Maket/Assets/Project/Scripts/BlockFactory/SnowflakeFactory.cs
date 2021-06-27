@@ -15,7 +15,7 @@ namespace Project.Scripts.BlockFactory
         {
             var result = base.IsCanCreate();
 
-            return result && !physicalSettings.IsSlowdownEffectActive;
+            return result && !physicalController.IsSlowdownEffectActive;
         }
 
         protected override BaseBlockSettings GetBlockSettings()
@@ -28,7 +28,7 @@ namespace Project.Scripts.BlockFactory
             var prefab = snowflakeSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            go.InitializeSettings(snowflakeSettings, physicalSettings);
+            go.InitializeSettings(snowflakeSettings, physicalController);
 
             return go;
         }

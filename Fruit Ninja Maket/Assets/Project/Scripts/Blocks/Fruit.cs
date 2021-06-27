@@ -1,3 +1,4 @@
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.Extensions;
 using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
@@ -19,23 +20,23 @@ namespace Project.Scripts.Blocks
 
         private float lifeTime = 0;
         private AdditionalFruitSettings fruitSettings;
-        private PhysicalSettings physicalSettings;
+        private PhysicalController physicalController;
         
         public UnityEvent<Vector2, int> OnFruitNotSliced { get; } = new UnityEvent<Vector2, int>();
         public UnityEvent<Vector2, int> OnFruitSliced { get; } = new UnityEvent<Vector2, int>();
 
         private void Update()
         {
-            lifeTime += Time.deltaTime * physicalSettings.SlowdownCoefficient;
+            lifeTime += Time.deltaTime * physicalController.GetDeltaTime();
         }
 
-        public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalSettings physicalSettings)
+        public void InitializeSettings(AdditionalFruitSettings fruitSettings, PhysicalController physicalController)
         {
             leftSpriteComp.sprite = fruitSettings.LeftHalfOfSprite;
             rightSpriteComp.sprite = fruitSettings.RightHalfOfSprite;
             particlesAnimator.ChangeParticlesColor(fruitSettings.SprayColor);
             this.fruitSettings = fruitSettings;
-            this.physicalSettings = physicalSettings;
+            this.physicalController = physicalController;
         }
 
         public override void Slice(Vector2 slicingDirection)
@@ -71,7 +72,7 @@ namespace Project.Scripts.Blocks
             var colliderObject = halfComponent.GetComponent<ObjectCollider>();
             var halfSettings = fruitSettings.HalfSettings;
             colliderObject.SetMass(halfSettings.HalfMass);
-            colliderObject.SetPhysicalSettings(physicalSettings);
+            colliderObject.SetPhysicalSettings(physicalController);
             colliderObject.SetMovement(direction * halfSettings.HalfVelocity);
             colliderObject.physicalMovement.enabled = true;
             colliderObject.isEnabledCollider = true;

@@ -19,7 +19,7 @@ namespace Project.Scripts.BlockFactory
         private LifeController lifeController = null;
 
         [SerializeField] 
-        private PhysicalSettings physicalSettings = null;
+        private PhysicalController physicalController = null;
         
         [SerializeField]
         private ObjectCreatorContainer objectCreatorContainer = null;
@@ -31,7 +31,7 @@ namespace Project.Scripts.BlockFactory
             factories = objectCreatorContainer.GetAllFactories();
             foreach (var factory in factories)
             {
-                factory.InitializePhysicalSettings(physicalSettings);
+                factory.InitializePhysicalSettings(physicalController);
                 factory.InitializeControllers(blockController, scoreController, lifeController);
             }
         }

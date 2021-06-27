@@ -13,7 +13,7 @@ namespace Project.Scripts.BlockFactory.Abstract
         protected ScoreController scoreController;
         protected LifeController lifeController;
         
-        protected PhysicalSettings physicalSettings;
+        protected PhysicalController physicalController;
 
         protected int currentBlocksCountInBundle;
         protected int maxBlocksCountInBundle;
@@ -24,9 +24,9 @@ namespace Project.Scripts.BlockFactory.Abstract
             maxBlocksCountInBundle = maxCountInBundle;
         }
 
-        public void InitializePhysicalSettings(PhysicalSettings physicalSettings)
+        public void InitializePhysicalSettings(PhysicalController physicalController)
         {
-            this.physicalSettings = physicalSettings;
+            this.physicalController = physicalController;
         }
         
         public void InitializeControllers(BlockController blockController, ScoreController scoreController,
@@ -42,7 +42,7 @@ namespace Project.Scripts.BlockFactory.Abstract
             var settings = GetBlockSettings();
             var velocity = direction * settings.VelocityOfBlock;
             block.SetMovement(velocity);
-            block.SetPhysicalSettings(physicalSettings);
+            block.SetPhysicalSettings(physicalController);
             block.SetMass(settings.MassOfBlock);
             blockController.AddBlock(block);
             block.OnBlockDestroyed.AddListener(blockController.RemoveBlock);
