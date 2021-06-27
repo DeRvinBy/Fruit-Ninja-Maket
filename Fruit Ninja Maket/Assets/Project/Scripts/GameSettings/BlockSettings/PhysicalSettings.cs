@@ -13,6 +13,10 @@ namespace Project.Scripts.GameSettings.BlockSettings
         public float SlowdownCoefficient { get; private set; } = DefaultSlowdownCoefficient;
         public bool IsSlowdownEffectActive { get; private set; }
         
+        public float MagnetRadius { get; private set; }
+        public Vector2 MagnetPosition { get; private set; }
+        public bool IsMagnetEffectActive { get; private set; }
+
         public void SetResetSlowdownCoefficient(float value)
         {
             SlowdownCoefficient = value;
@@ -23,6 +27,18 @@ namespace Project.Scripts.GameSettings.BlockSettings
         {
             SlowdownCoefficient = DefaultSlowdownCoefficient;
             IsSlowdownEffectActive = false;
+        }
+
+        public void ActivateMagnetAtPosition(Vector2 position)
+        {
+            MagnetRadius = 20f;
+            IsMagnetEffectActive = true;
+            MagnetPosition = position;
+        }
+
+        public void DeactivateMagnet()
+        {
+            IsMagnetEffectActive = false;
         }
     }
 }

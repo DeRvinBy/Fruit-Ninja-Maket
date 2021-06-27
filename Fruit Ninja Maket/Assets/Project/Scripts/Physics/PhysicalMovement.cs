@@ -9,7 +9,8 @@ namespace Project.Scripts.Physics
         private PhysicalSettings physicalSettings;
         private Vector2 velocity;
         private float mass;
-
+        private bool isMagnet;
+        
         public void SetMass(float mass)
         {
             this.mass = mass;
@@ -28,10 +29,27 @@ namespace Project.Scripts.Physics
         private void Update()
         {
             var deltaTimeWithSlowdown = Time.deltaTime * physicalSettings.SlowdownCoefficient;
-            var gravityMultiplier = physicalSettings.GlobalGravity * mass * deltaTimeWithSlowdown;
-            velocity += gravityDirection * gravityMultiplier;
+            var attractionVelocity = GetAttractionVelocity(deltaTimeWithSlowdown);
+            velocity += attractionVelocity;
             var translation = velocity * deltaTimeWithSlowdown;
             transform.Translate(translation, Space.World);
+        }
+
+        private Vector2 GetAttractionVelocity(float deltaTime)
+        {
+            var gravityMultiplier = physicalSettings.GlobalGravity * mass * deltaTime;
+            
+            if (physicalSettings.IsMagnetEffectActive)
+            {
+                var distance = physicalSettings.MagnetPosition - (Vector2) transform.position;
+                if (distance.magnitude < physicalSettings.MagnetRadius)
+                {
+                    var coef = distance.magnitude / physicalSettings.MagnetRadius;
+                    return distance.normalized * (gravityMultiplier) - velocity * 5f * coef * deltaTime;
+                }
+            }
+            
+            return gravityDirection * gravityMultiplier;
         }
     }
 }

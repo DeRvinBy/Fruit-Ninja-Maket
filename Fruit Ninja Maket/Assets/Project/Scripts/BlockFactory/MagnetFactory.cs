@@ -1,34 +1,33 @@
 ﻿using Project.Scripts.BlockFactory.Abstract;
 using Project.Scripts.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class SnowflakeFactory : PercentageBlockFactory
+    public class MagnetFactory : PercentageBlockFactory
     {
         [SerializeField] 
-        private BaseSnowflakeSettings snowflakeSettings = null;
+        private BaseMagnetSettings magnetSettings = null;
 
         protected override bool IsCanCreate()
         {
             var result = base.IsCanCreate();
 
-            return result && !physicalSettings.IsSlowdownEffectActive;
+            return result && !physicalSettings.IsMagnetEffectActive;
         }
-
+        
         protected override BaseBlockSettings GetBlockSettings()
         {
-            return snowflakeSettings;
+            return magnetSettings;
         }
 
         protected override SliceBlock CreateBlock(Vector2 position)
         {
-            var prefab = snowflakeSettings.Prefab;
+            var prefab = magnetSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            go.InitializeSettings(snowflakeSettings, physicalSettings);
+            go.InitializeSettings(magnetSettings, physicalSettings);
 
             return go;
         }

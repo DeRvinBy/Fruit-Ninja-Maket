@@ -5,7 +5,7 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
 {
     public class BaseSnowflakeSettings : BaseBlockSettings
     {
-        [Header("Bomb settings")]
+        [Header("Snowflake settings")]
         [SerializeField] 
         private Snowflake prefab = null;
 
