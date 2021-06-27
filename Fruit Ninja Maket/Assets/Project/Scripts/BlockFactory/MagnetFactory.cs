@@ -7,10 +7,10 @@ using UnityEngine;
 
 namespace Project.Scripts.BlockFactory
 {
-    public class SnowflakeFactory : PercentageBlockFactory
+    public class MagnetFactory : PercentageBlockFactory
     {
         [SerializeField] 
-        private BaseSnowflakeSettings snowflakeSettings = null;
+        private BaseMagnetSettings magnetSettings = null;
 
         private PhysicalController physicalController;
 
@@ -19,25 +19,25 @@ namespace Project.Scripts.BlockFactory
             base.Initialize(manager);
             physicalController = manager.GetPhysicalController();
         }
-
+        
         protected override bool IsCanCreate()
         {
             var result = base.IsCanCreate();
 
-            return result && !physicalController.IsSlowdownEffectActive;
+            return result && !physicalController.IsMagnetEffectActive;
         }
-
+        
         protected override BaseBlockSettings GetBlockSettings()
         {
-            return snowflakeSettings;
+            return magnetSettings;
         }
 
         protected override SliceBlock CreateBlock(Vector2 position)
         {
-            var prefab = snowflakeSettings.Prefab;
+            var prefab = magnetSettings.Prefab;
             var go = Instantiate(prefab, position, Quaternion.identity, transform);
             
-            go.InitializeSettings(snowflakeSettings);
+            go.InitializeSettings(magnetSettings);
 
             return go;
         }

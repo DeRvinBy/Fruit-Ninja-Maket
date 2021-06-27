@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
@@ -11,13 +12,18 @@ namespace Project.Scripts.Blocks
         private GameObject spriteObject = null;
         
         private BaseSnowflakeSettings snowflakeSettings;
-        private PhysicalSettings physicalSettings;
+        private PhysicalController physicalController;
         private bool isSlowEffectActive;
-        
-        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings, PhysicalSettings physicalSettings)
+
+        protected override void OnStartBlock()
+        {
+            base.OnStartBlock();
+            physicalController = controllersManager.GetPhysicalController();
+        }
+
+        public void InitializeSettings(BaseSnowflakeSettings snowflakeSettings)
         {
             this.snowflakeSettings = snowflakeSettings;
-            this.physicalSettings = physicalSettings;
         }
         
         public override void Slice(Vector2 slicingDirection)
@@ -33,9 +39,9 @@ namespace Project.Scripts.Blocks
         private IEnumerator SlowdownBlocksOnTime()
         {
             isSlowEffectActive = true;
-            physicalSettings.SetResetSlowdownCoefficient(snowflakeSettings.SlowdownVelocityCoefficient);
-            yield return new WaitForSeconds(snowflakeSettings.FreezeTime);
-            physicalSettings.ResetSlowdownCoefficient();
+            physicalController.SetResetSlowdownCoefficient();
+            yield return new WaitForSeconds(snowflakeSettings.SlowdownEffectTime);
+            physicalController.ResetSlowdownCoefficient();
             isSlowEffectActive = false;
         }
         

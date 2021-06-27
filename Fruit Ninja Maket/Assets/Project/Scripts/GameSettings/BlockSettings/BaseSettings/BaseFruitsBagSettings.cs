@@ -5,6 +5,7 @@ namespace Project.Scripts.GameSettings.BlockSettings.BaseSettings
 {
     public class BaseFruitsBagSettings : BaseBlockSettings
     {
+        [Header("Fruits bag settings")]
         [SerializeField] 
         private FruitsBag prefab = null;
         

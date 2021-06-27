@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.Controllers;
 using Project.Scripts.Controllers.Blocks;
 using UnityEngine;
@@ -10,8 +11,15 @@ namespace Project.Scripts.SlicingBehaviour
         private PlayerInput input = null;
 
         [SerializeField] 
-        private BlockController blockController = null;
+        private ControllersManager controllersManager = null;
+
+        private BlockController blockController;
         
+        private void Start()
+        {
+            blockController = controllersManager.GetBlockController();
+        }
+
         private void Update()
         {
             if (!input.IsSwiping) return;

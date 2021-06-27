@@ -396,6 +396,7 @@ Transform:
   - {fileID: 1366761135}
   - {fileID: 1953611276}
   - {fileID: 1325425214}
+  - {fileID: 1888953019}
   - {fileID: 268158233}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -696,6 +697,50 @@ MonoBehaviour:
   countOfReducingLives: 1
   prefab: {fileID: 5834651322078559573, guid: 724fb15c24fdc014cafae44be7cc0e93, type: 3}
   countOfAddingLives: 1
+--- !u!1 &121868682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 121868683}
+  - component: {fileID: 121868684}
+  m_Layer: 0
+  m_Name: PhysicalController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &121868683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121868682}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1213062686}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &121868684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121868682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cfab0e09c24f268833bd3e26f69dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settings: {fileID: 1888953021}
 --- !u!1 &180458886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1066,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268158232}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1029,10 +1074,10 @@ Transform:
   - {fileID: 452197365}
   - {fileID: 90325941}
   - {fileID: 919826063}
-  - {fileID: 1888953019}
   - {fileID: 570239976}
+  - {fileID: 1946038609}
   m_Father: {fileID: 20933064}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285971088
 GameObject:
@@ -1063,8 +1108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c273a3a07b3e54a47b4b31aa214037a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectCreator: {fileID: 1349449991}
-  scoreController: {fileID: 2115108505}
+  controllersManager: {fileID: 1205373108}
   controllerSettings: {fileID: 19734838}
   zonesContainer: {fileID: 19734837}
 --- !u!4 &285971090
@@ -1528,7 +1572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 268158233}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &570239977
 MonoBehaviour:
@@ -2402,7 +2446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 613643902}
-  blockController: {fileID: 2132663860}
+  controllersManager: {fileID: 1205373108}
 --- !u!1 &815970132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2568,8 +2612,7 @@ MonoBehaviour:
   massOfBlock: 65
   countOfReducingLives: 1
   prefab: {fileID: 256540864263395530, guid: 0bbf2156e26c97e49981f0ccd765e6e4, type: 3}
-  slowdownVelocityCoefficient: 0.4
-  freezeTime: 5
+  slowdownEffectTime: 3
 --- !u!1 &942328528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,6 +2811,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1205373107}
+  - component: {fileID: 1205373108}
   m_Layer: 0
   m_Name: _CONTROLLERS
   m_TagString: Untagged
@@ -2792,6 +2836,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1205373108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205373106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b4dcb2884e4ed9a14928c2cf75a098, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockController: {fileID: 2132663860}
+  physicalController: {fileID: 121868684}
+  objectCreator: {fileID: 1349449991}
+  lifeController: {fileID: 2002008482}
+  scoreController: {fileID: 2115108505}
 --- !u!1 &1213062685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2885,7 @@ Transform:
   - {fileID: 1298346909}
   - {fileID: 2132663859}
   - {fileID: 1482162176}
+  - {fileID: 121868683}
   m_Father: {fileID: 1205373107}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3091,6 +3153,7 @@ Transform:
   - {fileID: 1342474013}
   - {fileID: 1182206127}
   - {fileID: 1220533756}
+  - {fileID: 1621500920}
   m_Father: {fileID: 20933064}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3107,7 +3170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factories:
-  - spawnProbability: 65
+  - spawnProbability: 60
     blockFactory: {fileID: 899489463}
   - spawnProbability: 15
     blockFactory: {fileID: 324286087}
@@ -3117,6 +3180,8 @@ MonoBehaviour:
     blockFactory: {fileID: 1376498432}
   - spawnProbability: 5
     blockFactory: {fileID: 78244073}
+  - spawnProbability: 5
+    blockFactory: {fileID: 1602133192}
 --- !u!1 &1342474011
 GameObject:
   m_ObjectHideFlags: 0
@@ -3190,10 +3255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7151b2e6fed65b4eb76d1473a97ce80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockController: {fileID: 2132663860}
-  scoreController: {fileID: 2115108505}
-  lifeController: {fileID: 2002008482}
-  physicalSettings: {fileID: 1888953020}
+  controllersManager: {fileID: 1205373108}
   objectCreatorContainer: {fileID: 1325425216}
 --- !u!4 &1349449992
 Transform:
@@ -3211,6 +3273,7 @@ Transform:
   - {fileID: 1376498433}
   - {fileID: 56103887}
   - {fileID: 78244072}
+  - {fileID: 1602133191}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3838,6 +3901,95 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &1602133190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1602133191}
+  - component: {fileID: 1602133192}
+  m_Layer: 0
+  m_Name: MagnetFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1602133191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602133190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1349449992}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1602133192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602133190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d76168a4cd484c8543eede52de5691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentageBlocksSettings: {fileID: 1621500921}
+  magnetSettings: {fileID: 1946038608}
+--- !u!1 &1621500919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1621500920}
+  - component: {fileID: 1621500921}
+  m_Layer: 0
+  m_Name: MagnetSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1621500920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621500919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1325425214}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1621500921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621500919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 751d69572285478cbdea81b616a2c288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentOfBlocksInBundle: 0.1
 --- !u!1 &1667694373
 GameObject:
   m_ObjectHideFlags: 0
@@ -4417,7 +4569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1888953019}
-  - component: {fileID: 1888953020}
+  - component: {fileID: 1888953021}
   m_Layer: 0
   m_Name: PhysicalSettings
   m_TagString: Untagged
@@ -4432,14 +4584,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1888953018}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 268158233}
+  m_Father: {fileID: 20933064}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1888953020
+--- !u!114 &1888953021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4448,10 +4600,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1888953018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53cfab0e09c24f268833bd3e26f69dd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c6c3261df6b4283acedf4787af19879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   globalGravity: 1
+  slowdownVelocityCoefficient: 0.2
+  magnetRadius: 20
+  magnetVelocity: 12
 --- !u!1001 &1901517682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4554,6 +4709,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2494047019820350516, guid: a68a848130b2be244a522a496ccdde9b, type: 3}
   m_PrefabInstance: {fileID: 2124856718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1946038607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1946038609}
+  - component: {fileID: 1946038608}
+  m_Layer: 0
+  m_Name: MagnetSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1946038608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946038607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09776538bca5403aad9c5aa6ed367a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocityOfBlock: 20
+  massOfBlock: 25
+  countOfReducingLives: 1
+  prefab: {fileID: -955735458588210272, guid: 8167a40b01798e2419f2a112a7f2528c, type: 3}
+  magnetEffectTime: 5
+--- !u!4 &1946038609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946038607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 268158233}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1953611275
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9176584135940331114}
   - component: {fileID: 9222941898667900998}
   - component: {fileID: 5517760030815453541}
+  - component: {fileID: 58020371438149909}
   m_Layer: 0
   m_Name: MagnetParticle
   m_TagString: Untagged
@@ -4898,6 +4899,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &58020371438149909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714068135689198607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989c78e247f240d59225a1f6226cdd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 9222941898667900998}
 --- !u!1 &1382573527870857880
 GameObject:
   m_ObjectHideFlags: 0
@@ -5012,6 +5026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5783958408263677459}
   - component: {fileID: 5783958408263677457}
+  - component: {fileID: -955735458588210272}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -5047,3 +5062,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a966232533514248a38ff6cb92a3cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-955735458588210272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5783958408263677456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d1c219f18241959bd2c3ea0dab6c57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderRadius: 1
+  physicalMovement: {fileID: 5783958408263677457}
+  isEnabledCollider: 1
+  blockAnimator: {fileID: 4027481733160592453}
+  particlesAnimator: {fileID: 58020371438149909}
