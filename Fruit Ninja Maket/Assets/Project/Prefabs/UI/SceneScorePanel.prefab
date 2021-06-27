@@ -360,8 +360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
-  uiElement: {fileID: 6411938820496463385}
   targetAlpha: 0
+  uiElement: {fileID: 6411938820496463385}
 --- !u!114 &7800470874507847318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
+  rectTransform: {fileID: 6447850148964634626}
   easeMode: 6
   offsetDirection: {x: 0, y: 1}
   offset: 100

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Animations.UIAnimations
 {
-    public class RectTransformScaleAnimation : UIRectTransformAnimation
+    public class RectTransformScaleAnimation : RectTransformAnimator
     {
         [SerializeField]
         private float targetScale = 1.2f;
@@ -19,12 +19,12 @@ namespace Project.Scripts.Animations.UIAnimations
         public override void PlayAnimation()
         {
             var targetSize = rectTransform.localScale * targetScale;
-            rectTransform.DOScale(targetSize, duration).SetEase(easeMode);
+            rectTransform.DOScale(targetSize, duration).SetAs(tweenParams);
         }
 
         public override void PlayReverseAnimation()
         {
-            rectTransform.DOScale(startScale, duration).SetEase(easeMode);
+            rectTransform.DOScale(startScale, duration).SetAs(tweenParams);
         }
     }
 }

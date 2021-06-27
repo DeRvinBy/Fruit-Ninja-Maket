@@ -1,3 +1,4 @@
+using Project.Scripts.Extensions;
 using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.AdditionalSettings;
 using Project.Scripts.Physics;
@@ -16,12 +17,6 @@ namespace Project.Scripts.Blocks
         [SerializeField]
         private SpriteRenderer rightSpriteComp = null;
 
-        [SerializeField]
-        private ParticleSystem sprayParticles = null;
-        
-        [SerializeField]
-        private ParticleSystem blotsParticles = null;
-
         private float lifeTime = 0;
         private AdditionalFruitSettings fruitSettings;
         private PhysicalSettings physicalSettings;
@@ -38,16 +33,9 @@ namespace Project.Scripts.Blocks
         {
             leftSpriteComp.sprite = fruitSettings.LeftHalfOfSprite;
             rightSpriteComp.sprite = fruitSettings.RightHalfOfSprite;
-            SetParticlesColor(sprayParticles, fruitSettings.SprayColor);
-            SetParticlesColor(blotsParticles, fruitSettings.SprayColor);
+            particlesAnimator.ChangeParticlesColor(fruitSettings.SprayColor);
             this.fruitSettings = fruitSettings;
             this.physicalSettings = physicalSettings;
-        }
-
-        private void SetParticlesColor(ParticleSystem particles, Color color)
-        {
-            var particleSettings = particles.main;
-            particleSettings.startColor = color;
         }
 
         public override void Slice(Vector2 slicingDirection)
@@ -56,8 +44,7 @@ namespace Project.Scripts.Blocks
             
             base.Slice(slicingDirection);
 
-            sprayParticles.Play();
-            blotsParticles.Play();
+            particlesAnimator.PlayParticles();
 
             SliceByDirection(slicingDirection);
 
@@ -106,7 +93,7 @@ namespace Project.Scripts.Blocks
         {
             var isLeftHalfOutOfBorder = destructionBoundaries.IsOutOfBorder(leftSpriteComp.transform.position);
             var isRightHalfOutOfBorder = destructionBoundaries.IsOutOfBorder(rightSpriteComp.transform.position);
-            var isParticlesCompleted = !blotsParticles.isPlaying && !sprayParticles.isPlaying;
+            var isParticlesCompleted = particlesAnimator.IsParticlesComplete();
             return isLeftHalfOutOfBorder && isRightHalfOutOfBorder && isParticlesCompleted;
         }
     }

@@ -1,6 +1,4 @@
-﻿using System;
-using Project.Scripts.Controllers;
-using Project.Scripts.Controllers.Blocks;
+﻿using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,9 +7,6 @@ namespace Project.Scripts.Blocks
 {
     public class Bomb : SliceBlock
     {
-        [SerializeField] 
-        private ParticleSystem explosionParticles = null;
-
         [SerializeField] 
         private GameObject spriteObject = null;
         
@@ -32,8 +27,8 @@ namespace Project.Scripts.Blocks
             
             base.Slice(slicingDirection);
             
-            explosionParticles.Play();
-            PushBlocksFromBomb();
+            particlesAnimator.PlayParticles();
+            blockController.PushBlocksFromBomb(transform.position, bombSettings);
             OnBombSliced?.Invoke(bombSettings.CountOfReducingLives);
         }
 
@@ -41,18 +36,6 @@ namespace Project.Scripts.Blocks
         {
             base.DisableBlockComponent();
             spriteObject.SetActive(false);;
-        }
-
-        private void PushBlocksFromBomb()
-        {
-            var blocks = blockController.GetBlocksInRadius(transform.position, bombSettings.ExplosionRadius);
-            foreach (var block in blocks)
-            {
-                var direction = block.transform.position - transform.position;
-                var distance = direction.magnitude;
-                var forceCoef = distance / bombSettings.ExplosionRadius;
-                block.SetMovement(direction.normalized * (bombSettings.ExplosionForce * forceCoef));
-            }
         }
 
         protected override void OnDestroyBlock()
@@ -64,7 +47,7 @@ namespace Project.Scripts.Blocks
         protected override bool IsCanDestroy()
         {
             var isOutOfBorder = destructionBoundaries.IsOutOfBorder(transform.position);
-            var isParticlesCompleted = !explosionParticles.isPlaying;
+            var isParticlesCompleted = particlesAnimator.IsParticlesComplete();
             return (isOutOfBorder || isSliced) && isParticlesCompleted;
         }
     }

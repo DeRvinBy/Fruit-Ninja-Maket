@@ -1,5 +1,6 @@
 using System;
 using Project.Scripts.Animations.Abstract;
+using Project.Scripts.Animations.UIAnimations;
 using TMPro;
 using UnityEngine;
 
@@ -20,10 +21,10 @@ namespace Project.Scripts.UI.Score
         private TMP_Text comboText = null;
 
         [SerializeField]
-        private UIRectTransformAnimation moveAnimation = null;
+        private RectTransformMoveOffsetAnimation moveAnimation = null;
 
         [SerializeField]
-        private UICanvasGroupAnimation canvasGroupAnimation = null;
+        private FadeCanvasGroupAnimation canvasGroupAnimation = null;
 
         public void InitializeScore(int score, int combo)
         {

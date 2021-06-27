@@ -1,4 +1,5 @@
 using Project.Scripts.Animations.Abstract;
+using Project.Scripts.Animations.UIAnimations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,13 +9,13 @@ namespace Project.Scripts.UI.Game
     public class RestartUI : MonoBehaviour
     {
         [SerializeField]
-        private UIRectTransformAnimation moveAnimation = null;
+        private RectTransformMoveTargetAnimation moveAnimation = null;
 
         [SerializeField]
-        private UICanvasGroupAnimation headerCanvasAnimation = null;
+        private FadeCanvasGroupAnimation headerCanvasAnimation = null;
 
         [SerializeField]
-        private UICanvasGroupAnimation backgroundCanvasAnimation = null;
+        private FadeCanvasGroupAnimation backgroundCanvasAnimation = null;
 
         [SerializeField] 
         private Button restartButton = null;

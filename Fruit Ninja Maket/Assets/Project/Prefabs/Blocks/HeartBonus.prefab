@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a966232533514248a38ff6cb92a3cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1
 --- !u!114 &5834651322078559573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +61,8 @@ MonoBehaviour:
   colliderRadius: 1
   physicalMovement: {fileID: 2113180650031125945}
   isEnabledCollider: 1
-  scaleAnimation: {fileID: 471597121544474203}
-  rotateAnimation: {fileID: 8859500010057517037}
-  heartsParticles: {fileID: 3668535764507943918}
+  blockAnimator: {fileID: 8859500010057517037}
+  particlesAnimator: {fileID: 3682980464504674632}
   spriteObject: {fileID: 6789416482171044144}
 --- !u!1 &4971930224280944551
 GameObject:
@@ -77,6 +75,7 @@ GameObject:
   - component: {fileID: 3625115929195607490}
   - component: {fileID: 3668535764507943918}
   - component: {fileID: 109278942279475917}
+  - component: {fileID: 3682980464504674632}
   m_Layer: 0
   m_Name: HeartParticles
   m_TagString: Untagged
@@ -4928,6 +4927,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &3682980464504674632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4971930224280944551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989c78e247f240d59225a1f6226cdd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 3668535764507943918}
 --- !u!1 &5815566611533586314
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,7 +5031,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1471504429913924345}
-  - component: {fileID: 471597121544474203}
   - component: {fileID: 8859500010057517037}
   m_Layer: 0
   m_Name: Animation
@@ -5043,23 +5054,6 @@ Transform:
   m_Father: {fileID: 2113180650031125947}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &471597121544474203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6789416482171044144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512db2108cb4cb848b62167c2cb68475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDuration: 1
-  maxDuration: 2
-  targetIncreaseSize: 1.3
-  targetDecreaseSize: 0.8
-  animationOffsetZ: 1
 --- !u!114 &8859500010057517037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,7 +5066,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70bf81439493e4428406d615435c3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDuration: 1
-  maxDuration: 2
+  duration: 1
   minAngleZ: -360
   maxAngleZ: 360
+  targetIncreaseSize: 1.3
+  targetDecreaseSize: 0.8
+  animationOffsetZ: 1
+  randomSettings:
+    minDuration: 0.5
+    maxDuration: 2

@@ -1,6 +1,4 @@
 ﻿using System.Collections;
-using Project.Scripts.Controllers;
-using Project.Scripts.Controllers.Blocks;
 using Project.Scripts.GameSettings.BlockSettings;
 using Project.Scripts.GameSettings.BlockSettings.BaseSettings;
 using UnityEngine;
@@ -9,9 +7,6 @@ namespace Project.Scripts.Blocks
 {
     public class Snowflake : SliceBlock
     {
-        [SerializeField] 
-        private ParticleSystem snowflakeParticles = null;
-
         [SerializeField] 
         private GameObject spriteObject = null;
         
@@ -31,7 +26,7 @@ namespace Project.Scripts.Blocks
             
             base.Slice(slicingDirection);
             
-            snowflakeParticles.Play();
+            particlesAnimator.PlayParticles();
             StartCoroutine(SlowdownBlocksOnTime());
         }
         
@@ -53,7 +48,7 @@ namespace Project.Scripts.Blocks
         protected override bool IsCanDestroy()
         {
             var isOutOfBorder = destructionBoundaries.IsOutOfBorder(transform.position);
-            var isParticlesCompleted = !snowflakeParticles.isPlaying;
+            var isParticlesCompleted = particlesAnimator.IsParticlesComplete();
             return (isOutOfBorder || isSliced) && !isSlowEffectActive && isParticlesCompleted;
         }
     }

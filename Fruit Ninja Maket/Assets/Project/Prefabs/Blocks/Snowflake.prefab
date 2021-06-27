@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a966232533514248a38ff6cb92a3cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 1
 --- !u!114 &256540864263395530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,9 +61,8 @@ MonoBehaviour:
   colliderRadius: 1
   physicalMovement: {fileID: 3705726267601556311}
   isEnabledCollider: 1
-  scaleAnimation: {fileID: 2933417753558468789}
-  rotateAnimation: {fileID: 6110716892347908355}
-  snowflakeParticles: {fileID: 2078311334090630400}
+  blockAnimator: {fileID: 6110716892347908355}
+  particlesAnimator: {fileID: 197772392909568988}
   spriteObject: {fileID: 8072208253579216862}
 --- !u!1 &7692496436577384777
 GameObject:
@@ -77,6 +75,7 @@ GameObject:
   - component: {fileID: 2049167834780300076}
   - component: {fileID: 2078311334090630400}
   - component: {fileID: 3439299226093462563}
+  - component: {fileID: 197772392909568988}
   m_Layer: 0
   m_Name: SnowflakeParticles
   m_TagString: Untagged
@@ -4946,6 +4945,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &197772392909568988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7692496436577384777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989c78e247f240d59225a1f6226cdd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 2078311334090630400}
 --- !u!1 &8072208253579216862
 GameObject:
   m_ObjectHideFlags: 0
@@ -4955,7 +4967,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4203320293814625303}
-  - component: {fileID: 2933417753558468789}
   - component: {fileID: 6110716892347908355}
   - component: {fileID: 8072208253579216861}
   m_Layer: 0
@@ -4979,23 +4990,6 @@ Transform:
   m_Father: {fileID: 3705726267601556309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2933417753558468789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8072208253579216862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512db2108cb4cb848b62167c2cb68475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDuration: 1
-  maxDuration: 2
-  targetIncreaseSize: 1.3
-  targetDecreaseSize: 0.8
-  animationOffsetZ: 1
 --- !u!114 &6110716892347908355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5008,10 +5002,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70bf81439493e4428406d615435c3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDuration: 1
-  maxDuration: 2
+  duration: 1
   minAngleZ: -360
   maxAngleZ: 360
+  targetIncreaseSize: 1.3
+  targetDecreaseSize: 0.8
+  animationOffsetZ: 1
+  randomSettings:
+    minDuration: 0.5
+    maxDuration: 2
 --- !u!212 &8072208253579216861
 SpriteRenderer:
   m_ObjectHideFlags: 0

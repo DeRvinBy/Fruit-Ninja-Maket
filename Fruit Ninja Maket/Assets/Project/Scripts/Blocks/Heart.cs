@@ -7,9 +7,6 @@ namespace Project.Scripts.Blocks
     public class Heart : SliceBlock
     {
         [SerializeField] 
-        private ParticleSystem heartsParticles;
-
-        [SerializeField] 
         private GameObject spriteObject = null;
 
         private BaseHeartSettings heartSettings;
@@ -27,7 +24,7 @@ namespace Project.Scripts.Blocks
             
             base.Slice(slicingDirection);
             
-            heartsParticles.Play();
+            particlesAnimator.PlayParticles();
             OnHeartSliced?.Invoke(transform.position, heartSettings.CountOfAddingLives);
         }
         
@@ -46,7 +43,7 @@ namespace Project.Scripts.Blocks
         protected override bool IsCanDestroy()
         {
             var isOutOfBorder = destructionBoundaries.IsOutOfBorder(transform.position);
-            var isParticlesCompleted = !heartsParticles.isPlaying;
+            var isParticlesCompleted = particlesAnimator.IsParticlesComplete();
             return (isOutOfBorder || isSliced) && isParticlesCompleted;
         }
     }
